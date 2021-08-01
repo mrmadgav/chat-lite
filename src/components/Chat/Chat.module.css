@@ -1,0 +1,37 @@
+.chatContainer {
+  display: block;
+  margin-left: 100px;
+}
+.chatHeader {
+  display: flex;
+  align-items: baseline;
+  /* display: block;
+  display: flex;
+  align-items: baseline;
+  background-image: url("../../img/WelcomeChatBG.png"); */
+
+  /* background-size: contain;
+   */
+  /* background-size: 150px;
+  background-repeat: no-repeat;
+  color: whitesmoke; */
+}
+.chatWelcome {
+  font-family: "Franklin Gothic Medium";
+  font-size: 20px;
+}
+.d2 h3:before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 5px);
+  left: 0;
+  right: 0;
+  height: 6px;
+  border-top: 2px solid #BBC9C9;
+  border-bottom: 2px solid #BBC9C9;
+  z-index: -1;
+}
+.d2 span {
+  background: white;
+  padding: 0 20px;
+}

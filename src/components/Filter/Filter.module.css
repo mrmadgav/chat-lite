@@ -1,0 +1,17 @@
+.label {
+  display: block;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.filterInput {
+  margin-left: 10px;
+  border: 1px solid rgb(179, 197, 214);
+  border-radius: 4px;
+  padding: 12px 20px;
+}
+.filterInput:focus {
+  border: none;
+  outline: 0;
+  outline-offset: 0;
+  box-shadow: 0 0 0 1px rgb(255, 184, 158) inset, 0 0 0 4px white inset;
+}

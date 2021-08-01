@@ -1,0 +1,28 @@
+.sentMessageMy {
+  display: block;
+  margin-top: 10px;
+  width: fit-content;
+  cursor: pointer;
+  /* border: 1px solid steelblue; */
+  background-color: rgb(198, 245, 209);
+  background-blend-mode: multiply;
+  border-radius: 4px;
+  padding: 10px;
+}
+.sentMessageOther {
+  display: block;
+  margin-top: 10px;
+  width: fit-content;
+  /* border: 1px solid steelblue; */
+  background-color: rgb(174, 184, 211);
+  background-blend-mode: multiply;
+  border-radius: 4px;
+  padding: 10px;
+}
+.messageTime {
+  display: block;
+  margin: 0 0 auto auto;
+  font-size: 8pt;
+  color: rgb(34, 85, 180);
+  padding-top: 4px;
+}

@@ -1,0 +1,44 @@
+.loginNav {
+  display: flex;
+}
+.loginAvatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  margin-right: 10px;
+}
+.logoutBtn {
+  border: none;
+  border-radius: 4px;
+}
+.loginTitle {
+  display: block;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+.NavBar {
+  display: flex;
+  margin-bottom: 50px;
+}
+.navLi {
+  margin-bottom: 20px;
+}
+.NavLinkActive {
+  color: coral;
+  border-radius: 4px;
+}
+.NavLink {
+  padding: 10px;
+  outline: none;
+}
+.NavLink:hover {
+  color: coral;
+}
+.MainBar {
+  display: flex;
+  flex-direction: column;
+}
+.MenuContainer{
+  display: flex;
+  margin-right: 10%;
+}

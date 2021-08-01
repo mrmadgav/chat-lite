@@ -1,0 +1,51 @@
+.logOutBtn {
+  display: block;
+  height: fit-content;
+  text-align: center;
+  width: 80px;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  margin: 20px 0px 20px 20px;
+  /* margin-top: 20px; */
+  padding: 10px;
+
+  -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  /* background-color: rgb(252, 230, 230)52, 230, 230); */
+  cursor: pointer;
+}
+.logOutBtn:hover {
+  box-shadow: 0 0 40px 40px rgb(255, 184, 158) inset;
+  color: white;
+  /* transition: color 300ms ease-in-out, color 300ms ease-in-out; */
+}
+.anonym {
+  width: 64px;
+  height: 64px;
+  background-color: none;
+}
+.avatarChoose {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+.avatarInput {
+  display: none;
+}
+.logOutHeader {
+  display: flex;
+  align-items: center;
+}
+.NickName {
+  display: flex;
+  align-items: center;
+  font-family: "Franklin Gothic Medium";
+  font-size: 20px;
+  color: rgb(140, 175, 207);
+}
+.userAva {
+  display: unset;
+  border-radius: 50%; /* Радиус скругления */
+  margin-left: 10px;
+  width: 50%;
+}
