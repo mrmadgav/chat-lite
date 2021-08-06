@@ -58,7 +58,7 @@ function App() {
     <Section>
       <div className={!isAuthenticated ? "AppUnlogged" : "AppLogged"}>
         <>
-          {!isAuthenticated && <Route path="/" component={MainMenu} basename="/chat-lite/"/>}
+          {!isAuthenticated && <Route path="/" component={MainMenu} />}
           <Switch>
             {!isAuthenticated && history.push("/")}
             {!isAuthenticated && (
@@ -67,7 +67,6 @@ function App() {
                 exact
                 component={LoginPanel}
                 redirectTo="/"
-                basename="/chat-lite/"
               />
             )}
             {!isAuthenticated && (
@@ -76,7 +75,6 @@ function App() {
                 exact
                 component={RegisterPanel}
                 redirectTo="/"
-                basename="/chat-lite/"
               />
             )}
             {/* {isAuthenticated && (
@@ -88,7 +86,7 @@ function App() {
                 <LogOut id={getUserId} />
                 <div className="ChatListWrapper">
                   <ChatList />
-                  <Route path="/" component={Chat} redirectTo="/" basename="/chat-lite/"/>
+                  <Route path="/" component={Chat} redirectTo="/" />
                 </div>
               </>
             )}
