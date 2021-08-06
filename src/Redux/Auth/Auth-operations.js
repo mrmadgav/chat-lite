@@ -1,6 +1,6 @@
 import authActions from "../Auth/Auth-actions";
 import axios from "axios";
-axios.defaults.baseURL = "http://localhost:3000";
+axios.defaults.baseURL = "https://chat-lite-back.herokuapp.com";
 
 export const token = {
   set(token) {
