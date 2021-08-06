@@ -11,7 +11,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store.store}>
       <PersistGate loading={null} persistor={store.persistor}>
-        <BrowserRouter>
+        <BrowserRouter basename="/chat-lite/">
           <App />
         </BrowserRouter>
       </PersistGate>
