@@ -1,5 +1,4 @@
 {
-  "homepage": "http://mrmadgav.github.io/chat-lite",
   "name": "chat-lite",
   "version": "0.1.0",
   "private": true,
@@ -52,6 +51,7 @@
   "devDependencies": {
     "@pnotify/core": "^5.2.0",
     "@pnotify/mobile": "^5.2.0",
+    "babel-preset-react": "^6.24.1",
     "gh-pages": "^3.2.3"
   }
 }
