@@ -70,6 +70,7 @@ export const onDelete = (data) => async (dispatch) => {
   try {
     const response = await axios.post("/message/delete", data);
     dispatch(chatActions.onDeleteSuccess(data));
+    dispatch(fetchHistory());
   } catch (error) {
     dispatch(chatActions.onDeleteError(error.message));
   }
