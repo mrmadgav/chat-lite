@@ -1,5 +1,6 @@
 import authActions from "../Auth/Auth-actions";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 axios.defaults.baseURL = "https://chat-lite-back.herokuapp.com";
 
 export const token = {
@@ -18,7 +19,9 @@ export const register = (credentials) => async (dispatch) => {
     const response = await axios.post("/registration", credentials);
     token.set(response.data.token);
     dispatch(authActions.registerSuccess(response.data));
-    this.props.history.push("/login");
+    const history = useHistory();
+    history.push("/login");
+    // this.props.history.push("/login");
   } catch (error) {
     dispatch(authActions.registerError(error.message));
   }
