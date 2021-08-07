@@ -47,6 +47,13 @@ export default function MessageFlow(props) {
     scrollToBottom();
   }, [message]);
 
+  socket.on("message:fromServer", () => {
+    console.log("КТО-ТО НАПИСАЛ СООБЩЕНИЕ");
+    dispatch(fetchHistory());
+    scrollToBottom();
+    socket.removeListener("message:fromServer");
+  });
+
   useEffect(() => {
     console.log("СРАБОТАЛ useEffect кто-то НАПИСАЛ СООБЩЕНИЕ");
     const getMessageFromServer = (data) => {
