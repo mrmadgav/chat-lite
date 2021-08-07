@@ -28,7 +28,7 @@ export default function MessageForm(props) {
   const [picker, setPicker] = useState(false);
 
   useEffect(() => {
-    console.log("сработал UseEffect");
+    // console.log("сработал UseEffect");
     props.copiedMessage.text && setMessage(props.copiedMessage.text);
   }, [props]);
 

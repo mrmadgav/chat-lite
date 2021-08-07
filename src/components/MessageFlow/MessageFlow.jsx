@@ -55,7 +55,11 @@ export default function MessageFlow(props) {
       setTyping(true);
       setUserTyping(data);
     };
-    socket.on("message:fromServer", getMessageFromServer);
+    socket.on("message:fromServer", () => {
+      getMessageFromServer();
+      dispatch(fetchHistory());
+      scrollToBottom();
+    });
 
     socket.on("userTyping", userTyping);
     socket.on("userStoppedTyping", setTyping(false));
