@@ -51,10 +51,8 @@
 .contactBtn:hover {
   box-shadow: 0 0 40px 40px rgb(255, 184, 158) inset;
   color: white;
-  /* transition: color 300ms ease-in-out, color 300ms ease-in-out; */
 }
 .formRegContainer {
-  /* margin-top: 10%; */
   padding: 50px;
   display: flex;
   align-items: center;
@@ -62,21 +60,8 @@
   border: 1px solid rgb(179, 197, 214);
   border-radius: 4px;
 }
-@media (max-width: 769px) {
+@media screen and (max-width: 1199px) {
   .formRegContainer {
-    padding: 50px;
-    border: 1px solid rgb(179, 197, 214);
-    border-radius: 4px;
-  }
-}
-
-@media (max-width: 1199px) {
-  .formRegContainer {
-    padding: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgb(179, 197, 214);
-    border-radius: 4px;
+    margin-top: 20px;
   }
 }

@@ -24,11 +24,21 @@
 }
 .messageInputContainer {
   display: flex;
-  /* margin-top: 50px; */
-  position: fixed;
+
   bottom: 10%;
   z-index: 2;
   width: 100%;
+}
+
+@media screen and (min-width: 1200px) {
+  .messageInputContainer {
+    position: fixed;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .messageInputContainer {
+    margin-top: 15px;
+  }
 }
 .sendImg {
   width: 30px;

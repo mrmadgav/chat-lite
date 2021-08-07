@@ -85,10 +85,26 @@ code {
 li {
   list-style-type: none;
 }
-.AppUnlogged {
-  display: flex;
-  margin-top: 10%;
-}
+
 .AppLogged {
   display: block;
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .AppUnlogged {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .AppUnlogged {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .AppUnlogged {
+    display: flex;
+    margin-top: 10%;
+  }
 }
