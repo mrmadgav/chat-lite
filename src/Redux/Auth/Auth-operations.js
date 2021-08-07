@@ -18,6 +18,7 @@ export const register = (credentials) => async (dispatch) => {
     const response = await axios.post("/registration", credentials);
     token.set(response.data.token);
     dispatch(authActions.registerSuccess(response.data));
+    this.props.history.push("/login");
   } catch (error) {
     dispatch(authActions.registerError(error.message));
   }
