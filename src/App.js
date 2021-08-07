@@ -3,7 +3,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-import PrivateRoute from "./components/Routes/PrivateRoute";
 import { socket } from "./components/helpers/io";
 import { createBrowserHistory } from "history";
 
@@ -60,26 +59,23 @@ function App() {
         <>
           {!isAuthenticated && <Route path="/" component={MainMenu} />}
           <Switch>
-            {!isAuthenticated && history.push("/")}
+            {/* {!isAuthenticated && history.push("/")} */}
             {!isAuthenticated && (
               <Route
-                path="/login"
                 exact
+                path="/login"
                 component={LoginPanel}
                 redirectTo="/"
               />
             )}
             {!isAuthenticated && (
               <Route
-                path="/register"
                 exact
+                path="/register"
                 component={RegisterPanel}
                 redirectTo="/"
               />
             )}
-            {/* {isAuthenticated && (
-              <Route path="/chat" component={Chat} redirectTo="/" />
-            )} */}
             {isAuthenticated && (
               <>
                 {history.push(`/${getUserNick}`)}

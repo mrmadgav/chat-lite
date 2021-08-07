@@ -1,6 +1,6 @@
 import authActions from "../Auth/Auth-actions";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+
 axios.defaults.baseURL = "https://chat-lite-back.herokuapp.com";
 
 export const token = {
@@ -19,9 +19,6 @@ export const register = (credentials) => async (dispatch) => {
     const response = await axios.post("/registration", credentials);
     token.set(response.data.token);
     dispatch(authActions.registerSuccess(response.data));
-    const history = useHistory();
-    history.push("/login");
-    // this.props.history.push("/login");
   } catch (error) {
     dispatch(authActions.registerError(error.message));
   }
@@ -57,25 +54,6 @@ export const logout = (id, currentToken) => async (dispatch) => {
     dispatch(authActions.LogoutError(error.message));
   }
 };
-
-// export const getCurrentUser = () => async (dispatch, getState) => {
-//   const {
-//     authReducer: { token: persistedToken },
-//   } = getState();
-
-//   if (!persistedToken) {
-//     return;
-//   }
-//   token.set(persistedToken);
-
-//   dispatch(authActions.getCurrentUserRequest());
-//   try {
-//     const response = await axios.get("/users/current");
-//     dispatch(authActions.getCurrentUserSuccess(response.data));
-//   } catch (error) {
-//     dispatch(authActions.getCurrentUserError(error.message));
-//   }
-// };
 
 export const getUser = (currentToken) => async (dispatch) => {
   dispatch(authActions.getUserRequest());

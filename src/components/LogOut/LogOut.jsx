@@ -19,8 +19,7 @@ export default function LogOut() {
     e.preventDefault();
     dispatch(logout(currentUserId, currentToken));
   };
-  const handleChange = (e) => {
-    console.log(e.target.files[0]);
+  const handleChange = (e) => {   
     dispatch(sendAvatar(e.target.files[0], currentToken));
   };
 
