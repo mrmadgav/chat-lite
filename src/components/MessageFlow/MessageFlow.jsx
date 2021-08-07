@@ -24,11 +24,10 @@ export default function MessageFlow(props) {
   const [deletedMessage, setDeletedMessage] = useState("");
   const [update, setUpdate] = useState(true);
   const [changeMenu, setchangeMenu] = useState(false);
- 
 
   useEffect(() => {
     return () => {
-      console.log("сработал UseEffect при удалениии");
+      // console.log("сработал UseEffect при удалениии");
       dispatch(fetchHistory());
 
       const getMessageFromServer = (id) => {

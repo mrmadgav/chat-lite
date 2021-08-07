@@ -19,9 +19,8 @@ export const sendMessage = (credentials, currentToken) => async (dispatch) => {
       headers: { Authorization: "Bearer " + currentToken },
     });
 
-    dispatch(chatActions.sendMessageSuccess(response.data)).then(
-      dispatch(fetchHistory())
-    );
+    dispatch(chatActions.sendMessageSuccess(response.data));
+    dispatch(fetchHistory());
   } catch (error) {
     dispatch(chatActions.sendMessageError(error.message));
   }
