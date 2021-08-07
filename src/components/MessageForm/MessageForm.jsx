@@ -56,6 +56,11 @@ export default function MessageForm(props) {
         text: message,
         id: id,
       });
+      socket.broadcast.emit("message:send", {
+        nickname: nickname,
+        text: message,
+        id: id,
+      });
       dispatch(
         sendMessage(
           {
