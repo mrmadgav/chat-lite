@@ -48,6 +48,7 @@ export default function MessageFlow(props) {
   }, [message]);
 
   useEffect(() => {
+    console.log("СРАБОТАЛ useEffect кто-то НАПИСАЛ СООБЩЕНИЕ");
     const getMessageFromServer = (data) => {
       data ? setMessage([...message, data]) : setMessage([message]);
     };
