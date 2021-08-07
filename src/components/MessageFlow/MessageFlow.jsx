@@ -56,6 +56,7 @@ export default function MessageFlow(props) {
       setUserTyping(data);
     };
     socket.on("message:fromServer", () => {
+      console.log("КТО-ТО НАПИСАЛ СООБЩЕНИЕ");
       getMessageFromServer();
       dispatch(fetchHistory());
       scrollToBottom();
