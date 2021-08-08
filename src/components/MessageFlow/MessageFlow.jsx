@@ -59,6 +59,11 @@ export default function MessageFlow(props) {
     socket.removeListener("message:edited");
   });
 
+  socket.on("message:delete", () => {
+    dispatch(fetchHistory());
+    socket.removeListener("message:delete");
+  });
+
   useEffect(() => {
     console.log("СРАБОТАЛ useEffect кто-то НАПИСАЛ СООБЩЕНИЕ");
     const getMessageFromServer = (data) => {

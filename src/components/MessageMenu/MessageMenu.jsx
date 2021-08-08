@@ -88,7 +88,7 @@ export default function CustomizedMenus(props) {
           primary="Edit"
           onClick={() => {
             props.onChangeMenu({ id: id });
-            socket.emit("message:delete", id);
+            socket.emit("message:edited", id);
             props.handleToUpdate(id);
             setClose(true);
           }}

@@ -29,7 +29,6 @@ export default function ChangeMenu(props) {
   const sendChanges = () => {
     dispatch(sendUpdatedMessage({ id: restValue.id, text: updatedMessage }));
     props.onChangeMenu();
-    socket.emit("message:edited");
   };
 
   return (
