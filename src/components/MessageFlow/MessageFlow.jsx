@@ -51,7 +51,7 @@ export default function MessageFlow(props) {
     console.log("КТО-ТО НАПИСАЛ СООБЩЕНИЕ");
     dispatch(fetchHistory()).then(() => scrollToBottom());
 
-    socket.removeListener("message:fromServer", dispatch());
+    socket.off("message:fromServer");
   });
 
   socket.on("message:edited", () => {
