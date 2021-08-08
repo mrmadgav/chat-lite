@@ -64,31 +64,31 @@ export default function MessageFlow(props) {
     socket.removeListener("message:delete");
   });
 
-  useEffect(() => {
-    console.log("СРАБОТАЛ useEffect кто-то НАПИСАЛ СООБЩЕНИЕ");
-    const getMessageFromServer = (data) => {
-      data ? setMessage([...message, data]) : setMessage([message]);
-    };
-    const userTyping = (data) => {
-      setTyping(true);
-      setUserTyping(data);
-    };
-    socket.on("message:fromServer", () => {
-      console.log("КТО-ТО НАПИСАЛ СООБЩЕНИЕ");
-      getMessageFromServer();
-      dispatch(fetchHistory());
-      scrollToBottom();
-      socket.removeListener("message:fromServer");
-    });
+  // useEffect(() => {
+  //   console.log("СРАБОТАЛ useEffect кто-то НАПИСАЛ СООБЩЕНИЕ");
+  //   const getMessageFromServer = (data) => {
+  //     data ? setMessage([...message, data]) : setMessage([message]);
+  //   };
+  //   const userTyping = (data) => {
+  //     setTyping(true);
+  //     setUserTyping(data);
+  //   };
+  //   socket.on("message:fromServer", () => {
+  //     console.log("КТО-ТО НАПИСАЛ СООБЩЕНИЕ");
+  //     getMessageFromServer();
+  //     dispatch(fetchHistory());
+  //     scrollToBottom();
+  //     socket.removeListener("message:fromServer");
+  //   });
 
-    socket.on("userTyping", userTyping);
-    socket.on("userStoppedTyping", setTyping(false));
-    return () => {
-      socket.removeListener("message:fromServer", getMessageFromServer);
-      socket.removeListener("userTyping", userTyping);
-      socket.removeListener("userStoppedTyping", setTyping(false));
-    };
-  }, [message]);
+  //   socket.on("userTyping", userTyping);
+  //   socket.on("userStoppedTyping", setTyping(false));
+  //   return () => {
+  //     socket.removeListener("message:fromServer", getMessageFromServer);
+  //     socket.removeListener("userTyping", userTyping);
+  //     socket.removeListener("userStoppedTyping", setTyping(false));
+  //   };
+  // }, [message]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({
