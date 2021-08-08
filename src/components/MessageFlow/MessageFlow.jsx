@@ -78,6 +78,7 @@ export default function MessageFlow(props) {
       getMessageFromServer();
       dispatch(fetchHistory());
       scrollToBottom();
+      socket.removeListener("message:fromServer");
     });
 
     socket.on("userTyping", userTyping);
