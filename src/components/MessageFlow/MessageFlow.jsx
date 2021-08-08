@@ -69,6 +69,10 @@ export default function MessageFlow(props) {
       dispatch(fetchHistory());
       scrollToBottom();
     });
+    socket.on("message:edited", () => {
+      dispatch(fetchHistory());
+      socket.removeListener("message:edited");
+    });
 
     socket.on("userTyping", userTyping);
     socket.on("userStoppedTyping", setTyping(false));
