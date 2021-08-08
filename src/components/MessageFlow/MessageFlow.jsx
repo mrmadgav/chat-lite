@@ -44,6 +44,7 @@ export default function MessageFlow(props) {
   }, [deletedMessage]);
 
   useEffect(() => {
+    console.log("сработал useEffect");
     scrollToBottom();
   }, []);
 
