@@ -54,6 +54,11 @@ export default function MessageFlow(props) {
     socket.removeListener("message:fromServer");
   });
 
+  socket.on("message:edited", () => {
+    dispatch(fetchHistory());
+    socket.removeListener("message:edited");
+  });
+
   useEffect(() => {
     console.log("СРАБОТАЛ useEffect кто-то НАПИСАЛ СООБЩЕНИЕ");
     const getMessageFromServer = (data) => {
@@ -68,10 +73,6 @@ export default function MessageFlow(props) {
       getMessageFromServer();
       dispatch(fetchHistory());
       scrollToBottom();
-    });
-    socket.on("message:edited", () => {
-      dispatch(fetchHistory());
-      socket.removeListener("message:edited");
     });
 
     socket.on("userTyping", userTyping);
