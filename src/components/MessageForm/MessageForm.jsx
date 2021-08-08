@@ -28,7 +28,6 @@ export default function MessageForm(props) {
   const [picker, setPicker] = useState(false);
 
   useEffect(() => {
-    // console.log("сработал UseEffect");
     props.copiedMessage.text && setMessage(props.copiedMessage.text);
   }, [props]);
 
@@ -56,11 +55,6 @@ export default function MessageForm(props) {
         text: message,
         id: id,
       });
-      // socket.broadcast.emit("message:send", {
-      //   nickname: nickname,
-      //   text: message,
-      //   id: id,
-      // });
       dispatch(
         sendMessage(
           {
@@ -111,7 +105,7 @@ export default function MessageForm(props) {
           )}
           <button
             type="button"
-            className={styles.messageAddBtn}
+            className={styles.messageSmileBtn}
             onClick={openPicker}
           >
             <img src={smile} alt="" className={styles.smileImg} />

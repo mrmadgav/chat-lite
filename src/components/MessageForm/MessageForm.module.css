@@ -11,6 +11,27 @@
   outline-offset: 0;
   box-shadow: 0 0 0 1px rgb(255, 184, 158) inset, 0 0 0 4px white inset;
 }
+
+.messageSmileBtn:hover {
+  transform: scale(1.05);
+}
+
+@media screen and (min-width: 1200px) {
+  .messageSmileBtn {
+    border-radius: 5px;
+    border: none;
+    background: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .messageSmileBtn {
+    display: none;
+  }
+}
+
 .messageAddBtn {
   border-radius: 5px;
   border: none;
