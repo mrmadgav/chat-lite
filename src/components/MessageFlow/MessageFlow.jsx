@@ -43,10 +43,10 @@ export default function MessageFlow(props) {
     };
   }, [deletedMessage]);
 
-  useEffect(() => {
-    console.log("сработал useEffect");
-    scrollToBottom();
-  }, []);
+  // useEffect(() => {
+  //   console.log("сработал useEffect");
+  //   scrollToBottom();
+  // }, []);
 
   useEffect(() => {
     scrollToBottom();
@@ -101,8 +101,7 @@ export default function MessageFlow(props) {
     });
   };
   useEffect(() => {
-    dispatch(fetchHistory());
-    scrollToBottom();
+    dispatch(fetchHistory()).then(() => scrollToBottom());
   }, []);
 
   const handleToUpdate = (id) => {
