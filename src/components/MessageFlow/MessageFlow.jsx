@@ -45,6 +45,10 @@ export default function MessageFlow(props) {
 
   useEffect(() => {
     scrollToBottom();
+  }, []);
+
+  useEffect(() => {
+    scrollToBottom();
   }, [message]);
 
   socket.on("message:fromServer", () => {
