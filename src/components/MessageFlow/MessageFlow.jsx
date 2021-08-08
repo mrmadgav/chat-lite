@@ -54,9 +54,9 @@ export default function MessageFlow(props) {
     socket.removeListener("message:fromServer");
   });
 
-  socket.on("message:edited", () => {
+  socket.on("User edit message", () => {
     dispatch(fetchHistory());
-    socket.removeListener("message:edited");
+    socket.removeListener("User edit message");
   });
 
   socket.on("message:delete", () => {
