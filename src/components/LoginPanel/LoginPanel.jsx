@@ -7,7 +7,6 @@ export default function LoginPanel() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // const [userList, setUserList] = useState("");
   const dispatch = useDispatch();
 
   const updateEmail = (evt) => {
@@ -43,17 +42,12 @@ export default function LoginPanel() {
             name="number"
             type="tel"
             placeholder="Pass"
-            // pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"
             value={password}
             onChange={updatePassword}
             className={styles.contactInput}
           />
         </label>
-        <button
-          type="submit"
-          className={styles.contactBtn}
-          // onClick={registerUser}
-        >
+        <button type="submit" className={styles.contactBtn}>
           LogIn
         </button>
       </form>

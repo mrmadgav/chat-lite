@@ -67,7 +67,7 @@ export const onPicker = (data) => async (dispatch) => {
 export const onDelete = (data) => async (dispatch) => {
   dispatch(chatActions.onDeleteRequest());
   try {
-    const response = await axios.post("/message/delete", data);
+    await axios.post("/message/delete", data);
     dispatch(chatActions.onDeleteSuccess(data));
     dispatch(fetchHistory());
   } catch (error) {
@@ -78,7 +78,7 @@ export const onDelete = (data) => async (dispatch) => {
 export const sendUpdatedMessage = (data) => async (dispatch) => {
   dispatch(chatActions.sendUpdatedMessageRequest());
   try {
-    const response = await axios.post("/message/update", data);
+    await axios.post("/message/update", data);
     dispatch(chatActions.sendUpdatedMessageSuccess(data));
     dispatch(fetchHistory());
   } catch (error) {

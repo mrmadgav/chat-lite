@@ -1,4 +1,3 @@
-// import { NavLink } from "react-router-dom";
 import styles from "./RegisterPanel.module.css";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -51,7 +50,6 @@ export default function LoginPanel() {
             name="number"
             type="tel"
             placeholder="Pass"
-            // pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"
             value={password}
             onChange={updatePassword}
             className={styles.contactInput}
@@ -69,11 +67,7 @@ export default function LoginPanel() {
             required
           />
         </label>
-        <button
-          type="submit"
-          className={styles.contactBtn}
-          // onClick={registerUser}
-        >
+        <button type="submit" className={styles.contactBtn}>
           Register
         </button>
       </form>

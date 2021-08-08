@@ -2,8 +2,7 @@
   display: block;
   margin-top: 10px;
   width: fit-content;
-  cursor: pointer;
-  /* border: 1px solid steelblue; */
+  cursor: pointer;  
   background-color: rgb(198, 245, 209);
   background-blend-mode: multiply;
   border-radius: 4px;
@@ -12,8 +11,7 @@
 .sentMessageOther {
   display: block;
   margin-top: 10px;
-  width: fit-content;
-  /* border: 1px solid steelblue; */
+  width: fit-content; 
   background-color: rgb(174, 184, 211);
   background-blend-mode: multiply;
   border-radius: 4px;

@@ -13,7 +13,7 @@ export default function LogOut() {
   const currentToken = useSelector(getToken);
   const currentUserId = useSelector(getUser);
   const getAvatarUrl = useSelector(getAvatar);
-  // console.log(getAvatarUrl);
+
   const dispatch = useDispatch();
   const handleLogout = (e) => {
     e.preventDefault();

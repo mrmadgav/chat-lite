@@ -39,8 +39,7 @@
   width: 80px;
   border: 1px solid lightgray;
   border-radius: 4px;
-  margin: 20px 0px 20px 20px;
-  /* margin-top: 20px; */
+  margin: 20px 0px 20px 20px; 
   padding: 10px;
 
   -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
@@ -51,7 +50,6 @@
 .contactBtn:hover {
   box-shadow: 0 0 40px 40px rgb(255, 184, 158) inset;
   color: white;
-  /* transition: color 300ms ease-in-out, color 300ms ease-in-out; */
 }
 .formRegContainer {
   padding: 50px;

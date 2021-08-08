@@ -59,7 +59,6 @@ function App() {
         <>
           {!isAuthenticated && <Route path="/" component={MainMenu} />}
           <Switch>
-            {/* {!isAuthenticated && history.push("/")} */}
             {!isAuthenticated && (
               <Route
                 exact

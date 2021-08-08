@@ -26,8 +26,7 @@ export default function Chat() {
         </span>
         <MessageFlow getCopiedMessage={getCopiedMessage} />
         <MessageForm copiedMessage={copiedMessage} />
-      </div>
-      {/* <div>{picker && <Picker onEmojiClick={onEmojiClick} />}</div> */}
+      </div>    
     </>
   );
 }
