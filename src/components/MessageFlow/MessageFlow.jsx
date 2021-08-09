@@ -44,7 +44,6 @@ export default function MessageFlow(props) {
   socket.on("message:fromServer", () => {
     console.log("КТО-ТО НАПИСАЛ СООБЩЕНИЕ");
     dispatch(fetchHistory()).then(() => scrollToBottom());
-    scrollToBottom();
     socket.removeListener("message:fromServer");
   });
 

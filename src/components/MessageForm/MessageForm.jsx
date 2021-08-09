@@ -67,6 +67,7 @@ export default function MessageForm(props) {
       );
       setMessage("");
       setPicker(false);
+      props.scrollToBottom();
     } else {
       notice({
         text: "Агрессивное молчание не принесет тебе удовлетворения",
