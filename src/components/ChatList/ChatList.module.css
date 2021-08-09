@@ -29,15 +29,27 @@
   background-color: lightsteelblue;
   text-align: center;
   font-family: "Franklin Gothic Medium";
-  font-size: 20px;
   color: whitesmoke;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-right: 40px;
-  padding-left: 40px;
 }
-.ChatListWrapper {
-  padding: 20px;
+@media screen and (max-width: 1199px) {
+  .ChatListTitle {
+    font-size: 12px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .ChatListTitle {
+    font-size: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .ChatListWrapper {
+    padding: 20px;
+  }
 }
 
 @media screen and (max-width: 1199px) {
@@ -46,6 +58,7 @@
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
+    margin-bottom: 10px;
   }
   .ChatListUl li {
     margin-right: 10px;
