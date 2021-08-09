@@ -7,7 +7,16 @@
   margin-left: 10px;
   border: 1px solid rgb(179, 197, 214);
   border-radius: 4px;
-  padding: 12px 20px;
+}
+@media screen and (min-width: 1200px) {
+  .filterInput {
+    padding: 12px 20px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .filterInput {
+    padding: 6px 10px;
+  }
 }
 .filterInput:focus {
   border: none;
