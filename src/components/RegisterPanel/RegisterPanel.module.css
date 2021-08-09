@@ -77,7 +77,7 @@
   border-radius: 0 5px 5px 0;
   cursor: pointer;
   background-size: cover;
-  background-color: white;
+  background-color: none;
   opacity: 0.7;
 }
 .hideButton {
@@ -92,6 +92,6 @@
   border-radius: 0 5px 5px 0;
   cursor: pointer;
   background-size: cover;
-  background-color: white;
+  background-color: none;
   opacity: 0.7;
 }

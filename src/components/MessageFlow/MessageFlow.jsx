@@ -77,10 +77,10 @@ export default function MessageFlow(props) {
     // var block = document.getElementById("block");
     // block.scrollTop = block.scrollHeight;
     // messagesEndRef.current?.scrollHeight();
-
-    messagesEndRef.current?.scrollIntoView({
-      behavior: "smooth",
-    });
+    window.scrollTo(0, messagesEndRef.current?.offsetTop);
+    // messagesEndRef.current?.scrollIntoView({
+    //   behavior: "smooth",
+    // });
     // window.scrollTo(0, messagesEndRef.current?.offsetTop);
   };
   useEffect(() => {
