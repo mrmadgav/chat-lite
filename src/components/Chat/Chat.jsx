@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import styles from "./Chat.module.css";
 import MessageForm from "../MessageForm/MessageForm";
 import MessageFlow from "../MessageFlow/MessageFlow";
@@ -12,19 +12,10 @@ export default function Chat() {
   const [copiedMessage, setcopiedMessage] = useState("");
   const allHistory = useSelector(getHistory);
 
-  const messagesEndRef = useRef(null);
-
   const getCopiedMessage = (id) => {
     const value = allHistory.filter((i) => i.id === id.id);
     const [copiedValue] = value;
     setcopiedMessage(copiedValue);
-  };
-  const scrollToBottom = () => {
-    window.scrollTo(0, messagesEndRef.current?.offsetTop);
-    messagesEndRef.current?.scrollIntoView({
-      behavior: "smooth",
-    });
-    console.log("Происходит скролл");
   };
   return (
     <>
@@ -32,11 +23,9 @@ export default function Chat() {
         <span className={styles.chatHeader}>
           <span className={styles.chatWelcome}>Welcome to chat</span> <Filter />
         </span>
-        <MessageFlow getCopiedMessage={getCopiedMessage} />
-        <div id="bottom" ref={messagesEndRef} />
+        <MessageFlow getCopiedMessage={getCopiedMessage} />        
         <MessageForm
-          copiedMessage={copiedMessage}
-          scrollToBottom={() => scrollToBottom()}
+          copiedMessage={copiedMessage}          
         />
       </div>
     </>
