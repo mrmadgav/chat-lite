@@ -40,7 +40,7 @@ export default function LoginPanel() {
           Password &nbsp;
           <input
             name="number"
-            type="tel"
+            type="password"
             placeholder="Pass"
             value={password}
             onChange={updatePassword}
