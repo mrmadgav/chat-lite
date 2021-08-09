@@ -41,6 +41,13 @@ export default function MessageFlow(props) {
     };
   }, [deletedMessage]);
 
+  // socket.on("user send message", () => {
+  //   dispatch(fetchHistory()).then(() => scrollToBottom());
+  //   socket.removeListener("user send message", fetchHistory);
+  //   socket.removeListener("user send message", scrollToBottom);
+  //   // socket.removeAllListeners(["message:fromServer"]);
+  // });
+
   socket.on("message:fromServer", () => {
     dispatch(fetchHistory()).then(() => scrollToBottom());
     socket.removeListener("message:fromServer", fetchHistory);
@@ -69,7 +76,7 @@ export default function MessageFlow(props) {
     socket.on("userStoppedTyping", setTyping(false));
     return () => {
       socket.removeListener("userTyping", userTyping);
-      socket.removeListener("userStoppedTyping", setTyping(false));
+      socket.removeListener("userStoppedTyping", setTyping);
     };
   }, [message]);
 
