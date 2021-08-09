@@ -21,7 +21,7 @@ export default function MessageFlow(props) {
   const dispatch = useDispatch();
   const allHistory = useSelector(getHistory);
   const messagesEndRef = useRef(null);
-  const [deletedMessage, setDeletedMessage] = useState(""); 
+  const [deletedMessage, setDeletedMessage] = useState("");
   const [changeMenu, setchangeMenu] = useState(false);
 
   useEffect(() => {
@@ -74,9 +74,13 @@ export default function MessageFlow(props) {
   }, [message]);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({
-      behavior: "smooth",
-    });
+    // var block = document.getElementById("block");
+    // block.scrollTop = block.scrollHeight;
+    messagesEndRef.current?.scrollHeight();
+
+    // messagesEndRef.current?.scrollIntoView({
+    //   behavior: "smooth",
+    // });
   };
   useEffect(() => {
     dispatch(fetchHistory()).then(() => scrollToBottom());
