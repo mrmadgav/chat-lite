@@ -76,11 +76,11 @@ export default function MessageFlow(props) {
   const scrollToBottom = () => {
     // var block = document.getElementById("block");
     // block.scrollTop = block.scrollHeight;
-    messagesEndRef.current?.scrollHeight();
+    // messagesEndRef.current?.scrollHeight();
 
-    // messagesEndRef.current?.scrollIntoView({
-    //   behavior: "smooth",
-    // });
+    messagesEndRef.current?.scrollIntoView({
+      behavior: "smooth",
+    });
   };
   useEffect(() => {
     dispatch(fetchHistory()).then(() => scrollToBottom());
