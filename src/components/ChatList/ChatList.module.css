@@ -52,7 +52,7 @@
   }
 }
 
-@media screen and (max-width: 1199px) {
+@media (min-width: 320px) and (max-width: 767px) {
   .ChatListUl {
     display: flex;
     overflow-x: scroll;
