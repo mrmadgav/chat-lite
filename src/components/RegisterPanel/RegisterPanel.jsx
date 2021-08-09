@@ -47,8 +47,8 @@ export default function LoginPanel() {
         <label className={styles.contactFormTitle}>
           Password &nbsp;
           <input
-            name="number"
-            type="tel"
+            name="password"
+            type="password"
             placeholder="Pass"
             value={password}
             onChange={updatePassword}
