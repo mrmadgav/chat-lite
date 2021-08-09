@@ -100,6 +100,7 @@ li {
 
 .AppLogged {
   display: block;
+  overflow-y: hidden; /*проверить*/
 }
 
 @media screen and (min-width: 480px) and (max-width: 767px) {
