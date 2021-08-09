@@ -42,6 +42,7 @@ export default function MessageFlow(props) {
   }, [deletedMessage]);
 
   socket.on("message:fromServer", () => {
+    console.log("Пришло сообщение от сервера");
     dispatch(fetchHistory()).then(() => scrollToBottom());
     socket.removeListener("message:fromServer");
   });
@@ -57,6 +58,7 @@ export default function MessageFlow(props) {
   });
 
   useEffect(() => {
+    console.log("Сработал useEffect userTyping");
     scrollToBottom();
 
     const userTyping = (data) => {
