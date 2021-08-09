@@ -31,7 +31,6 @@ export default function LoginPanel() {
   };
 
   const revealPassword = () => {
-    console.log("REVEAL");
     setPasswordReveal(!PasswordReveal);
   };
 

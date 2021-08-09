@@ -22,8 +22,7 @@ export default function LoginPanel() {
     e.preventDefault();
     dispatch(login({ email, password }));
   };
-  const revealPassword = () => {
-    console.log("REVEAL");
+  const revealPassword = () => {   
     setPasswordReveal(!PasswordReveal);
   };
   return (
