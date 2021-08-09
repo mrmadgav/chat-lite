@@ -24,6 +24,7 @@ export default function Chat() {
     messagesEndRef.current?.scrollIntoView({
       behavior: "smooth",
     });
+    console.log("Происходит скролл");
   };
   return (
     <>
