@@ -67,7 +67,6 @@ export default function MessageForm(props) {
       );
       setMessage("");
       setPicker(false);
-      props.scrollToBottom(); //происходит раньше, чем подгружается хистори
     } else {
       notice({
         text: "Агрессивное молчание не принесет тебе удовлетворения",
