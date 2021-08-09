@@ -45,7 +45,7 @@ export default function MessageFlow(props) {
     dispatch(fetchHistory()).then(() => scrollToBottom());
     socket.removeListener("message:fromServer", fetchHistory());
     socket.removeListener("message:fromServer", scrollToBottom());
-    socket.removeAllListeners(["message:fromServer"]);
+    // socket.removeAllListeners(["message:fromServer"]);
   });
 
   socket.on("User edit message", () => {
