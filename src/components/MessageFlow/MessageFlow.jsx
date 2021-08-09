@@ -25,6 +25,10 @@ export default function MessageFlow(props) {
   const [changeMenu, setchangeMenu] = useState(false);
 
   useEffect(() => {
+    dispatch(fetchHistory()).then(() => scrollToBottom());
+  }, []);
+
+  useEffect(() => {
     return () => {
       dispatch(fetchHistory());
 
@@ -40,22 +44,6 @@ export default function MessageFlow(props) {
       };
     };
   }, [deletedMessage]);
-
-  socket.on("message:fromServer", () => {
-    console.log("Пришло сообщение от сервера");
-    dispatch(fetchHistory()).then(() => scrollToBottom());
-    socket.removeListener("message:fromServer");
-  });
-
-  socket.on("User edit message", () => {
-    dispatch(fetchHistory());
-    socket.removeListener("User edit message");
-  });
-
-  socket.on("message:delete", () => {
-    dispatch(fetchHistory());
-    socket.removeListener("message:delete");
-  });
 
   useEffect(() => {
     console.log("Сработал useEffect userTyping");
@@ -73,6 +61,22 @@ export default function MessageFlow(props) {
     };
   }, [message]);
 
+  socket.on("message:fromServer", () => {
+    console.log("Пришло сообщение от сервера");
+    dispatch(fetchHistory()).then(() => scrollToBottom());
+    socket.removeListener("message:fromServer", fetchHistory);
+  });
+
+  socket.on("User edit message", () => {
+    dispatch(fetchHistory());
+    socket.removeListener("User edit message");
+  });
+
+  socket.on("message:delete", () => {
+    dispatch(fetchHistory());
+    socket.removeListener("message:delete");
+  });
+
   const scrollToBottom = () => {
     // var block = document.getElementById("block");
     // block.scrollTop = block.scrollHeight;
@@ -83,9 +87,6 @@ export default function MessageFlow(props) {
     });
     // window.scrollTo(0, messagesEndRef.current?.offsetTop);
   };
-  useEffect(() => {
-    dispatch(fetchHistory()).then(() => scrollToBottom());
-  }, []);
 
   const handleToUpdate = (id) => {
     setDeletedMessage(id);
