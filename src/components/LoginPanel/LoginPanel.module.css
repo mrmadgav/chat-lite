@@ -65,3 +65,34 @@
     margin-top: 20px;
   }
 }
+
+.reveralButton {
+  width: 20px;
+  height: 20px;
+  border: none;
+  outline: none;
+  background-image: url("../../img/passwordReveal.png");
+  margin-left: -31px;
+  margin-top: 14px;
+  position: absolute;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  background-size: cover;
+  background-color: white;
+  opacity: 0.7;
+}
+.hideButton {
+  width: 20px;
+  height: 20px;
+  border: none;
+  outline: none;
+  background-image: url("../../img/passwordHide.png");
+  margin-left: -31px;
+  margin-top: 14px;
+  position: absolute;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  background-size: cover;
+  background-color: white;
+  opacity: 0.7;
+}

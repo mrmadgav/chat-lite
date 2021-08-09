@@ -39,7 +39,7 @@
   width: 80px;
   border: 1px solid lightgray;
   border-radius: 4px;
-  margin: 20px 0px 20px 20px; 
+  margin: 20px 0px 20px 20px;
   padding: 10px;
 
   -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
@@ -64,4 +64,34 @@
   .formRegContainer {
     margin-top: 20px;
   }
+}
+.reveralButton {
+  width: 20px;
+  height: 20px;
+  border: none;
+  outline: none;
+  background-image: url("../../img/passwordReveal.png");
+  margin-left: -31px;
+  margin-top: 14px;
+  position: absolute;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  background-size: cover;
+  background-color: white;
+  opacity: 0.7;
+}
+.hideButton {
+  width: 20px;
+  height: 20px;
+  border: none;
+  outline: none;
+  background-image: url("../../img/passwordHide.png");
+  margin-left: -31px;
+  margin-top: 14px;
+  position: absolute;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  background-size: cover;
+  background-color: white;
+  opacity: 0.7;
 }

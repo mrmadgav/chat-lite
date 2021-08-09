@@ -2,10 +2,12 @@ import styles from "./LoginPanel.module.css";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../../Redux/Auth/Auth-operations";
+import { passwordHidden } from "../../img/passwordHide.png";
 
 export default function LoginPanel() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [PasswordReveal, setPasswordReveal] = useState("false");
 
   const dispatch = useDispatch();
 
@@ -20,7 +22,10 @@ export default function LoginPanel() {
     e.preventDefault();
     dispatch(login({ email, password }));
   };
-
+  const revealPassword = () => {
+    console.log("REVEAL");
+    setPasswordReveal(!PasswordReveal);
+  };
   return (
     <div className={styles.formRegContainer}>
       <form onSubmit={handleSubmit} className={styles.formLabel}>
@@ -40,12 +45,18 @@ export default function LoginPanel() {
           Password &nbsp;
           <input
             name="number"
-            type="password"
+            type={PasswordReveal ? "password" : "text"}
             placeholder="Pass"
             value={password}
             onChange={updatePassword}
             className={styles.contactInput}
           />
+          <input
+            class={!PasswordReveal ? styles.reveralButton : styles.hideButton}
+            type="button"
+            value=""
+            onClick={revealPassword}
+          ></input>
         </label>
         <button type="submit" className={styles.contactBtn}>
           LogIn
