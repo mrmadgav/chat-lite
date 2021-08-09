@@ -71,7 +71,7 @@ export default function MessageForm(props) {
       notice({
         text: "Агрессивное молчание не принесет тебе удовлетворения",
         styling: "brighttheme",
-        delay: 20000,
+        delay: 2000,
       });
     }
   };
