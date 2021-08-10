@@ -87,8 +87,7 @@ export default function CustomizedMenus(props) {
         <ListItemText
           primary="Edit"
           onClick={() => {
-            props.onChangeMenu({ id: id });
-            socket.emit("message:edited", id);
+            props.onChangeMenu({ id: id });         
             props.handleToUpdate(id);
             setClose(true);
           }}
