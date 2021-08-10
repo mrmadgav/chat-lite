@@ -33,11 +33,12 @@ export default function MessageFlow(props) {
     });
 
     socket.on("User edit message", () => {
-      console.log("сработало событие Edit Message");
+      console.log("сработало событие EDIT Message");
       dispatch(fetchHistory());
     });
 
     socket.on("DeletingMessage", () => {
+      console.log("сработало событие DELETE Message");
       dispatch(fetchHistory());
     });
 
