@@ -29,8 +29,8 @@ export default function MessageFlow(props) {
 
     socket.on("message:fromServer", () => {
       console.log("Пришло сообщение от сервера");
-      dispatch(fetchHistory());
-      scrollToBottom();
+      dispatch(fetchHistory()).then(scrollToBottom());
+      // scrollToBottom();
     });
 
     socket.on("User edit message", () => {
@@ -83,14 +83,10 @@ export default function MessageFlow(props) {
   // }, [message]);
 
   const scrollToBottom = () => {
-    // var block = document.getElementById("block");
-    // block.scrollTop = block.scrollHeight;
-    // messagesEndRef.current?.scrollHeight();
     window.scrollTo(0, messagesEndRef.current?.offsetTop);
     messagesEndRef.current?.scrollIntoView({
       behavior: "smooth",
     });
-    // window.scrollTo(0, messagesEndRef.current?.offsetTop);
   };
 
   const handleToUpdate = (id) => {
