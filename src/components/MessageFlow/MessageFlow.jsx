@@ -31,36 +31,14 @@ export default function MessageFlow(props) {
       console.log("Пришло сообщение от сервера");
       dispatch(fetchHistory()).then(() => scrollToBottom());
     });
-  
+
     socket.on("User edit message", () => {
       dispatch(fetchHistory());
     });
-  
-    socket.on("message:delete", () => {
+
+    socket.on("DeletingMessage", () => {
       dispatch(fetchHistory());
     });
-  }, []);
-
-  useEffect(() => {
-    return () => {
-      dispatch(fetchHistory());
-
-      const getMessageFromServer = (id) => {
-        const newArray = message.filter((item) => {
-          return item.id !== id;
-        });
-        setMessage([...newArray]);
-      };
-      socket.on("DeletingMessage", getMessageFromServer);
-      return () => {
-        socket.removeListener("DeletingMessage", getMessageFromServer);
-      };
-    };
-  }, [deletedMessage]);
-
-  useEffect(() => {
-    console.log("Сработал useEffect userTyping");
-    scrollToBottom();
 
     const userTyping = (data) => {
       setTyping(true);
@@ -68,11 +46,40 @@ export default function MessageFlow(props) {
     };
     socket.on("userTyping", userTyping);
     socket.on("userStoppedTyping", setTyping(false));
-    return () => {
-      socket.removeListener("userTyping", userTyping);
-      socket.removeListener("userStoppedTyping", setTyping(false));
-    };
-  }, [message]);
+  }, []);
+
+  // useEffect(() => {
+  //   return () => {
+  //     dispatch(fetchHistory());
+
+  //     const getMessageFromServer = (id) => {
+  //       const newArray = message.filter((item) => {
+  //         return item.id !== id;
+  //       });
+  //       setMessage([...newArray]);
+  //     };
+  //     socket.on("DeletingMessage", getMessageFromServer);
+  //     return () => {
+  //       socket.removeListener("DeletingMessage", getMessageFromServer);
+  //     };
+  //   };
+  // }, [deletedMessage]);
+
+  // useEffect(() => {
+  //   console.log("Сработал useEffect userTyping");
+  //   scrollToBottom();
+
+  //   const userTyping = (data) => {
+  //     setTyping(true);
+  //     setUserTyping(data);
+  //   };
+  //   socket.on("userTyping", userTyping);
+  //   socket.on("userStoppedTyping", setTyping(false));
+  //   return () => {
+  //     socket.removeListener("userTyping", userTyping);
+  //     socket.removeListener("userStoppedTyping", setTyping(false));
+  //   };
+  // }, [message]);
 
   const scrollToBottom = () => {
     // var block = document.getElementById("block");
