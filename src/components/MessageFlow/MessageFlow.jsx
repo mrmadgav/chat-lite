@@ -30,17 +30,14 @@ export default function MessageFlow(props) {
     socket.on("message:fromServer", () => {
       console.log("Пришло сообщение от сервера");
       dispatch(fetchHistory()).then(() => scrollToBottom());
-      socket.removeListener("message:fromServer", fetchHistory);
     });
   
     socket.on("User edit message", () => {
       dispatch(fetchHistory());
-      socket.removeListener("User edit message");
     });
   
     socket.on("message:delete", () => {
       dispatch(fetchHistory());
-      socket.removeListener("message:delete");
     });
   }, []);
 
