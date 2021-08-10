@@ -26,6 +26,22 @@ export default function MessageFlow(props) {
 
   useEffect(() => {
     dispatch(fetchHistory()).then(() => scrollToBottom());
+
+    socket.on("message:fromServer", () => {
+      console.log("Пришло сообщение от сервера");
+      dispatch(fetchHistory()).then(() => scrollToBottom());
+      socket.removeListener("message:fromServer", fetchHistory);
+    });
+  
+    socket.on("User edit message", () => {
+      dispatch(fetchHistory());
+      socket.removeListener("User edit message");
+    });
+  
+    socket.on("message:delete", () => {
+      dispatch(fetchHistory());
+      socket.removeListener("message:delete");
+    });
   }, []);
 
   useEffect(() => {
@@ -60,22 +76,6 @@ export default function MessageFlow(props) {
       socket.removeListener("userStoppedTyping", setTyping(false));
     };
   }, [message]);
-
-  socket.on("message:fromServer", () => {
-    console.log("Пришло сообщение от сервера");
-    dispatch(fetchHistory()).then(() => scrollToBottom());
-    socket.removeListener("message:fromServer", fetchHistory);
-  });
-
-  socket.on("User edit message", () => {
-    dispatch(fetchHistory());
-    socket.removeListener("User edit message");
-  });
-
-  socket.on("message:delete", () => {
-    dispatch(fetchHistory());
-    socket.removeListener("message:delete");
-  });
 
   const scrollToBottom = () => {
     // var block = document.getElementById("block");
