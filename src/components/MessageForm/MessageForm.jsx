@@ -21,6 +21,7 @@ import { useEffect } from "react";
 defaultModules.set(PNotifyMobile, {});
 
 export default function MessageForm(props) {
+  const [notify, setNotify] = useState(false);
   const [message, setMessage] = useState("");
   const dispatch = useDispatch();
   const currentToken = useSelector(getToken);
@@ -68,14 +69,16 @@ export default function MessageForm(props) {
       setMessage("");
       setPicker(false);
     } else {
-      PNotifyMobile.removeAll();
-      notice({
-        text: "Агрессивное молчание не принесет тебе удовлетворения",
-        styling: "brighttheme",
-        delay: 1000,
-        killer: true,
-      });
+      !notify &&
+        notice({
+          text: "Агрессивное молчание не принесет тебе удовлетворения",
+          styling: "brighttheme",
+          delay: 1000,
+          killer: true,
+        });
+      setNotify(!notify);
     }
+    setTimeout(1000, setNotify(!notify));
   };
 
   const userTyping = (e) => {
