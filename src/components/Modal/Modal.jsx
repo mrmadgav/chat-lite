@@ -9,6 +9,7 @@ export default function Modal(props) {
       props.toggleModal();
     }
   }
+  const largeImgUrl = props.imgUrl.replace("c_fill,w_300/", "");
 
   useEffect(() => {
     console.log("Маунт Модалки");
@@ -21,7 +22,7 @@ export default function Modal(props) {
   return (
     <div className={styles.Overlay} onClick={props.toggleModal}>
       <div className={styles.Modal}>
-        <img src={props.imgUrl} alt="" />
+        <img src={largeImgUrl} alt="" />
       </div>
     </div>
   );
