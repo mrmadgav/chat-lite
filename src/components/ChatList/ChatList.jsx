@@ -27,7 +27,7 @@ export default function ChatList() {
   return (
     <div className={styles.ChatListWrapper}>
       <span className={styles.ChatListTitle}>OnLine</span>
-      <ul className={`${styles.ChatListUl} ${styles.scrollbar}`}>
+      <ul className={`${styles.ChatListUl} ${styles.scrollbarFrozenDreams}`}>
         {UserList &&
           UserList.map((i) => {
             if (i.isOnline) {
