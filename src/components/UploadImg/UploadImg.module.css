@@ -2,6 +2,9 @@
   width: 30px;
   height: 30px;
 }
+.uploadImg:hover {
+  transform: scale(1.2);
+}
 .uploadBtn {
   cursor: pointer;
   border: none;
