@@ -2,5 +2,15 @@
 
 .Logo {
   font-family: "Chilanka", cursive;
-  font-size: 46px;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .Logo {
+    font-size: 24px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  .Logo {
+    font-size: 46px;
+  }
 }
