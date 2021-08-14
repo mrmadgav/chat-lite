@@ -26,6 +26,7 @@ export default function MessageFlow(props) {
 
   useEffect(() => {
     dispatch(fetchHistory()).then(() => scrollToBottom());
+    console.log("сработал UseEffect");
 
     socket.on("message:fromServer", () => {
       dispatch(fetchHistory()).then(() => scrollToBottom());
@@ -47,9 +48,9 @@ export default function MessageFlow(props) {
     socket.on("userStoppedTyping", setTyping(false));
   }, []);
 
-  useEffect(() => {
-    scrollToBottom();
-  }, [fetchHistory]);
+  // useEffect(() => {
+  //   scrollToBottom();
+  // }, [fetchHistory]);
 
   const scrollToBottom = () => {
     window.scrollTo(0, messagesEndRef.current?.offsetTop);
