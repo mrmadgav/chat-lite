@@ -10,6 +10,7 @@ import Modal from "../Modal/Modal";
 export default function Message(content) {
   const userNick = useSelector(getNickname);
   const [anchorEl, setAnchorEl] = useState(null);
+  const [modal, setModal] = useState(false);
   const sendAnchor = (anchorEl) => {
     setAnchorEl(anchorEl);
   };
@@ -23,16 +24,13 @@ export default function Message(content) {
             : styles.sentMessageOther
         }
         onClick={
-          (console.log(<Modal />),
           userNick === content.nick
             ? (event) => {
-                !event.target.dataset.type ? (
-                  setAnchorEl(event.currentTarget)
-                ) : (
-                  <Modal />
-                );
+                !event.target.dataset.type
+                  ? setAnchorEl(event.currentTarget)
+                  : setModal(true);
               }
-            : () => {})
+            : () => {}
         }
       >
         {
@@ -60,6 +58,7 @@ export default function Message(content) {
           onChangeMenu={content.onChangeMenu}
           getCopiedMessage={content.getCopiedMessage}
         />
+        {!modal && <Modal />}
       </div>
     </>
   );
