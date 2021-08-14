@@ -26,19 +26,19 @@ export default function LogOut() {
 
   return (
     <div className={styles.logOutHeader}>
-      <div>
-        <button
-          type="button"
-          className={styles.avatarChoose}
-          onClick={() => fileInputRef.current.click()}
-        >
+      <button
+        type="button"
+        className={styles.avatarChoose}
+        onClick={() => fileInputRef.current.click()}
+      >
+        <div>
           <img
             src={getAvatarUrl ? getAvatarUrl : anonym}
             className={getAvatarUrl ? styles.userAva : styles.anonym}
             alt=""
           />
-        </button>
-      </div>
+        </div>
+      </button>
       <input
         ref={fileInputRef}
         onChange={(e) => handleChange(e)}
