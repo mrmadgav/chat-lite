@@ -25,9 +25,11 @@ export default function Message(content) {
         onClick={
           userNick === content.nick
             ? (event) => {
-                !event.target.dataset.type
-                  ? setAnchorEl(event.currentTarget)
-                  : console.log("кликнули по модалке");
+                !event.target.dataset.type ? (
+                  setAnchorEl(event.currentTarget)
+                ) : (
+                  <Modal />
+                );
               }
             : () => {}
         }

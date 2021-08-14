@@ -7,6 +7,7 @@ export default function Modal(props) {
   const [Modal, setModal] = useState(true);
 
   useEffect(() => {
+    console.log("Маунт Модалки");
     window.addEventListener("keydown", handlekeydown);
     return () => {
       window.removeEventListener("keydown", handlekeydown);
