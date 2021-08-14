@@ -30,7 +30,7 @@
   color: rgb(140, 175, 207);
   text-align: center;
   font-family: "Franklin Gothic Medium";
-  color: whitesmoke;
+  /* color: whitesmoke; */
 }
 @media screen and (max-width: 1199px) {
   .ChatListTitle {
