@@ -7,9 +7,9 @@ export default function Modal(props) {
   const [Modal, setModal] = useState(false);
 
   useEffect(() => {
-    window.addEventListener("keydown", this.handlekeydown);
+    window.addEventListener("keydown", handlekeydown);
     return () => {
-      window.removeEventListener("keydown", this.handlekeydown);
+      window.removeEventListener("keydown", handlekeydown);
     };
   }, []);
   function toggleModal() {
