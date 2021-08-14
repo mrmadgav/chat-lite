@@ -17,7 +17,7 @@ function Filter() {
         type="text"
         placeholder="find your message"
         onChange={onHandleFilter}
-        className={styles.filterInput}
+        className={styles.filterInput}        
       />
     </label>
   );
