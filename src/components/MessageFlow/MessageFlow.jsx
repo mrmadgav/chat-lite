@@ -25,9 +25,8 @@ export default function MessageFlow(props) {
   const [changeMenu, setchangeMenu] = useState(false);
 
   useEffect(() => {
-    dispatch(fetchHistory()).then(() =>
-      scrollToBottom().finally(() => console.log("Скроллим"))
-    );
+    dispatch(fetchHistory()).then(() => scrollToBottom());
+    console.log("сработал UseEffect");
 
     socket.on("message:fromServer", () => {
       dispatch(fetchHistory()).then(() => scrollToBottom());
@@ -54,6 +53,7 @@ export default function MessageFlow(props) {
   // }, [fetchHistory]);
 
   const scrollToBottom = () => {
+    console.log("произошел скролл");
     window.scrollTo(0, messagesEndRef.current?.offsetTop);
     messagesEndRef.current?.scrollIntoView({
       behavior: "smooth",
