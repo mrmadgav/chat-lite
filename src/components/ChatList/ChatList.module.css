@@ -46,6 +46,11 @@
   }
 }
 
+.ChatListWrapper {
+  background-color: ghostwhite;
+  border-radius: 5px;
+}
+
 @media screen and (min-width: 1200px) {
   .ChatListWrapper {
     padding: 20px;
@@ -86,7 +91,7 @@
 }
 
 .scrollbarFrozenDreams::-webkit-scrollbar {
-  width: 12px;
+  width: 6px;
   background-color: #f5f5f5;
 }
 
