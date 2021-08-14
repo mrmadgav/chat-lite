@@ -38,13 +38,17 @@ export default function MessageFlow(props) {
     socket.on("DeletingMessage", () => {
       dispatch(fetchHistory());
     });
-    scrollToBottom();
+
     const userTyping = (data) => {
       setTyping(true);
       setUserTyping(data);
     };
     socket.on("userTyping", userTyping);
     socket.on("userStoppedTyping", setTyping(false));
+  }, []);
+
+  useEffect(() => {
+    scrollToBottom(fetchHistory);
   }, []);
 
   const scrollToBottom = () => {
