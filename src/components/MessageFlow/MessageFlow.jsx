@@ -25,8 +25,9 @@ export default function MessageFlow(props) {
   const [changeMenu, setchangeMenu] = useState(false);
 
   useEffect(() => {
-    dispatch(fetchHistory()).then(() => scrollToBottom());
-    console.log("сработал UseEffect");
+    dispatch(fetchHistory()).then(() =>
+      scrollToBottom().finally(() => console.log("Скроллим"))
+    );
 
     socket.on("message:fromServer", () => {
       dispatch(fetchHistory()).then(() => scrollToBottom());
