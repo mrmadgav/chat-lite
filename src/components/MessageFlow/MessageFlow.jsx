@@ -75,6 +75,7 @@ export default function MessageFlow(props) {
   }
   function handlekeydown(e) {
     if (e.code === "Escape") {
+      console.log("вызван handlekeydown");
       toggleModal();
     }
   }
