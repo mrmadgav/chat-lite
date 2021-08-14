@@ -11,8 +11,11 @@ import styles from "./MessageFlow.module.css";
 import { getHistory } from "../../Redux/selectors";
 import { useRef } from "react";
 import ChangeMenu from "../ChangeMenu/ChangeMenu";
+import Modal from "../Modal/Modal";
 
 export default function MessageFlow(props) {
+  const [modal, setModal] = useState(false);
+  const [modalSrc, setModalSrc] = useState("");
   const filter = useSelector(filterValue);
   const [message, setMessage] = useState([]);
   const [EditMessageID, setEditMessageID] = useState(null);
@@ -63,6 +66,10 @@ export default function MessageFlow(props) {
     scrollToBottom();
     setEditMessageID(id);
   };
+  const handleModal = (src) => {
+    setModal(!modal);
+    setModalSrc(src);
+  };
 
   return (
     <div className={styles.chatWrapper}>
@@ -80,6 +87,7 @@ export default function MessageFlow(props) {
                   handleToUpdate={handleToUpdate}
                   onChangeMenu={onChangeMenu}
                   getCopiedMessage={props.getCopiedMessage}
+                  handleModal={handleModal}
                 />
               );
             }
@@ -90,6 +98,7 @@ export default function MessageFlow(props) {
         <ChangeMenu EditMessageID={EditMessageID} onChangeMenu={onChangeMenu} />
       )}
       {typing && <span>{userTyping} is typing...</span>}
+      {modal && <Modal imgUrl={modalSrc} />}
     </div>
   );
 }

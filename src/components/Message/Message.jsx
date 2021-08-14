@@ -3,14 +3,12 @@ import { useState } from "react";
 import styles from "./Message.module.css";
 import { useSelector } from "react-redux";
 import { getNickname } from "../../Redux/selectors";
-
 import MessageMenu from "../MessageMenu/MessageMenu";
-import Modal from "../Modal/Modal";
 
 export default function Message(content) {
   const userNick = useSelector(getNickname);
   const [anchorEl, setAnchorEl] = useState(null);
-  const [modal, setModal] = useState(false);
+
   const sendAnchor = (anchorEl) => {
     setAnchorEl(anchorEl);
   };
@@ -28,7 +26,7 @@ export default function Message(content) {
             ? (event) => {
                 !event.target.dataset.type
                   ? setAnchorEl(event.currentTarget)
-                  : setModal(true);
+                  : content.handleModal(event.target.src);
               }
             : () => {}
         }
@@ -58,7 +56,6 @@ export default function Message(content) {
           onChangeMenu={content.onChangeMenu}
           getCopiedMessage={content.getCopiedMessage}
         />
-        {modal && <Modal imgUrl={content.content} />}
       </div>
     </>
   );
