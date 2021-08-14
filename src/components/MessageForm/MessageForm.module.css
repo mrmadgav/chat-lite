@@ -54,7 +54,6 @@
   .messageInputContainer {
     position: fixed;
     width: 680px;
-    /* margin-top: 30px; */
   }
   .sendImg {
     width: 30px;
@@ -84,11 +83,6 @@
   .messageInput {
     padding: 4px 20px;
   }
-}
-.sendImg {
-  width: 30px;
-  height: 30px;
-  background-color: none;
 }
 .smileImg {
   width: 25px;
