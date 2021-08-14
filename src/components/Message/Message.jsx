@@ -31,7 +31,14 @@ export default function Message(content) {
       >
         {
           <>
-            <span>{`${content.nick} :`}</span> <span>{content.content}</span>
+            <span>{`${content.nick} :`}</span>
+            <span>
+              {content.includes(".jpg") ? (
+                <img src={content.content}></img>
+              ) : (
+                content.content
+              )}
+            </span>
           </>
         }
         <span className={styles.messageTime}>{content.date}</span>
