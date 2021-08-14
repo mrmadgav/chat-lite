@@ -34,6 +34,9 @@
   }
 }
 @media screen and (min-width: 1200px) {
+  .chatWrapper {
+    background-color: white;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
@@ -42,6 +45,7 @@
     margin: 0 auto;
     height: 380px;
     background-color: white;
+    font-size: 12px;
   }
 }
 @media (min-width: 768px) and (max-width: 1199px) {
@@ -49,10 +53,11 @@
     width: 470px;
     height: 530px;
   }
+  .chatWrapper {
+    background-color: white;
+  }
 }
-.chatWrapper {
-  background-color: white;
-}
+
 .chatDiv {
   background-image: url("../../img/ManuBG.PNG");
   background-size: contain;
