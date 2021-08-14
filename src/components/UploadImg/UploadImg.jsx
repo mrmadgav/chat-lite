@@ -19,13 +19,9 @@ export default function UploadImg() {
 
   return (
     <>
-      <button
-        type="button"
-        className={styles.avatarChoose}
-        onClick={() => fileImg.current.click()}
-      >
-        <div className={styles.avatarContainer}>
-          <img src={download} className={styles.download} alt="" />
+      <button type="button" onClick={() => fileImg.current.click()}>
+        <div>
+          <img src={download} className={styles.uploadImg} alt="" />
         </div>
       </button>
       <input

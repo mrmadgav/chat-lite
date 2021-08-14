@@ -14,7 +14,7 @@
 }
 .chatHeader {
   display: flex;
-  align-items: baseline;
+  align-items: center;
 }
 .chatWelcome {
   font-family: "Franklin Gothic Medium";
