@@ -24,6 +24,7 @@ export default function Message(content) {
         onClick={
           userNick === content.nick
             ? (event) => {
+                console.log(event.target);
                 event.target = !"img" && setAnchorEl(event.currentTarget);
               }
             : () => {
