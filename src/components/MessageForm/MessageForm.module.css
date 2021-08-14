@@ -37,7 +37,7 @@
   border: none;
   background: none;
   padding: 10px;
-  cursor: pointer; 
+  cursor: pointer;
 }
 .messageAddBtn:hover {
   transform: scale(1.05);
@@ -52,7 +52,8 @@
 
 @media screen and (min-width: 1200px) {
   .messageInputContainer {
-    position: fixed;
+    /* position: fixed; */
+    margin-top: 30px;
   }
 }
 @media screen and (max-width: 1199px) {

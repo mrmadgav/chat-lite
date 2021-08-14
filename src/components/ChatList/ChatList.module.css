@@ -49,6 +49,7 @@
 @media screen and (min-width: 1200px) {
   .ChatListWrapper {
     padding: 20px;
+    margin-left: 50px;
   }
 }
 

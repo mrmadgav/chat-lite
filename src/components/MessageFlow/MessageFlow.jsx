@@ -28,17 +28,14 @@ export default function MessageFlow(props) {
     dispatch(fetchHistory()).then(() => scrollToBottom());
 
     socket.on("message:fromServer", () => {
-      console.log("Пришло сообщение от сервера");
       dispatch(fetchHistory()).then(() => scrollToBottom());
     });
 
     socket.on("User edit message", () => {
-      console.log("сработало событие EDIT Message");
       dispatch(fetchHistory());
     });
 
     socket.on("DeletingMessage", () => {
-      console.log("сработало событие DELETE Message");
       dispatch(fetchHistory());
     });
 
@@ -49,39 +46,6 @@ export default function MessageFlow(props) {
     socket.on("userTyping", userTyping);
     socket.on("userStoppedTyping", setTyping(false));
   }, []);
-
-  // useEffect(() => {
-  //   return () => {
-  //     dispatch(fetchHistory());
-
-  //     const getMessageFromServer = (id) => {
-  //       const newArray = message.filter((item) => {
-  //         return item.id !== id;
-  //       });
-  //       setMessage([...newArray]);
-  //     };
-  //     socket.on("DeletingMessage", getMessageFromServer);
-  //     return () => {
-  //       socket.removeListener("DeletingMessage", getMessageFromServer);
-  //     };
-  //   };
-  // }, [deletedMessage]);
-
-  // useEffect(() => {
-  //   console.log("Сработал useEffect userTyping");
-  //   scrollToBottom();
-
-  //   const userTyping = (data) => {
-  //     setTyping(true);
-  //     setUserTyping(data);
-  //   };
-  //   socket.on("userTyping", userTyping);
-  //   socket.on("userStoppedTyping", setTyping(false));
-  //   return () => {
-  //     socket.removeListener("userTyping", userTyping);
-  //     socket.removeListener("userStoppedTyping", setTyping(false));
-  //   };
-  // }, [message]);
 
   const scrollToBottom = () => {
     window.scrollTo(0, messagesEndRef.current?.offsetTop);
