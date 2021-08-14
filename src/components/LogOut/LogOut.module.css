@@ -48,6 +48,10 @@
     display: unset;
     margin-left: 10px;
   }
+  .logOutHeader {
+    margin-left: auto;
+    margin-right: 60px;
+  }
 }
 .logOutImg {
   width: 30px;
