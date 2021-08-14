@@ -68,10 +68,16 @@ export default function MessageForm(props) {
       setMessage("");
       setPicker(false);
     } else {
+      // notificationManager.cancelAll();
       notice({
         text: "Агрессивное молчание не принесет тебе удовлетворения",
         styling: "brighttheme",
         delay: 1000,
+        text_escape: true,
+        nonblock: {
+          nonblock: true,
+          nonblock_opacity: 0.1,
+        },
       });
     }
   };
