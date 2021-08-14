@@ -79,8 +79,10 @@ function App() {
             {isAuthenticated && (
               <>
                 {history.push(`/${getUserNick}`)}
-                <Logo />
-                <LogOut id={getUserId} />
+                <div className="headerContainer">
+                  <Logo />
+                  <LogOut id={getUserId} />
+                </div>
                 <div className="ChatListWrapper">
                   <ChatList />
                   <Route path="/" component={Chat} redirectTo="/" />

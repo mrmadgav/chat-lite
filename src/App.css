@@ -26,3 +26,6 @@
     margin-top: 50px;
   }
 }
+.headerContainer {
+  display: flex;
+}
