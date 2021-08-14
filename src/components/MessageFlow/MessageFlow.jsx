@@ -90,6 +90,7 @@ export default function MessageFlow(props) {
                   handleToUpdate={handleToUpdate}
                   onChangeMenu={onChangeMenu}
                   getCopiedMessage={props.getCopiedMessage}
+                  handleModal={handleModal}
                 />
               );
             }
