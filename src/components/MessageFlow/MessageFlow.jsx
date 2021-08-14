@@ -48,8 +48,8 @@ export default function MessageFlow(props) {
   }, []);
 
   useEffect(() => {
-    scrollToBottom(fetchHistory);
-  }, []);
+    scrollToBottom();
+  }, [fetchHistory]);
 
   const scrollToBottom = () => {
     window.scrollTo(0, messagesEndRef.current?.offsetTop);
