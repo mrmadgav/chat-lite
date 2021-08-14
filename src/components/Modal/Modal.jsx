@@ -1,6 +1,4 @@
-import React, { Component } from "react";
-import { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Modal.module.css";
 
 export default function Modal(props) {
@@ -13,6 +11,7 @@ export default function Modal(props) {
       window.removeEventListener("keydown", handlekeydown);
     };
   }, []);
+
   function toggleModal() {
     setModal(!Modal);
   }

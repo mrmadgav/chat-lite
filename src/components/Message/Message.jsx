@@ -23,6 +23,7 @@ export default function Message(content) {
             : styles.sentMessageOther
         }
         onClick={
+          (console.log(<Modal />),
           userNick === content.nick
             ? (event) => {
                 !event.target.dataset.type ? (
@@ -31,7 +32,7 @@ export default function Message(content) {
                   <Modal />
                 );
               }
-            : () => {}
+            : () => {})
         }
       >
         {
