@@ -1,14 +1,3 @@
-/* @media screen and (max-width: 1199px) {
-  .ChatListWrapper {
-    display: block;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .ChatListWrapper {
-    display: flex;
-    margin-top: 50px;
-  }
-} */
 @media (min-width: 320px) and (max-width: 767px) {
   .ChatListWrapper {
     display: block;
@@ -25,7 +14,11 @@
     display: flex;
     margin-top: 50px;
   }
+  .headerContainer {
+    margin-left: 50px;
+  }
 }
 .headerContainer {
   display: flex;
+  align-items: center;
 }
