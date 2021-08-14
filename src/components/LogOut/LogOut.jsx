@@ -31,7 +31,7 @@ export default function LogOut() {
         className={styles.avatarChoose}
         onClick={() => fileInputRef.current.click()}
       >
-        <div>
+        <div className={styles.avatarContainer}>
           <img
             src={getAvatarUrl ? getAvatarUrl : anonym}
             className={getAvatarUrl ? styles.userAva : styles.anonym}
