@@ -68,13 +68,13 @@ export default function MessageForm(props) {
       setMessage("");
       setPicker(false);
     } else {
-      !notice &&
-        notice({
-          text: "Агрессивное молчание не принесет тебе удовлетворения",
-          styling: "brighttheme",
-          delay: 1000,
-          killer: true,
-        });
+      PNotifyMobile.removeAll();
+      notice({
+        text: "Агрессивное молчание не принесет тебе удовлетворения",
+        styling: "brighttheme",
+        delay: 1000,
+        killer: true,
+      });
     }
   };
 
