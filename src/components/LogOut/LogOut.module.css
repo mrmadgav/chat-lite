@@ -1,13 +1,10 @@
 .logOutBtn {
   display: block;
   height: fit-content;
+  border: none;
+  background: none;
   text-align: center;
-  width: 80px;
-  border: 1px solid lightgray;
-  border-radius: 4px;
   margin: 20px 0px 20px 20px;
-  padding: 10px;
-
   -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
   transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
   cursor: pointer;
@@ -51,6 +48,6 @@
   }
 }
 .logOutImg {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 }
