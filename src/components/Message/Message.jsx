@@ -24,8 +24,8 @@ export default function Message(content) {
         onContextMenu={
           userNick === content.nick
             ? (event) => {
+                event.preventdefault();
                 setAnchorEl(event.currentTarget);
-                console.log(event.currentTarget);
               }
             : () => {}
         }
@@ -33,7 +33,6 @@ export default function Message(content) {
           userNick === content.nick
             ? (event) => {
                 setAnchorEl(event.currentTarget);
-                console.log(event.currentTarget);
               }
             : () => {}
         }
