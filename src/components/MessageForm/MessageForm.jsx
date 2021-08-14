@@ -119,7 +119,7 @@ export default function MessageForm(props) {
             onKeyPress={userTyping}
             required
             className={styles.messageInput}
-            placeholder="Type message to send"
+            placeholder="Say something"
           />
           <button
             type="submit"

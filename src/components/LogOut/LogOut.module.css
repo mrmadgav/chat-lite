@@ -10,8 +10,7 @@
   cursor: pointer;
 }
 .logOutBtn:hover {
-  box-shadow: 0 0 40px 40px rgb(255, 184, 158) inset;
-  color: white;
+  transform: scale(1.2);
 }
 .anonym {
   width: 64px;
