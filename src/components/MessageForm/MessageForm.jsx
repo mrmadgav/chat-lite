@@ -78,7 +78,7 @@ export default function MessageForm(props) {
         });
       setNotify(!notify);
     }
-    setTimeout(1000, setNotify(!notify));
+    setTimeout(1100, setNotify(!notify));
   };
 
   const userTyping = (e) => {
