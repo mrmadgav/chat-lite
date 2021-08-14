@@ -9,7 +9,7 @@
     font-size: 24px;
   }
 }
-@media (min-width: 768px) and (max-width: 1199px) {
+@media screen and (min-width: 768px) {
   .Logo {
     font-size: 46px;
   }
