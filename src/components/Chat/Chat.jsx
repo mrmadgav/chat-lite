@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 
 import { useState } from "react";
 import { getHistory } from "../../Redux/selectors";
+import UploadImg from "../UploadImg/UploadImg";
 
 export default function Chat() {
   const [copiedMessage, setcopiedMessage] = useState("");
@@ -22,11 +23,10 @@ export default function Chat() {
       <div className={styles.chatContainer}>
         <span className={styles.chatHeader}>
           <span className={styles.chatWelcome}>Welcome to chat</span> <Filter />
+          <UploadImg />
         </span>
-        <MessageFlow getCopiedMessage={getCopiedMessage} />        
-        <MessageForm
-          copiedMessage={copiedMessage}          
-        />
+        <MessageFlow getCopiedMessage={getCopiedMessage} />
+        <MessageForm copiedMessage={copiedMessage} />
       </div>
     </>
   );

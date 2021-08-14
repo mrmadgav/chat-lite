@@ -1,0 +1,83 @@
+.logOutBtn {
+  display: block;
+  height: fit-content;
+  border: none;
+  background: none;
+  text-align: center;
+  margin: 20px 0px 20px 20px;
+  -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  cursor: pointer;
+}
+.logOutBtn:hover {
+  transform: scale(1.2);
+}
+.anonym {
+  width: 64px;
+  height: 64px;
+  background-color: none;
+}
+.avatarChoose {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+.avatarInput {
+  display: none;
+}
+.logOutHeader {
+  display: flex;
+  align-items: center;
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  .logOutHeader {
+    margin-left: auto;
+    margin-right: 40px;
+  }
+  .avatarContainer {
+    width: 75px;
+    height: 75px;
+    margin-right: 20px;
+  }
+}
+
+.NickName {
+  display: flex;
+  align-items: center;
+  font-family: "Franklin Gothic Medium";
+  font-size: 20px;
+  color: rgb(140, 175, 207);
+}
+.userAva {
+  width: auto;
+  height: 100%;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+@media screen and (min-width: 1200px) {
+  .userAva {
+    display: unset;
+    margin-left: 10px;
+  }
+  .logOutHeader {
+    margin-left: auto;
+    margin-right: 60px;
+  }
+  .avatarContainer {
+    width: 75px;
+    height: 75px;
+    margin-right: 20px;
+  }
+}
+.logOutImg {
+  width: 30px;
+  height: 30px;
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  .avatarContainer {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+}

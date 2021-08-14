@@ -87,3 +87,18 @@ export const sendAvatar = (data, currentToken) => async (dispatch) => {
     dispatch(authActions.sendAvatarError(error.message));
   }
 };
+
+export const sendImg = (data, currentToken) => async (dispatch) => {
+  dispatch(authActions.sendImgRequest());
+  try {
+    let formData = new FormData();
+    formData.append("img", data);
+    const response = await axios.post("/img", formData, {
+      headers: { Authorization: "Bearer " + currentToken },
+    });
+
+    return dispatch(authActions.sendImgSuccess(response.data));
+  } catch (error) {
+    dispatch(authActions.sendImgError(error.message));
+  }
+};
