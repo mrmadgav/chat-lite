@@ -68,7 +68,7 @@ export default function MessageForm(props) {
       setMessage("");
       setPicker(false);
     } else {
-      notice?.removeAll();
+      // notice?.removeAll();
       notice?.remove();
       notice({
         text: "Агрессивное молчание не принесет тебе удовлетворения",
