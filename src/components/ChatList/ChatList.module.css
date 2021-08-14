@@ -35,6 +35,7 @@
 @media screen and (max-width: 1199px) {
   .ChatListTitle {
     font-size: 12px;
+    padding-top: 10px;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -71,6 +72,9 @@
     overflow-y: hidden;
     white-space: nowrap;
     margin-bottom: 10px;
+  }
+  .ChatListUl::-webkit-scrollbar:horizontal {
+    height: 6px;
   }
   .ChatListUl li {
     margin-right: 10px;
