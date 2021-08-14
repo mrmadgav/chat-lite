@@ -64,24 +64,26 @@ export default function MessageFlow(props) {
   };
 
   return (
-    <div className={`${styles.chatDiv} ${styles.scrollbarFrozenDreams}`}>
-      {allHistory &&
-        allHistory.map((i) => {
-          if (i.text.toLowerCase().includes(filter.toLowerCase())) {
-            return (
-              <Message
-                content={i.text}
-                nick={i.nickname}
-                date={i.date}
-                id={i.id}
-                key={nanoid()}
-                handleToUpdate={handleToUpdate}
-                onChangeMenu={onChangeMenu}
-                getCopiedMessage={props.getCopiedMessage}
-              />
-            );
-          }
-        })}
+    <div className={styles.chatWrapper}>
+      <div className={`${styles.chatDiv} ${styles.scrollbarFrozenDreams}`}>
+        {allHistory &&
+          allHistory.map((i) => {
+            if (i.text.toLowerCase().includes(filter.toLowerCase())) {
+              return (
+                <Message
+                  content={i.text}
+                  nick={i.nickname}
+                  date={i.date}
+                  id={i.id}
+                  key={nanoid()}
+                  handleToUpdate={handleToUpdate}
+                  onChangeMenu={onChangeMenu}
+                  getCopiedMessage={props.getCopiedMessage}
+                />
+              );
+            }
+          })}
+      </div>
       {changeMenu && (
         <ChangeMenu EditMessageID={EditMessageID} onChangeMenu={onChangeMenu} />
       )}

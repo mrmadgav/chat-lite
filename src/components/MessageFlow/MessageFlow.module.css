@@ -42,6 +42,9 @@
   .chatDiv {
     width: 470px;
   }
+  .chatWrapper {
+    background-color: ghostwhite;
+  }
 }
 .chatDiv {
   background-image: url("../../img/ManuBG.PNG");
