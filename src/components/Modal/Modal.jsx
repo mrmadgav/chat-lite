@@ -2,13 +2,18 @@ import React, { useState, useEffect } from "react";
 import styles from "./Modal.module.css";
 
 export default function Modal(props) {
-  const [Modal, setModal] = useState(true);
+  function handlekeydown(e) {
+    if (e.code === "Escape") {
+      console.log("вызван handlekeydown");
+      props.toggleModal();
+    }
+  }
 
   useEffect(() => {
     console.log("Маунт Модалки");
-    window.addEventListener("keydown", props.handlekeydown);
+    window.addEventListener("keydown", handlekeydown);
     return () => {
-      window.removeEventListener("keydown", props.handlekeydown);
+      window.removeEventListener("keydown", handlekeydown);
     };
   }, []);
 

@@ -73,12 +73,6 @@ export default function MessageFlow(props) {
   function toggleModal() {
     setModal(!modal);
   }
-  function handlekeydown(e) {
-    if (e.code === "Escape") {
-      console.log("вызван handlekeydown");
-      toggleModal();
-    }
-  }
 
   return (
     <div className={styles.chatWrapper}>
@@ -98,7 +92,6 @@ export default function MessageFlow(props) {
                   getCopiedMessage={props.getCopiedMessage}
                   handleModal={handleModal}
                   toggleModal={toggleModal}
-                  handlekeydown={handlekeydown}
                 />
               );
             }
