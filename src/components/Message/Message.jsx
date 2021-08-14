@@ -24,9 +24,9 @@ export default function Message(content) {
         onClick={
           userNick === content.nick
             ? (event) => {
-                console.log(event.target.dataset);
-                event.target.dataset.tag =
-                  !"IMG" && setAnchorEl(event.currentTarget);
+                console.log(event.target);
+                console.log(event.target.tag);
+                event.target = !"IMG" && setAnchorEl(event.currentTarget);
               }
             : () => {
                 console.log("Кликнули на картинку");
