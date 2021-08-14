@@ -68,13 +68,13 @@ export default function MessageForm(props) {
       setMessage("");
       setPicker(false);
     } else {
-      notice?.close();
-      notice({
-        text: "Агрессивное молчание не принесет тебе удовлетворения",
-        styling: "brighttheme",
-        delay: 1000,
-        killer: true,
-      });
+      !notice &&
+        notice({
+          text: "Агрессивное молчание не принесет тебе удовлетворения",
+          styling: "brighttheme",
+          delay: 1000,
+          killer: true,
+        });
     }
   };
 
