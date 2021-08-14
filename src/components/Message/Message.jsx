@@ -58,7 +58,7 @@ export default function Message(content) {
           onChangeMenu={content.onChangeMenu}
           getCopiedMessage={content.getCopiedMessage}
         />
-        {modal && <Modal imgUrl={this.event.target.src} />}
+        {modal && <Modal imgUrl={content.content} />}
       </div>
     </>
   );
