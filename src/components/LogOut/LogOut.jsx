@@ -6,6 +6,7 @@ import { getNickname, getAvatar, getUser } from "../../Redux/selectors";
 import styles from "./LogOut.module.css";
 import anonym from "../../img/anonymGit.png";
 import { getToken } from "../../Redux/Auth/Auth-selectors";
+import logOut from "../../img/exit.svg"
 
 export default function LogOut() {
   const nickName = useSelector(getNickname);
@@ -19,7 +20,7 @@ export default function LogOut() {
     e.preventDefault();
     dispatch(logout(currentUserId, currentToken));
   };
-  const handleChange = (e) => {   
+  const handleChange = (e) => {
     dispatch(sendAvatar(e.target.files[0], currentToken));
   };
 
@@ -46,7 +47,7 @@ export default function LogOut() {
       />
       <span className={styles.NickName}>{nickName}</span>
       <button onClick={handleLogout} className={styles.logOutBtn}>
-        Logout
+        <img src={logOut} alt="" className={styles.logOutImg} />
       </button>
     </div>
   );
