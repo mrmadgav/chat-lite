@@ -25,7 +25,7 @@ export default function Message(content) {
           userNick === content.nick
             ? (event) => {
                 setAnchorEl(event.currentTarget);
-                console.log(event.currentTarget);
+                console.log(event.target);
               }
             : () => {}
         }
