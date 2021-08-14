@@ -19,6 +19,7 @@ import MainMenu from "./components/MainMenu/MainMenu";
 import LogOut from "./components/LogOut/LogOut";
 import ChatList from "./components/ChatList/ChatList";
 import MainPageImage from "./MainPageImage/MainPageImage";
+import Logo from "./components/Logo/Logo";
 
 //CSS
 import "./App.css";
@@ -78,6 +79,7 @@ function App() {
             {isAuthenticated && (
               <>
                 {history.push(`/${getUserNick}`)}
+                <Logo />
                 <LogOut id={getUserId} />
                 <div className="ChatListWrapper">
                   <ChatList />
