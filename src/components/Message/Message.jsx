@@ -21,6 +21,14 @@ export default function Message(content) {
             ? styles.sentMessageMy
             : styles.sentMessageOther
         }
+        onContextMenu={
+          userNick === content.nick
+            ? (event) => {
+                setAnchorEl(event.currentTarget);
+                console.log(event.currentTarget);
+              }
+            : () => {}
+        }
         onClick={
           userNick === content.nick
             ? (event) => {
