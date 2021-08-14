@@ -39,7 +39,7 @@
 }
 .userAva {
   border-radius: 50%;
-  width: 50%;
+  /* width: 50%; */
 }
 @media screen and (min-width: 1200px) {
   .userAva {
