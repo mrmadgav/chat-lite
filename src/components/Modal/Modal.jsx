@@ -5,6 +5,7 @@ export default function Modal(props) {
   function handlekeydown(e) {
     if (e.code === "Escape") {
       console.log("вызван handlekeydown");
+      console.log(props);
       props.toggleModal();
     }
   }
