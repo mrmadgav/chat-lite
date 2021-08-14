@@ -67,8 +67,10 @@
   .messageInputContainer {
     width: 260px;
     justify-content: flex-end;
+  }
+  .messageInput {
     padding: 4px 20px;
-  }  
+  }
 }
 .sendImg {
   width: 30px;
