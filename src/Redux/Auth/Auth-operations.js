@@ -96,7 +96,6 @@ export const sendImg = (data, currentToken) => async (dispatch) => {
     const response = await axios.post("/img", formData, {
       headers: { Authorization: "Bearer " + currentToken },
     });
-
     return dispatch(authActions.sendImgSuccess(response.data));
   } catch (error) {
     dispatch(authActions.sendImgError(error.message));

@@ -28,6 +28,10 @@ const getUsersRequest = createAction("auth/getUsersRequest");
 const getUsersSuccess = createAction("auth/getUsersSuccess");
 const getUsersError = createAction("auth/getUsersError");
 
+const sendImgRequest = createAction("sendImgRequest");
+const sendImgSuccess = createAction("sendImgSuccess");
+const sendImgError = createAction("sendImgError");
+
 export default {
   registerRequest,
   registerSuccess,
@@ -50,4 +54,7 @@ export default {
   sendAvatarRequest,
   sendAvatarSuccess,
   sendAvatarError,
+  sendImgRequest,
+  sendImgSuccess,
+  sendImgError,
 };

@@ -19,7 +19,11 @@ export default function UploadImg() {
 
   return (
     <>
-      <button type="button" onClick={() => fileImg.current.click()}>
+      <button
+        type="button"
+        className={styles.uploadBtn}
+        onClick={() => fileImg.current.click()}
+      >
         <div>
           <img src={download} className={styles.uploadImg} alt="" />
         </div>
