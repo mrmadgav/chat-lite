@@ -82,6 +82,9 @@
   .ChatListUl li span {
     font-size: 12px;
   }
+  .ChatListWrapper {
+    margin-bottom: 10px;
+  }
 }
 
 .scrollbar {

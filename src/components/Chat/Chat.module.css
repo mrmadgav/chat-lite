@@ -36,6 +36,12 @@
     padding-right: 25px;
   }
 }
+@media (min-width: 320px) and (max-width: 767px) {
+  .chatHeader {
+    font-size: 12px;
+    justify-content: center;
+  }
+}
 .d2 h3:before {
   content: "";
   position: absolute;

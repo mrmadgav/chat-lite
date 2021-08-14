@@ -34,6 +34,11 @@
     margin-left: auto;
     margin-right: 40px;
   }
+  .avatarContainer {
+    width: 75px;
+    height: 75px;
+    margin-right: 20px;
+  }
 }
 
 .NickName {
@@ -58,13 +63,21 @@
     margin-left: auto;
     margin-right: 60px;
   }
+  .avatarContainer {
+    width: 75px;
+    height: 75px;
+    margin-right: 20px;
+  }
 }
 .logOutImg {
   width: 30px;
   height: 30px;
 }
-.avatarContainer {
-  width: 75px;
-  height: 75px;
-  margin-right: 20px;
+@media (min-width: 320px) and (max-width: 767px) {
+  .avatarContainer {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
 }
