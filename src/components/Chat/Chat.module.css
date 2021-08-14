@@ -9,6 +9,7 @@
     margin-left: 100px;
     padding-left: 30px;
     padding-right: 30px;
+    padding-top: 5px;
   }
 }
 .chatHeader {
@@ -17,6 +18,7 @@
 }
 .chatWelcome {
   font-family: "Franklin Gothic Medium";
+  color: #8cafcf;
 }
 @media screen and (max-width: 1199px) {
   .chatContainer {
