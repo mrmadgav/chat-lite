@@ -24,10 +24,11 @@ export default function Message(content) {
         onClick={
           userNick === content.nick
             ? (event) => {
-                setAnchorEl(event.currentTarget);
-                console.log(event.target);
+                event.target = !"img" && setAnchorEl(event.currentTarget);
               }
-            : () => {}
+            : () => {
+                console.log("Кликнули на картинку");
+              }
         }
       >
         {
