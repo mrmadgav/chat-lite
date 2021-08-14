@@ -38,8 +38,9 @@
   color: rgb(140, 175, 207);
 }
 .userAva {
-  border-radius: 50%;
-  /* width: 50%; */
+  width: auto;
+  height: 100%;
+  margin: 0 auto;
 }
 @media screen and (min-width: 1200px) {
   .userAva {
