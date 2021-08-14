@@ -51,9 +51,7 @@ export default function MessageFlow(props) {
   const scrollToBottom = () => {
     console.log("произошел скролл");
     console.log(messagesEndRef.current);
-    messagesEndRef.current?.scrollIntoView({
-      behavior: "smooth",
-    });
+    messagesEndRef.current?.scrollIntoView();
   };
 
   const handleToUpdate = (id) => {
