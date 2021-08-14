@@ -52,7 +52,7 @@
 
 @media screen and (min-width: 1200px) {
   .messageInputContainer {
-    /* position: fixed; */
+    position: fixed;
     margin-top: 30px;
   }
 }
