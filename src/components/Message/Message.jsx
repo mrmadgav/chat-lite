@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { getNickname } from "../../Redux/selectors";
 
 import MessageMenu from "../MessageMenu/MessageMenu";
+import Modal from "../Modal/Modal";
 
 export default function Message(content) {
   const userNick = useSelector(getNickname);
@@ -24,10 +25,12 @@ export default function Message(content) {
         onClick={
           userNick === content.nick
             ? (event) => {
-                console.log(event.target);
-                !event.target.dataset.type
-                  ? setAnchorEl(event.currentTarget)
-                  : console.log("Кликнули на картинку");
+                console.log(event.target.src);
+                !event.target.dataset.type ? (
+                  setAnchorEl(event.currentTarget)
+                ) : (
+                  <Modal imgUrl={event.target.src} />
+                );
               }
             : () => {}
         }
