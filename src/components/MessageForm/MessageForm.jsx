@@ -29,12 +29,31 @@ export default function MessageForm(props) {
   const [picker, setPicker] = useState(false);
 
   useEffect(() => {
+    picker && window.addEventListener("click", handleClick);
+    window.addEventListener("keydown", handlekeydown);
+    return () => {
+      window.removeEventListener("keydown", handlekeydown);
+      window.removeEventListener("click", handleClick);
+    };
+  }, [picker]);
+
+  function handleClick(e) {
+    e.target.dataset && setPicker(!picker);
+  }
+
+  useEffect(() => {
     props.copiedMessage.text && setMessage(props.copiedMessage.text);
   }, [props]);
 
   const updateMessage = (evt) => {
     setMessage(evt.target.value);
   };
+
+  function handlekeydown(e) {
+    if (e.code === "Escape") {
+      props.toggleModal();
+    }
+  }
 
   const ref = useRef(null);
   const onEmojiClick = (event, emojiObject) => {
@@ -99,17 +118,16 @@ export default function MessageForm(props) {
           className={styles.messageInputForm}
         >
           {picker && (
-            <div className={styles.Overlay} onClick={setPicker(false)}>
-              <Picker
-                onEmojiClick={onEmojiClick}
-                disableSearchBar={true}
-                pickerStyle={{
-                  position: "absolute",
-                  right: "100%",
-                  bottom: "50%",
-                }}
-              />
-            </div>
+            <Picker
+              onEmojiClick={onEmojiClick}
+              disableSearchBar={true}
+              pickerStyle={{
+                position: "absolute",
+                right: "100%",
+                bottom: "50%",
+              }}
+              data-type="form"
+            />
           )}
           <button
             type="button"
