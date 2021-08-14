@@ -25,9 +25,7 @@ export default function Message(content) {
           userNick === content.nick
             ? (event) => {
                 console.log(event.target);
-                console.log(event.target === !"IMG");
-                console.log(event.target === !"img");
-                event.target === !"IMG" && setAnchorEl(event.currentTarget);
+                !event.target.dataset.type && setAnchorEl(event.currentTarget);
               }
             : () => {
                 console.log("Кликнули на картинку");
@@ -43,7 +41,7 @@ export default function Message(content) {
               content.content.includes(".png") ||
               content.content.includes(".gif") ||
               content.content.includes(".webp") ? (
-                <img src={content.content}></img>
+                <img src={content.content} data-type="IMG"></img>
               ) : (
                 content.content
               )}
