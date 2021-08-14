@@ -56,8 +56,16 @@
     width: 680px;
     /* margin-top: 30px; */
   }
+  .sendImg {
+    width: 30px;
+    height: 30px;
+  }
 }
 @media (min-width: 768px) and (max-width: 1199px) {
+  .sendImg {
+    width: 30px;
+    height: 30px;
+  }
   .messageInputContainer {
     width: 680px;
     margin-top: 15px;
