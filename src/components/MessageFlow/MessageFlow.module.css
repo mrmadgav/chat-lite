@@ -33,6 +33,12 @@
     color: rgb(81, 108, 136);
   }
 }
+@media screen and (min-width: 1200px) {
+  .chatWrapper {
+    background-color: white;
+  }
+}
+
 @media (min-width: 320px) and (max-width: 767px) {
   .chatDiv {
     width: 320px;
@@ -41,9 +47,6 @@
 @media (min-width: 768px) and (max-width: 1199px) {
   .chatDiv {
     width: 470px;
-  }
-  .chatWrapper {
-    background-color: white;
   }
 }
 .chatDiv {
