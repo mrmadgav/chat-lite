@@ -90,8 +90,6 @@ export default function MessageFlow(props) {
                   handleToUpdate={handleToUpdate}
                   onChangeMenu={onChangeMenu}
                   getCopiedMessage={props.getCopiedMessage}
-                  handleModal={handleModal}
-                  toggleModal={toggleModal}
                 />
               );
             }
@@ -102,7 +100,7 @@ export default function MessageFlow(props) {
         <ChangeMenu EditMessageID={EditMessageID} onChangeMenu={onChangeMenu} />
       )}
       {typing && <span>{userTyping} is typing...</span>}
-      {modal && <Modal imgUrl={modalSrc} />}
+      {modal && <Modal imgUrl={modalSrc} toggleModal={toggleModal} />}
     </div>
   );
 }
