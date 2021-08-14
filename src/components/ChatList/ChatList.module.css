@@ -26,7 +26,8 @@
 }
 .ChatListTitle {
   display: block;
-  background-color: lightsteelblue;
+  /* background-color: lightsteelblue; */
+  color: rgb(140, 175, 207);
   text-align: center;
   font-family: "Franklin Gothic Medium";
   color: whitesmoke;
