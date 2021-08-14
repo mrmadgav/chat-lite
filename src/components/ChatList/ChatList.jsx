@@ -17,7 +17,7 @@ export default function ChatList() {
       const users = await axios.get("/users");
       dispatch(authActions.getUsersSuccess(users.data));
     };
-    
+
     socket.on("user:login", getUsersFromServer);
     return () => {
       socket.removeListener("user:login", getUsersFromServer);
@@ -25,7 +25,7 @@ export default function ChatList() {
   }, [UserList]);
 
   return (
-    <div className={styles.ChatListWrapper}>
+    <div className={`${styles.ChatListWrapper} ${styles.scrollbar}`}>
       <span className={styles.ChatListTitle}>OnLine</span>
       <ul className={styles.ChatListUl}>
         {UserList &&
