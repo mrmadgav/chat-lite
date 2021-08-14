@@ -48,10 +48,13 @@ export default function MessageFlow(props) {
     socket.on("userStoppedTyping", setTyping(false));
   }, []);
 
+
   const scrollToBottom = () => {
     console.log("произошел скролл");
     console.log(messagesEndRef.current);
-    messagesEndRef.current?.scrollIntoView();
+    messagesEndRef.current.scrollIntoView({
+      behavior: "smooth",
+    });
   };
 
   const handleToUpdate = (id) => {
