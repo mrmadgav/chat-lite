@@ -48,10 +48,12 @@
 
 @media screen and (min-width: 1200px) {
   .ChatListWrapper {
-    overflow-y: scroll;
-    max-height: 560px;
     padding: 20px;
     margin-left: 50px;
+  }
+  .ChatListUl {
+    overflow-y: scroll;
+    max-height: 500px;
   }
 }
 
