@@ -33,7 +33,11 @@ export default function Message(content) {
           <>
             <span>{`${content.nick} :`}</span>
             <span>
-              {content.content.includes(".jpg") ? (
+              {content.content.includes(".jpg") ||
+              content.content.includes(".svg") ||
+              content.content.includes(".png") ||
+              content.content.includes(".gif") ||
+              content.content.includes(".webp") ? (
                 <img src={content.content}></img>
               ) : (
                 content.content
