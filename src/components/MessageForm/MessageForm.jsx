@@ -99,15 +99,17 @@ export default function MessageForm(props) {
           className={styles.messageInputForm}
         >
           {picker && (
-            <Picker
-              onEmojiClick={onEmojiClick}
-              disableSearchBar={true}
-              pickerStyle={{
-                position: "absolute",
-                right: "100%",
-                bottom: "50%",
-              }}
-            />
+            <div className={styles.Overlay} onClick={setPicker(false)}>
+              <Picker
+                onEmojiClick={onEmojiClick}
+                disableSearchBar={true}
+                pickerStyle={{
+                  position: "absolute",
+                  right: "100%",
+                  bottom: "50%",
+                }}
+              />
+            </div>
           )}
           <button
             type="button"
