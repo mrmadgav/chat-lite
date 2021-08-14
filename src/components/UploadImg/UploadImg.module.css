@@ -1,8 +1,9 @@
 .uploadImg {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 }
 .uploadBtn {
+  cursor: pointer;
   border: none;
   background: none;
 }
