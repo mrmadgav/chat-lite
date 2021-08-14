@@ -85,6 +85,9 @@
   .ChatListWrapper {
     margin-bottom: 10px;
   }
+  .ChatListElement {
+    padding: 5px;
+  }
 }
 
 .scrollbar {
