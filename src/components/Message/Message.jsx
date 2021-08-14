@@ -25,7 +25,6 @@ export default function Message(content) {
         onClick={
           userNick === content.nick
             ? (event) => {
-                console.log(event.target.src);
                 !event.target.dataset.type ? (
                   setAnchorEl(event.currentTarget)
                 ) : (

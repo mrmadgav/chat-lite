@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import styles from "./Modal.module.css";
 
 export default function Modal(props) {
-  const [Modal, setModal] = useState(false);
+  const [Modal, setModal] = useState(true);
 
   useEffect(() => {
     window.addEventListener("keydown", handlekeydown);
