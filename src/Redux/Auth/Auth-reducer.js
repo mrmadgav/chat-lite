@@ -18,7 +18,6 @@ const pickerValue = false;
 const user = createReducer(initialUserState, {
   [authActions.registerSuccess]: (_, { payload }) => payload.data.user,
   [authActions.LoginSuccess]: (_, { payload }) => {
-    console.log("Payload при логине", payload);
     return {
       ..._,
       userId: payload.id,

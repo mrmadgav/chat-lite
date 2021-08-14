@@ -28,7 +28,10 @@ export default function Message(content) {
                   ? setAnchorEl(event.currentTarget)
                   : content.handleModal(event.target.src);
               }
-            : () => {}
+            : (event) => {
+                event.target.dataset.type &&
+                  content.handleModal(event.target.src);
+              }
         }
       >
         {
