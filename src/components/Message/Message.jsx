@@ -24,7 +24,7 @@ export default function Message(content) {
         onClick={
           userNick === content.nick
             ? (event) => {
-                console.log(event.target.dataset.tag);
+                console.log(event.target.dataset);
                 event.target.dataset.tag =
                   !"IMG" && setAnchorEl(event.currentTarget);
               }
