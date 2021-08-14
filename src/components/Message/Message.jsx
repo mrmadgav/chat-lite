@@ -25,11 +25,11 @@ export default function Message(content) {
           userNick === content.nick
             ? (event) => {
                 console.log(event.target);
-                !event.target.dataset.type && setAnchorEl(event.currentTarget);
+                !event.target.dataset.type
+                  ? setAnchorEl(event.currentTarget)
+                  : console.log("Кликнули на картинку");
               }
-            : () => {
-                console.log("Кликнули на картинку");
-              }
+            : () => {}
         }
       >
         {
