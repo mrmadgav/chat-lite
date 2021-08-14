@@ -37,10 +37,6 @@ export default function MessageForm(props) {
     };
   }, [picker]);
 
-  function handleClick(e) {
-    e.target.dataset && setPicker(!picker);
-  }
-
   useEffect(() => {
     props.copiedMessage.text && setMessage(props.copiedMessage.text);
   }, [props]);
@@ -49,9 +45,13 @@ export default function MessageForm(props) {
     setMessage(evt.target.value);
   };
 
+  function handleClick(e) {
+    e.target.dataset && setPicker(!picker);
+  }
+
   function handlekeydown(e) {
     if (e.code === "Escape") {
-      props.toggleModal();
+      setPicker(false);
     }
   }
 
