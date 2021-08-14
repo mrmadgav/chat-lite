@@ -33,7 +33,7 @@ export default function Message(content) {
           <>
             <span>{`${content.nick} :`}</span>
             <span>
-              {content.includes(".jpg") ? (
+              {content.content.includes(".jpg") ? (
                 <img src={content.content}></img>
               ) : (
                 content.content
