@@ -2,7 +2,7 @@ import React from "react";
 
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, IndexRedirect } from "react-router-dom";
 import { socket } from "./components/helpers/io";
 import { createBrowserHistory } from "history";
 
@@ -62,6 +62,7 @@ function App() {
           {!isAuthenticated && <Route path="/" component={MainMenu} />}
           {!isAuthenticated && <Route exact path="/" component={LoginPanel} />}
           <Switch>
+            <IndexRedirect to="/" />
             {!isAuthenticated && (
               <Route
                 exact
@@ -93,7 +94,11 @@ function App() {
             )}
           </Switch>
         </>
-        {!isAuthenticated && <div className="MainPageImageWrapperForDesktop"><MainPageImage /></div>}
+        {!isAuthenticated && (
+          <div className="MainPageImageWrapperForDesktop">
+            <MainPageImage />
+          </div>
+        )}
       </div>
     </Section>
   );
