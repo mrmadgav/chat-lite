@@ -6,7 +6,7 @@ import MainPageImage from "../MainPageImage/MainPageImage";
 import register from "../../img/register.svg";
 import login from "../../img/login.svg";
 import { ReactComponent as LoginSVG } from "../../img/login.svg";
-
+import { ReactComponent as RegSVG } from "../../img/register.svg";
 const MainMenu = () => {
   return (
     <div className={styles.MainHeaderWrapper}>
@@ -24,12 +24,12 @@ const MainMenu = () => {
               className={styles.NavLink}
               activeClassName={styles.NavLinkActive}
             >
-              <object
-                type="image/svg+xml"
-                data={register}
-                className={styles.menuIcon}
-                alt="register icon"
-              ></object>
+              <RegSVG
+                fill="#8cafcf"
+                width="30px"
+                height="30px"
+                margin-right="10px"
+              />
               Register
             </NavLink>
           </li>
@@ -40,7 +40,12 @@ const MainMenu = () => {
               className={styles.NavLink}
               activeClassName={styles.NavLinkActive}
             >
-              <LoginSVG fill="#8cafcf" width="40px" height="40px" />
+              <LoginSVG
+                fill="#8cafcf"
+                width="30px"
+                height="30px"
+                margin-right="10px"
+              />
               Login
             </NavLink>
           </li>
