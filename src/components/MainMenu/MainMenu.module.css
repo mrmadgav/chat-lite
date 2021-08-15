@@ -96,6 +96,9 @@
 svg > path:hover {
   fill: coral;
 }
+svg path:hover {
+  fill: coral;
+}
 svg:hover {
   fill: coral;
 }
