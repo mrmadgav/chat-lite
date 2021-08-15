@@ -79,7 +79,6 @@ export default function MessageFlow(props) {
   //Drag & Drop
   const handleDragEnter = (e) => {
     e.preventDefault();
-    console.log("drag enter");
     e.dataTransfer.setData("IMG", e.target.dataTransfer.files);
     e.dataTransfer.effectAllowed = "all";
     e.dataTransfer.dropEffect = "move";
@@ -87,32 +86,18 @@ export default function MessageFlow(props) {
 
   const handleDragLeave = (e) => {
     e.preventDefault();
-    console.log("drag leave");
   };
 
   const handleDragOver = (e) => {
     e.preventDefault();
-    console.log("drag over");
   };
 
   const handleDrop = (e) => {
     e.preventDefault();
-    console.log("e.datatransfer", e.dataTransfer.files[0]);
-    console.log(
-      "Какой-то e.originalEvent.dataTransfer",
-      e.originalEvent.dataTransfer
-    );
-    console.log("drag drop");
-
-    const data = e.dataTransfer.getData("IMG");
-    console.log("DATA", data);
     dispatch(sendImg(e.dataTransfer.files[0], currentToken));
   };
-
-  const handleInputChange = () => {
-    console.log("handleInputChange");
-  };
   //Drag & Drop
+  
   return (
     <div className={styles.chatWrapper}>
       <div
@@ -121,7 +106,6 @@ export default function MessageFlow(props) {
         onDragOver={(e) => handleDragOver(e)}
         onDragEnter={(e) => handleDragEnter(e)}
         onDragLeave={(e) => handleDragLeave(e)}
-        onChange={handleInputChange}
       >
         <div className={`${styles.chatDiv} ${styles.scrollbarFrozenDreams}`}>
           {allHistory &&
