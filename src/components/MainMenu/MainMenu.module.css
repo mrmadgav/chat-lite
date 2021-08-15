@@ -88,5 +88,5 @@
 }
 .menuIcon:hover {
   filter: hue-rotate(180deg);
-  filter: invert(1);
+  /* filter: invert(1); */
 }
