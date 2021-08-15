@@ -7,7 +7,7 @@ import MessageMenu from "../MessageMenu/MessageMenu";
 
 export default function Message(content) {
   console.log(content);
-  // const userNick = useSelector(getNickname);
+  const userNick = useSelector(getNickname);
   // const allUsers = useSelector(getAllUsers);
   // const msgUserAvaUrl = () => {
   //   return allUsers.filter(currentMessageAuthor);
@@ -47,7 +47,7 @@ export default function Message(content) {
       >
         {
           <>
-            <img src={msgUserAvaUrl()} alt="" className={styles.avatar}></img>
+            <img src={content.urlAvatar} alt="" className={styles.avatar}></img>
             <span>{`${content.nick}: `}</span>
             <span>
               {content.content.includes(".jpg") ||
