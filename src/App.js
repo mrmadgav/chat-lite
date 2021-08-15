@@ -2,8 +2,7 @@ import React from "react";
 
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Route, Switch } from "react-router-dom";
-import { IndexRedirect } from "react-router";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 import { socket } from "./components/helpers/io";
 import { createBrowserHistory } from "history";
@@ -64,7 +63,7 @@ function App() {
           {!isAuthenticated && <Route path="/" component={MainMenu} />}
           {!isAuthenticated && <Route exact path="/" component={LoginPanel} />}
           <Switch>
-            <IndexRedirect to="/" />
+            <Redirect from="/null" to="/" />
             {!isAuthenticated && (
               <Route
                 exact
