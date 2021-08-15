@@ -99,3 +99,6 @@ object svg path:hover {
 g path:hover {
   fill: coral;
 }
+g:hover {
+  fill: coral;
+}
