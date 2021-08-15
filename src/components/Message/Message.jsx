@@ -36,7 +36,7 @@ export default function Message(content) {
       >
         {
           <>
-            <span>{`${content.nick} :`}</span>
+            <span>{`${content.nick}: `}</span>
             <span>
               {content.content.includes(".jpg") ||
               content.content.includes(".svg") ||

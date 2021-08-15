@@ -3,10 +3,10 @@ import { NavLink } from "react-router-dom";
 import styles from "./MainMenu.module.css";
 import Logo from "../Logo/Logo";
 import MainPageImage from "../MainPageImage/MainPageImage";
-import register from "../../img/register.svg";
-import login from "../../img/login.svg";
+
 import { ReactComponent as LoginSVG } from "../../img/login.svg";
 import { ReactComponent as RegSVG } from "../../img/register.svg";
+
 const MainMenu = () => {
   return (
     <div className={styles.MainHeaderWrapper}>
