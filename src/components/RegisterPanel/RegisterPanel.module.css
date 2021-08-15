@@ -72,7 +72,7 @@
 }
 @media (min-width: 320px) and (max-width: 767px) {
   .formRegContainer {
-    padding: 10px 25px;
+    padding: 0px 25px;
   }
 }
 .reveralButton {
