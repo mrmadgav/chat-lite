@@ -9,7 +9,13 @@
     font-size: 24px;
   }
 }
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1199px) {
+  .Logo {
+    font-size: 32px;
+    white-space: nowrap;
+  }
+}
+@media screen and (min-width: 1200px) {
   .Logo {
     font-size: 46px;
   }
