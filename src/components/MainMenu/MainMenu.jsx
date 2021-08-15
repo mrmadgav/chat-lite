@@ -5,6 +5,7 @@ import Logo from "../Logo/Logo";
 import MainPageImage from "../MainPageImage/MainPageImage";
 import register from "../../img/register.svg";
 import login from "../../img/login.svg";
+import { ReactComponent as LoginSVG } from "../../img/login.svg";
 
 const MainMenu = () => {
   return (
@@ -39,12 +40,7 @@ const MainMenu = () => {
               className={styles.NavLink}
               activeClassName={styles.NavLinkActive}
             >
-              <object
-                type="image/svg+xml"
-                data={login}
-                className={styles.menuIcon}
-                alt="register icon"
-              ></object>
+              <LoginSVG fill="#8cafcf" />
               Login
             </NavLink>
           </li>
