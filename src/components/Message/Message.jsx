@@ -4,7 +4,7 @@ import styles from "./Message.module.css";
 import { useSelector } from "react-redux";
 import { getNickname } from "../../Redux/selectors";
 import MessageMenu from "../MessageMenu/MessageMenu";
-import anonym from "../../img/anonym.svg";
+import anonym from "../../img/anonymGit.png";
 
 export default function Message(content) {
   const userNick = useSelector(getNickname);
