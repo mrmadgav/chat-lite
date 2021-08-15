@@ -4,6 +4,7 @@ import styles from "./Message.module.css";
 import { useSelector } from "react-redux";
 import { getNickname } from "../../Redux/selectors";
 import MessageMenu from "../MessageMenu/MessageMenu";
+import anonym from "../../img/anonym.svg";
 
 export default function Message(content) {
   const userNick = useSelector(getNickname);
@@ -37,7 +38,14 @@ export default function Message(content) {
         {
           <>
             <img
-              src={content.avatarUrl[0].urlAvatar}
+              src={
+                content.avatarUrl[0].urlAvatar
+                  ? content.avatarUrl[0].urlAvatar.replace(
+                      "c_fill,w_150,h_150",
+                      "c_fill,w_75,h_75"
+                    )
+                  : anonym
+              }
               alt=""
               className={styles.avatar}
             ></img>
