@@ -91,7 +91,8 @@
   border: none;
   margin-right: 10px;
   color: lightsteelblue;
+  cursor: pointer;
 }
-object path:hover {
+object svg path:hover {
   fill: coral;
 }
