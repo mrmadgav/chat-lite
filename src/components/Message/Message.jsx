@@ -22,7 +22,7 @@ export default function Message(content) {
             content.avatarUrl[0].urlAvatar
               ? content.avatarUrl[0].urlAvatar.replace(
                   "c_fill,w_150,h_150",
-                  "c_fill,w_75,h_75"
+                  "c_fill,w_50,h_50"
                 )
               : anonym
           }
