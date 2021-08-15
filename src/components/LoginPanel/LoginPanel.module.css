@@ -53,16 +53,26 @@
   color: white;
 }
 .formRegContainer {
-  padding: 50px 25px;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 1px solid rgb(179, 197, 214);
   border-radius: 4px;
 }
-@media screen and (max-width: 1199px) {
+@media screen and (min-width: 1200px) {
+  .formRegContainer {
+    padding: 50px 25px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1199px) {
   .formRegContainer {
     margin-top: 20px;
+    padding: 25px 50px;
+  }
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  .formRegContainer {
+    padding: 50px 25px;
   }
 }
 
