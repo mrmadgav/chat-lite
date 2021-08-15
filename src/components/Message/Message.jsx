@@ -9,7 +9,7 @@ export default function Message(content) {
   const userNick = useSelector(getNickname);
   const allUsers = useSelector(getAllUsers);
   const msgUserAvaUrl = () => {
-    allUsers.filter(currentMessageAuthor);
+    return allUsers.filter(currentMessageAuthor);
   };
   function currentMessageAuthor(i) {
     console.log("THIS");
@@ -45,7 +45,7 @@ export default function Message(content) {
       >
         {
           <>
-            <img src={msgUserAvaUrl} alt="" className={styles.avatar}></img>
+            <img src={msgUserAvaUrl()} alt="" className={styles.avatar}></img>
             <span>{`${content.nick}: `}</span>
             <span>
               {content.content.includes(".jpg") ||
