@@ -35,7 +35,6 @@
   display: flex;
   padding: 10px;
   outline: none;
-  color: lightsteelblue;
 }
 .NavLink:hover {
   color: coral;
