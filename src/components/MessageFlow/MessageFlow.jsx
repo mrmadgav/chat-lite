@@ -109,7 +109,7 @@ export default function MessageFlow(props) {
         onDragLeave={(e) => handleDragLeave(e)}
       >
         <div className={`${styles.chatDiv} ${styles.scrollbarFrozenDreams}`}>
-          {allUsers &&
+          {allUsers.length > 1 &&
             allHistory.map((i) => {
               if (i.text.toLowerCase().includes(filter.toLowerCase())) {
                 return (
