@@ -131,6 +131,7 @@ export default function MessageFlow(props) {
                 );
               }
             })}
+          <div id="bottom" ref={messagesEndRef} />
           <div className="draggable-container">
             <input
               type="file"
@@ -140,7 +141,6 @@ export default function MessageFlow(props) {
             />
           </div>
         </div>
-        <div id="bottom" ref={messagesEndRef} />
       </div>
       {changeMenu && (
         <ChangeMenu EditMessageID={EditMessageID} onChangeMenu={onChangeMenu} />
