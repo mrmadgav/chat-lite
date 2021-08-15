@@ -6,15 +6,17 @@ import { getAllUsers, getNickname } from "../../Redux/selectors";
 import MessageMenu from "../MessageMenu/MessageMenu";
 
 export default function Message(content) {
-  const userNick = useSelector(getNickname);
-  const allUsers = useSelector(getAllUsers);
-  const msgUserAvaUrl = () => {
-    return allUsers.filter(currentMessageAuthor);
-  };
-  function currentMessageAuthor(i) {
-    console.log("THIS");
-    return i.nickname === content.nickname && i.urlAvatar;
-  }
+  console.log(content);
+  // const userNick = useSelector(getNickname);
+  // const allUsers = useSelector(getAllUsers);
+  // const msgUserAvaUrl = () => {
+  //   return allUsers.filter(currentMessageAuthor);
+  // };
+  // function currentMessageAuthor(i) {
+  //   console.log("THIS");
+
+  //   return i.nickname === content.nickname && i.urlAvatar;
+  // }
 
   const [anchorEl, setAnchorEl] = useState(null);
 
