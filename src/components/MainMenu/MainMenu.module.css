@@ -92,6 +92,5 @@
   margin-right: 10px;
 }
 .menuIcon:hover {
-  filter: hue-rotate(180deg);
-  /* filter: invert(1); */
+  fill: coral;
 }
