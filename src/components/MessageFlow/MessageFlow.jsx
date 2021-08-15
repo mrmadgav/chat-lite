@@ -94,7 +94,8 @@ export default function MessageFlow(props) {
 
   const handleDrop = (e) => {
     e.preventDefault();
-    console.log("в мышке вот это", e);
+
+    console.log("e.targer", e.target);
     console.log("drag drop");
     dispatch(sendImg(e.target.files[0], currentToken));
   };
