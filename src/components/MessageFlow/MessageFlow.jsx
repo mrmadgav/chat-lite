@@ -96,12 +96,12 @@ export default function MessageFlow(props) {
 
   const handleDrop = (e) => {
     e.preventDefault();
-    console.log("e.datatransfer", e.dataTransfer);
+    console.log("e.datatransfer", e.dataTransfer.files[0]);
     console.log("drag drop");
 
     const data = e.dataTransfer.getData("IMG");
     console.log("DATA", data);
-    // dispatch(sendImg(e.target.files[0], currentToken));
+    dispatch(sendImg(e.dataTransfer.files[0], currentToken));
   };
 
   const handleInputChange = () => {
