@@ -60,7 +60,7 @@
 }
 @media screen and (min-width: 1200px) {
   .formRegContainer {
-    padding: 50px 25px;
+    padding: 25px;
   }
 }
 @media (min-width: 768px) and (max-width: 1199px) {
