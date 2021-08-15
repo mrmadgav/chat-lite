@@ -58,7 +58,7 @@ export default function LoginPanel() {
           ></input>
         </label>
         <button type="submit" className={styles.contactBtn}>
-          LogIn
+          Login
         </button>
       </form>
     </div>

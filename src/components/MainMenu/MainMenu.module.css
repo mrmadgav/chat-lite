@@ -71,3 +71,12 @@
     display: none;
   }
 }
+.menuIcon {
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: none;
+}
+.menuIcon:hover {
+  color: coral;
+}
