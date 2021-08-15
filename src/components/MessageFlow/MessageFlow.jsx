@@ -31,7 +31,8 @@ export default function MessageFlow(props) {
   const allUsers = useSelector(getAllUsers);
 
   useEffect(() => {
-    dispatch(fetchHistory()).then(() => scrollToBottom());
+    allUsers.length > 1 &&
+      dispatch(fetchHistory()).then(() => scrollToBottom());
     console.log("сработал UseEffect");
 
     socket.on("message:fromServer", () => {
