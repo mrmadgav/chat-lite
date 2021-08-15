@@ -58,9 +58,8 @@ function App() {
     <Section>
       <div className={!isAuthenticated ? "AppUnlogged" : "AppLogged"}>
         <>
-          {!isAuthenticated && (
-            <Route path="/" component={(MainMenu, LoginPanel)} />
-          )}
+          {!isAuthenticated && <Route path="/" component={MainMenu} />}
+          {!isAuthenticated && <Route exact path="/" component={LoginPanel} />}
           <Switch>
             {!isAuthenticated && (
               <Route
