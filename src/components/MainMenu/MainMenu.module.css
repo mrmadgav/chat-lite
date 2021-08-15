@@ -39,6 +39,10 @@
 .NavLink:hover {
   color: coral;
 }
+.NavLink:hover svg {
+  color: coral;
+  fill: coral;
+}
 .MainBar {
   display: flex;
   flex-direction: column;
