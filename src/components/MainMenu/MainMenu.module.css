@@ -27,6 +27,11 @@
   color: coral;
   border-radius: 4px;
 }
+.NavLinkActive img {
+  color: coral;
+  fill: coral;
+  border-radius: 4px;
+}
 .NavLink {
   display: flex;
   padding: 10px;
