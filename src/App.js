@@ -18,7 +18,7 @@ import Chat from "./components/Chat/Chat";
 import MainMenu from "./components/MainMenu/MainMenu";
 import LogOut from "./components/LogOut/LogOut";
 import ChatList from "./components/ChatList/ChatList";
-import MainPageImage from "./MainPageImage/MainPageImage";
+import MainPageImage from "./components/MainPageImage/MainPageImage";
 import Logo from "./components/Logo/Logo";
 
 //CSS
