@@ -44,7 +44,6 @@ const MainMenu = () => {
                 data={login}
                 className={styles.menuIcon}
                 alt="register icon"
-                onClick={(e) => console.log(e.target.data)}
               ></object>
               Login
             </NavLink>
