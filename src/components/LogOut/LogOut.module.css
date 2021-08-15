@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Chilanka&display=swap");
+
 .logOutBtn {
   display: block;
   height: fit-content;
@@ -43,7 +45,7 @@
 .NickName {
   display: flex;
   align-items: center;
-  font-family: "Franklin Gothic Medium";
+  font-family: "Chilanka", cursive;
   font-size: 20px;
   color: rgb(140, 175, 207);
 }
