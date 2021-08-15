@@ -100,3 +100,6 @@ g > path:hover {
   fill: coral;
 }
 
+path:hover {
+  fill: orange;
+}
