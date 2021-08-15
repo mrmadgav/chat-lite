@@ -104,6 +104,10 @@ path {
   fill: inherit;
   stroke: inherit;
 }
+svg > path {
+  fill: inherit;
+  stroke: inherit;
+}
 
 .menuIcon svg path {
   fill: coral;
