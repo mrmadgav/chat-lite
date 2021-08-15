@@ -23,9 +23,12 @@ const MainMenu = () => {
               className={styles.NavLink}
               activeClassName={styles.NavLinkActive}
             >
-              <td class="text-center">
-                <div class="MenuLoginColor MenuLoginSVG" />
-              </td>
+              <object
+                type="image/svg+xml"
+                data={register}
+                className={styles.menuIcon}
+                alt="register icon"
+              ></object>
               Register
             </NavLink>
           </li>

@@ -93,23 +93,7 @@
   color: lightsteelblue;
   cursor: pointer;
 }
-/* svg path:hover {
-  color: coral;
-  fill: coral;
-} */
-svg:hover {
-  color: coral;
+.menuIcon svg path {
   fill: coral;
 }
-.MenuLoginSVG {
-  height: 1em; /* set your own icon size */
-  mask: url("../../img/login.svg"); /* path to your image */
-  -webkit-mask: url("../../img/login.svg") no-repeat center;
-}
-.MenuLoginColor {
-  color: lightsteelblue;
-}
-.MenuLoginColor:hover {
-  color: coral;
-  fill: coral;
-}
+
