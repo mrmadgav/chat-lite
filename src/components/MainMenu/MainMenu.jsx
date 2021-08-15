@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 import styles from "./MainMenu.module.css";
 import Logo from "../Logo/Logo";
 import MainPageImage from "../MainPageImage/MainPageImage";
-import register from "../../img/register.png";
-import login from "../../img/login.png";
+import register from "../../img/register.svg";
+import login from "../../img/login.svg";
 
 const MainMenu = () => {
   return (
