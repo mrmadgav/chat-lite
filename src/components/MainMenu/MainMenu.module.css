@@ -93,5 +93,6 @@
   color: lightsteelblue;
 }
 .menuIcon:hover {
-  fill: coral;
+  /* fill: coral; */
+  color: coral;
 }

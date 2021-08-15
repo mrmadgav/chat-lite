@@ -27,6 +27,7 @@ const MainMenu = () => {
                 type="image/svg+xml"
                 data={register}
                 className={styles.menuIcon}
+                alt="register icon"
               ></object>
               {/* <img src={register} alt="" className={styles.menuIcon}></img> */}
               Register
