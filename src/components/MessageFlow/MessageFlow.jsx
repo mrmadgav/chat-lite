@@ -100,7 +100,7 @@ export default function MessageFlow(props) {
 
     const data = e.dataTransfer.getData("IMG");
     console.log("DATA", data);
-    dispatch(sendImg(e.target.files[0], currentToken));
+    // dispatch(sendImg(e.target.files[0], currentToken));
   };
 
   const handleInputChange = () => {
