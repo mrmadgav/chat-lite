@@ -2,7 +2,9 @@ import React from "react";
 
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Route, Switch, IndexRedirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
+import { IndexRedirect } from "react-router";
+
 import { socket } from "./components/helpers/io";
 import { createBrowserHistory } from "history";
 
