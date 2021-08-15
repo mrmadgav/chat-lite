@@ -73,27 +73,69 @@ export default function MessageFlow(props) {
     setModal(!modal);
   }
 
+  //Drag & Drop
+  const handleDragEnter = (e) => {
+    e.preventDefault();
+    console.log("drag enter");
+  };
+
+  const handleDragLeave = (e) => {
+    e.preventDefault();
+    console.log("drag leave");
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    console.log("drag over");
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    console.log("drag drop");
+  };
+
+  const handleInputChange = () => {
+    console.log("handleInputChange");
+  };
+  //Drag & Drop
   return (
     <div className={styles.chatWrapper}>
-      <div className={`${styles.chatDiv} ${styles.scrollbarFrozenDreams}`}>
-        {allHistory &&
-          allHistory.map((i) => {
-            if (i.text.toLowerCase().includes(filter.toLowerCase())) {
-              return (
-                <Message
-                  content={i.text}
-                  nick={i.nickname}
-                  date={i.date}
-                  id={i.id}
-                  key={nanoid()}
-                  handleToUpdate={handleToUpdate}
-                  onChangeMenu={onChangeMenu}
-                  getCopiedMessage={props.getCopiedMessage}
-                  handleModal={handleModal}
-                />
-              );
-            }
-          })}
+      <div
+        className="dropzone"
+        onDrop={(e) => handleDrop(e)}
+        onDragOver={(e) => handleDragOver(e)}
+        onDragEnter={(e) => handleDragEnter(e)}
+        onDragLeave={(e) => handleDragLeave(e)}
+        onChange={handleInputChange}
+      >
+        <div className={`${styles.chatDiv} ${styles.scrollbarFrozenDreams}`}>
+          {allHistory &&
+            allHistory.map((i) => {
+              if (i.text.toLowerCase().includes(filter.toLowerCase())) {
+                return (
+                  <Message
+                    content={i.text}
+                    nick={i.nickname}
+                    date={i.date}
+                    id={i.id}
+                    key={nanoid()}
+                    handleToUpdate={handleToUpdate}
+                    onChangeMenu={onChangeMenu}
+                    getCopiedMessage={props.getCopiedMessage}
+                    handleModal={handleModal}
+                  />
+                );
+              }
+            })}
+          <div className="draggable-container">
+            <input
+              type="file"
+              className="file-browser-input"
+              name="file-browser-input"
+              style={{ display: "none" }}
+            />
+          </div>
+        </div>
         <div id="bottom" ref={messagesEndRef} />
       </div>
       {changeMenu && (
