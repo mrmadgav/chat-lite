@@ -2,11 +2,16 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./MainMenu.module.css";
 import Logo from "../Logo/Logo";
+import MainPageImage from "../MainPageImage/MainPageImage";
 
 const MainMenu = () => {
   return (
     <div className={styles.MainHeaderWrapper}>
       <Logo />
+      <div className={styles.MainPageImageWrapperForMobile}>
+        <MainPageImage />
+      </div>
+
       <div className={styles.MenuContainer}>
         <ul className={styles.MainBar}>
           <li className={styles.navLi}>

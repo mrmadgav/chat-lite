@@ -50,15 +50,24 @@
     justify-content: space-between;
     padding: 10px;
   }
+  .MainPageImageWrapperForMobile {
+    display: block;
+  }
 }
 @media (min-width: 768px) and (max-width: 1199px) {
   .MainHeaderWrapper {
     margin-top: 20px;
     margin-right: 40px;
   }
+  .MainPageImageWrapperForMobile {
+    display: none;
+  }
 }
 @media screen and (min-width: 1200px) {
   .MainHeaderWrapper {
     margin-right: 25px;
+  }
+  .MainPageImageWrapperForMobile {
+    display: none;
   }
 }
