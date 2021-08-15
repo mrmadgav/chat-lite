@@ -58,6 +58,7 @@
   justify-content: center;
   border: 1px solid rgb(179, 197, 214);
   border-radius: 4px;
+  background-color: ghostwhite;
 }
 @media screen and (min-width: 1200px) {
   .formRegContainer {
