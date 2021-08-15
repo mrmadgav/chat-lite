@@ -23,7 +23,12 @@ const MainMenu = () => {
               className={styles.NavLink}
               activeClassName={styles.NavLinkActive}
             >
-              <img src={register} alt="" className={styles.menuIcon}></img>
+              <object
+                type="image/svg+xml"
+                data={register}
+                className={styles.menuIcon}
+              ></object>
+              {/* <img src={register} alt="" className={styles.menuIcon}></img> */}
               Register
             </NavLink>
           </li>
