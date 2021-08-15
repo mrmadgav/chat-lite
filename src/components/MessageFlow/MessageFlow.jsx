@@ -79,6 +79,7 @@ export default function MessageFlow(props) {
   //Drag & Drop
   const handleDragEnter = (e) => {
     e.preventDefault();
+    console.log("дата на входе", e.dataTransfer);
     e.dataTransfer.setData("IMG", e.target.dataTransfer.files);
     console.log("drag enter");
   };
