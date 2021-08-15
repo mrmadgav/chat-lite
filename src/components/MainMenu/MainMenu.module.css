@@ -89,13 +89,13 @@
   height: 30px;
   background: none;
   border: none;
-  margin-right: 10px;
   color: lightsteelblue;
   fill: lightsteelblue;
   cursor: pointer;
 }
 svg {
   fill: #8cafcf;
+  margin-right: 10px;
 }
 svg:hover {
   fill: coral;
