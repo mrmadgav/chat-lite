@@ -12,6 +12,7 @@ export default function Message(content) {
     allUsers.filter(currentMessageAuthor);
   };
   function currentMessageAuthor(i) {
+    console.log("THIS");
     return i.nickname === content.nickname && i.urlAvatar;
   }
 
