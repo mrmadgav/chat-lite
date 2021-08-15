@@ -77,6 +77,7 @@
   height: 30px;
   background: none;
   border: none;
+  margin-left: 10px;
 }
 .menuIcon:hover {
   color: coral;
