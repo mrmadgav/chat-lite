@@ -5,7 +5,7 @@ import Logo from "../Logo/Logo";
 
 const MainMenu = () => {
   return (
-    <div>
+    <div className={styles.MainHeaderWrapper}>
       <Logo />
       <div className={styles.MenuContainer}>
         <ul className={styles.MainBar}>
