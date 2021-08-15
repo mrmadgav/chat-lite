@@ -110,6 +110,7 @@ export default function MessageFlow(props) {
       >
         <div className={`${styles.chatDiv} ${styles.scrollbarFrozenDreams}`}>
           {allHistory &&
+            allUsers &&
             allHistory.map((i) => {
               if (i.text.toLowerCase().includes(filter.toLowerCase())) {
                 return (
