@@ -79,6 +79,7 @@ export default function MessageFlow(props) {
   //Drag & Drop
   const handleDragEnter = (e) => {
     e.preventDefault();
+    e.dataTransfer.setData("IMG", e.target.id);
     console.log("drag enter");
   };
 
@@ -98,6 +99,8 @@ export default function MessageFlow(props) {
     console.log("e.target", e.target);
     console.log("e.datatransfer", e.dataTransfer);
     console.log("drag drop");
+    const data = e.dataTransfer.getData("IMG");
+    console.log(data);
     dispatch(sendImg(e.target.files[0], currentToken));
   };
 
