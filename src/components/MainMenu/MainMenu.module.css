@@ -94,7 +94,12 @@
   fill: lightsteelblue;
   cursor: pointer;
 }
-
+svg {
+  fill: #8cafcf;
+}
+svg:hover {
+  fill: coral;
+}
 path {
   fill: inherit;
   stroke: inherit;
