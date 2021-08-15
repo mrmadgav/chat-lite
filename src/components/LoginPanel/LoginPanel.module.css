@@ -53,7 +53,7 @@
   color: white;
 }
 .formRegContainer {
-  padding: 50px;
+  padding: 50px 25px;
   display: flex;
   align-items: center;
   justify-content: center;
