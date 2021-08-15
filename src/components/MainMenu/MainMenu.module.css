@@ -92,7 +92,6 @@
   margin-right: 10px;
   color: lightsteelblue;
 }
-.menuIcon:hover {
-  /* fill: coral; */
-  color: coral;
+.menuIcon path:hover {
+  fill: coral;
 }

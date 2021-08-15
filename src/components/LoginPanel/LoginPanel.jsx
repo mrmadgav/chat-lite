@@ -2,7 +2,6 @@ import styles from "./LoginPanel.module.css";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../../Redux/Auth/Auth-operations";
-import { passwordHidden } from "../../img/passwordHide.png";
 
 export default function LoginPanel() {
   const [email, setEmail] = useState("");

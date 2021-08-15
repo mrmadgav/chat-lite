@@ -17,7 +17,6 @@ export default function MessageFlow(props) {
   const [modal, setModal] = useState(false);
   const [modalSrc, setModalSrc] = useState("");
   const filter = useSelector(filterValue);
-  const [message, setMessage] = useState([]);
   const [EditMessageID, setEditMessageID] = useState(null);
   const [typing, setTyping] = useState(false);
   const [userTyping, setUserTyping] = useState([]);

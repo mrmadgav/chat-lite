@@ -24,7 +24,7 @@ import Logo from "./components/Logo/Logo";
 //CSS
 import "./App.css";
 import "./index.css";
-import { StylesProvider } from "@material-ui/core";
+// import { StylesProvider } from "@material-ui/core";
 
 // client-side
 function App() {

@@ -43,7 +43,7 @@ export default function Message(content) {
               content.content.includes(".png") ||
               content.content.includes(".gif") ||
               content.content.includes(".webp") ? (
-                <img src={content.content} data-type="IMG"></img>
+                <img src={content.content} data-type="IMG" alt=""></img>
               ) : (
                 content.content
               )}

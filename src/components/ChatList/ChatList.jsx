@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllUsers } from "../../Redux/selectors";
 import { socket } from "../helpers/io";
@@ -7,7 +7,6 @@ import axios from "axios";
 import styles from "./ChatList.module.css";
 
 export default function ChatList() {
-  const [users, setUsers] = useState([]);
   const UserList = useSelector(getAllUsers);
   const dispatch = useDispatch();
 

@@ -29,7 +29,6 @@ const MainMenu = () => {
                 className={styles.menuIcon}
                 alt="register icon"
               ></object>
-              {/* <img src={register} alt="" className={styles.menuIcon}></img> */}
               Register
             </NavLink>
           </li>
@@ -40,7 +39,12 @@ const MainMenu = () => {
               className={styles.NavLink}
               activeClassName={styles.NavLinkActive}
             >
-              <img src={login} alt="" className={styles.menuIcon}></img>
+              <object
+                type="image/svg+xml"
+                data={login}
+                className={styles.menuIcon}
+                alt="register icon"
+              ></object>
               Login
             </NavLink>
           </li>
