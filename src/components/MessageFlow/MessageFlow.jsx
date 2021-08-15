@@ -77,20 +77,20 @@ export default function MessageFlow(props) {
   }
 
   //Drag & Drop
-  // const handleDragEnter = (e) => {
-  //   e.preventDefault();
-  //   console.log("drag enter");
-  // };
+  const handleDragEnter = (e) => {
+    e.preventDefault();
+    console.log("drag enter");
+  };
 
-  // const handleDragLeave = (e) => {
-  //   e.preventDefault();
-  //   console.log("drag leave");
-  // };
+  const handleDragLeave = (e) => {
+    e.preventDefault();
+    console.log("drag leave");
+  };
 
-  // const handleDragOver = (e) => {
-  //   e.preventDefault();
-  //   console.log("drag over");
-  // };
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    console.log("drag over");
+  };
 
   const handleDrop = (e) => {
     e.preventDefault();
@@ -107,9 +107,9 @@ export default function MessageFlow(props) {
       <div
         className="dropzone"
         onDrop={(e) => handleDrop(e)}
-        // onDragOver={(e) => handleDragOver(e)}
-        // onDragEnter={(e) => handleDragEnter(e)}
-        // onDragLeave={(e) => handleDragLeave(e)}
+        onDragOver={(e) => handleDragOver(e)}
+        onDragEnter={(e) => handleDragEnter(e)}
+        onDragLeave={(e) => handleDragLeave(e)}
         onChange={handleInputChange}
       >
         <div className={`${styles.chatDiv} ${styles.scrollbarFrozenDreams}`}>
