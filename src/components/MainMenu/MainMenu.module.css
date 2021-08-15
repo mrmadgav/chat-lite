@@ -93,7 +93,11 @@
   color: lightsteelblue;
   cursor: pointer;
 }
-svg path:hover {
+/* svg path:hover {
+  color: coral;
+  fill: coral;
+} */
+svg:hover {
   color: coral;
   fill: coral;
 }
