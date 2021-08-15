@@ -16,6 +16,18 @@ export default function Message(content) {
 
   return (
     <>
+      <img
+        src={
+          content.avatarUrl[0].urlAvatar
+            ? content.avatarUrl[0].urlAvatar.replace(
+                "c_fill,w_150,h_150",
+                "c_fill,w_75,h_75"
+              )
+            : anonym
+        }
+        alt=""
+        className={styles.avatar}
+      ></img>
       <div
         className={
           userNick === content.nick
@@ -37,18 +49,6 @@ export default function Message(content) {
       >
         {
           <>
-            <img
-              src={
-                content.avatarUrl[0].urlAvatar
-                  ? content.avatarUrl[0].urlAvatar.replace(
-                      "c_fill,w_150,h_150",
-                      "c_fill,w_75,h_75"
-                    )
-                  : anonym
-              }
-              alt=""
-              className={styles.avatar}
-            ></img>
             <span>{`${content.nick}: `}</span>
             <span>
               {content.content.includes(".jpg") ||

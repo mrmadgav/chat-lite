@@ -1,5 +1,5 @@
 .sentMessageMy {
-  display: flex;
+  display: block;
   margin-top: 10px;
   width: fit-content;
   cursor: pointer;
@@ -9,7 +9,7 @@
   padding: 10px;
 }
 .sentMessageOther {
-  display: flex;
+  display: block;
   margin-top: 10px;
   width: fit-content;
   background-color: rgb(174, 184, 211);
