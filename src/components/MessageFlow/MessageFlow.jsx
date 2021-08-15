@@ -12,6 +12,8 @@ import { getHistory } from "../../Redux/selectors";
 import { useRef } from "react";
 import ChangeMenu from "../ChangeMenu/ChangeMenu";
 import Modal from "../Modal/Modal";
+import { sendImg } from "../../Redux/Auth/Auth-operations";
+import { getToken } from "../../Redux/Auth/Auth-selectors";
 
 export default function MessageFlow(props) {
   const [modal, setModal] = useState(false);
@@ -25,6 +27,7 @@ export default function MessageFlow(props) {
   const messagesEndRef = useRef(null);
   const [deletedMessage, setDeletedMessage] = useState("");
   const [changeMenu, setchangeMenu] = useState(false);
+  const currentToken = useSelector(getToken);
 
   useEffect(() => {
     dispatch(fetchHistory()).then(() => scrollToBottom());
@@ -74,24 +77,25 @@ export default function MessageFlow(props) {
   }
 
   //Drag & Drop
-  const handleDragEnter = (e) => {
-    e.preventDefault();
-    console.log("drag enter");
-  };
+  // const handleDragEnter = (e) => {
+  //   e.preventDefault();
+  //   console.log("drag enter");
+  // };
 
-  const handleDragLeave = (e) => {
-    e.preventDefault();
-    console.log("drag leave");
-  };
+  // const handleDragLeave = (e) => {
+  //   e.preventDefault();
+  //   console.log("drag leave");
+  // };
 
-  const handleDragOver = (e) => {
-    e.preventDefault();
-    console.log("drag over");
-  };
+  // const handleDragOver = (e) => {
+  //   e.preventDefault();
+  //   console.log("drag over");
+  // };
 
   const handleDrop = (e) => {
     e.preventDefault();
     console.log("drag drop");
+    dispatch(sendImg(e.target.files[0], currentToken));
   };
 
   const handleInputChange = () => {
@@ -103,9 +107,9 @@ export default function MessageFlow(props) {
       <div
         className="dropzone"
         onDrop={(e) => handleDrop(e)}
-        onDragOver={(e) => handleDragOver(e)}
-        onDragEnter={(e) => handleDragEnter(e)}
-        onDragLeave={(e) => handleDragLeave(e)}
+        // onDragOver={(e) => handleDragOver(e)}
+        // onDragEnter={(e) => handleDragEnter(e)}
+        // onDragLeave={(e) => handleDragLeave(e)}
         onChange={handleInputChange}
       >
         <div className={`${styles.chatDiv} ${styles.scrollbarFrozenDreams}`}>
