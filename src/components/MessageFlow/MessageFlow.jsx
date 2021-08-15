@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { nanoid } from "nanoid";
 import { useEffect } from "react";
 import { fetchHistory } from "../../Redux/Chat/Chat-operations";
-import { filterValue } from "../../Redux/selectors";
+import { filterValue, getAllUsers } from "../../Redux/selectors";
 import styles from "./MessageFlow.module.css";
 import { getHistory } from "../../Redux/selectors";
 import { useRef } from "react";
@@ -28,6 +28,7 @@ export default function MessageFlow(props) {
   const [deletedMessage, setDeletedMessage] = useState("");
   const [changeMenu, setchangeMenu] = useState(false);
   const currentToken = useSelector(getToken);
+  const allUsers = useSelector(getAllUsers);
 
   useEffect(() => {
     dispatch(fetchHistory()).then(() => scrollToBottom());
@@ -97,7 +98,7 @@ export default function MessageFlow(props) {
     dispatch(sendImg(e.dataTransfer.files[0], currentToken));
   };
   //Drag & Drop
-  
+
   return (
     <div className={styles.chatWrapper}>
       <div
@@ -122,6 +123,9 @@ export default function MessageFlow(props) {
                     onChangeMenu={onChangeMenu}
                     getCopiedMessage={props.getCopiedMessage}
                     handleModal={handleModal}
+                    avatarUrl={allUsers.filter(
+                      (j) => j.nickname === i.nickname
+                    )}
                   />
                 );
               }

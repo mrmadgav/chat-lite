@@ -2,22 +2,11 @@ import React from "react";
 import { useState } from "react";
 import styles from "./Message.module.css";
 import { useSelector } from "react-redux";
-import { getAllUsers, getNickname } from "../../Redux/selectors";
+import { getNickname } from "../../Redux/selectors";
 import MessageMenu from "../MessageMenu/MessageMenu";
 
 export default function Message(content) {
-  console.log(content);
   const userNick = useSelector(getNickname);
-  // const allUsers = useSelector(getAllUsers);
-  // const msgUserAvaUrl = () => {
-  //   return allUsers.filter(currentMessageAuthor);
-  // };
-  // function currentMessageAuthor(i) {
-  //   console.log("THIS");
-
-  //   return i.nickname === content.nickname && i.urlAvatar;
-  // }
-
   const [anchorEl, setAnchorEl] = useState(null);
 
   const sendAnchor = (anchorEl) => {
@@ -47,7 +36,11 @@ export default function Message(content) {
       >
         {
           <>
-            <img src={content.urlAvatar} alt="" className={styles.avatar}></img>
+            <img
+              src={content.avatarUrl.urlAvatar}
+              alt=""
+              className={styles.avatar}
+            ></img>
             <span>{`${content.nick}: `}</span>
             <span>
               {content.content.includes(".jpg") ||
