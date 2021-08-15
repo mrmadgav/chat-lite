@@ -40,7 +40,7 @@ const MainMenu = () => {
               className={styles.NavLink}
               activeClassName={styles.NavLinkActive}
             >
-              <LoginSVG fill="#8cafcf" />
+              <LoginSVG fill="#8cafcf" width="40px" height="40px" />
               Login
             </NavLink>
           </li>
