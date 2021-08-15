@@ -6,7 +6,6 @@ import { getNickname } from "../../Redux/selectors";
 import MessageMenu from "../MessageMenu/MessageMenu";
 
 export default function Message(content) {
-  console.log(content.avatarUrl);
   const userNick = useSelector(getNickname);
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -38,7 +37,7 @@ export default function Message(content) {
         {
           <>
             <img
-              src={content.avatarUrl.urlAvatar}
+              src={content.avatarUrl[0].urlAvatar}
               alt=""
               className={styles.avatar}
             ></img>
