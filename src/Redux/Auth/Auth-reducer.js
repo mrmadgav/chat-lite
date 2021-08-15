@@ -56,6 +56,7 @@ const chat = createReducer(messagesInChat, {
 });
 const userChart = createReducer(userList, {
   [authActions.getUsersSuccess]: (_, { payload }) => {
+    console.log("Пришли юзеры", payload);
     return [...userList, ...payload.data];
   },
 });
