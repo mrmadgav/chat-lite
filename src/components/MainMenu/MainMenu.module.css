@@ -91,9 +91,15 @@
   border: none;
   margin-right: 10px;
   color: lightsteelblue;
+  fill: lightsteelblue;
   cursor: pointer;
 }
+
+path {
+  fill: inherit;
+  stroke: inherit;
+}
+
 .menuIcon svg path {
   fill: coral;
 }
-
