@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 import styles from "./MainMenu.module.css";
 import Logo from "../Logo/Logo";
 import MainPageImage from "../MainPageImage/MainPageImage";
-import register from "../../img/register.svg";
-import login from "../../img/login.svg";
+import register from "../../img/register.png";
+import login from "../../img/login.png";
 
 const MainMenu = () => {
   return (
@@ -23,8 +23,8 @@ const MainMenu = () => {
               className={styles.NavLink}
               activeClassName={styles.NavLinkActive}
             >
-              Register
               <img src={register} alt="" className={styles.menuIcon}></img>
+              Register
             </NavLink>
           </li>
           <li className={styles.navLink}>
@@ -34,8 +34,8 @@ const MainMenu = () => {
               className={styles.NavLink}
               activeClassName={styles.NavLinkActive}
             >
-              Login
               <img src={login} alt="" className={styles.menuIcon}></img>
+              Login
             </NavLink>
           </li>
         </ul>
