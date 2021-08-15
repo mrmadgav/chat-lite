@@ -101,3 +101,14 @@ svg:hover {
   color: coral;
   fill: coral;
 }
+.MenuLoginSVG {
+  height: 1.6em; /* set your own icon size */
+  mask: url("../../img/login.svg"); /* path to your image */
+  -webkit-mask: url("../../img/login.svg") no-repeat center;
+}
+.MenuLoginColor {
+  color: lightsteelblue;
+}
+.MenuLoginColor:hover {
+  color: coral;
+}
