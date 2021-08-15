@@ -28,7 +28,7 @@ const MainMenu = () => {
                 fill="#8cafcf"
                 width="30px"
                 height="30px"
-                margin-right="10px"
+                margin-right="10"
               />
               Register
             </NavLink>
@@ -44,7 +44,7 @@ const MainMenu = () => {
                 fill="#8cafcf"
                 width="30px"
                 height="30px"
-                margin-right="10px"
+                margin-right="10"
               />
               Login
             </NavLink>
