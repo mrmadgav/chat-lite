@@ -27,10 +27,9 @@
   color: coral;
   border-radius: 4px;
 }
-.NavLinkActive img {
+.NavLinkActive svg {
   color: coral;
   fill: coral;
-  border-radius: 4px;
 }
 .NavLink {
   display: flex;
