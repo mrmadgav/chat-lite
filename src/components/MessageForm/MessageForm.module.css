@@ -73,7 +73,7 @@
 }
 @media (min-width: 320px) and (max-width: 767px) {
   .messageInputContainer {
-    width: 260px;
+    width: 290px;
     display: block;
     margin: 0 auto;
   }

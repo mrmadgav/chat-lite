@@ -41,7 +41,7 @@
 
 @media (min-width: 320px) and (max-width: 767px) {
   .chatDiv {
-    width: 260px;
+    width: 290px;
     margin: 0 auto;
     height: 380px;
     background-color: white;
