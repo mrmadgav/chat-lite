@@ -51,3 +51,8 @@
     padding: 10px;
   }
 }
+@media screen and (min-width: 1200px) {
+  .MainHeaderWrapper {
+    margin-right: 25px;
+  }
+}
