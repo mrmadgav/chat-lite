@@ -31,6 +31,13 @@ export default function MessageFlow(props) {
   const allUsers = useSelector(getAllUsers);
 
   useEffect(() => {
+    allUsers.length > 1 && scrollToBottom();
+    return () => {
+      console.log("Анмаунт юзэффекта от всех юзеров");
+    };
+  }, [allUsers]);
+
+  useEffect(() => {
     dispatch(fetchHistory()).then(() => scrollToBottom());
     console.log("сработал UseEffect");
 
