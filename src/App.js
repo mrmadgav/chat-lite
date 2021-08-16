@@ -37,6 +37,7 @@ function App() {
   const getIsAuthenticated = useSelector((state) => state.authReducer.token);
   const getUserId = useSelector((state) => state.authReducer.user.userId);
   const getUserNick = useSelector((state) => state.authReducer.user.nickname);
+  const allUsers = useSelector(getAllUsers);
 
   const dispatch = useDispatch();
 
@@ -52,7 +53,7 @@ function App() {
       console.log(i);
       if (i.nickname === event.target.innerHTML) return i._id;
     };
-    setRoomId(getUserId + getAllUsers.filter(getUserIdForRoom()));
+    setRoomId(getUserId + allUsers.filter(getUserIdForRoom));
     console.log(RoomId);
   };
 
