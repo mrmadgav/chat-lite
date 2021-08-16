@@ -50,6 +50,7 @@ const error = createReducer(null, {
   [ChatActions.onFilterError]: (_, { payload }) => payload.data,
   [ChatActions.onPickerError]: (_, { payload }) => payload.data,
   [ChatActions.sendUpdatedMessageError]: (_, { payload }) => payload.data,
+  [ChatActions.fetchPrivateHistoryError]: (_, { payload }) => payload.data,
 });
 const chat = createReducer(messagesInChat, {
   [ChatActions.sendMessageSuccess]: (_, { payload }) => payload.data,
