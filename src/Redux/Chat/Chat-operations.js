@@ -49,7 +49,7 @@ export const fetchHistory = () => async (dispatch) => {
 export const fetchPrivateHistory = (credentials) => async (dispatch) => {
   dispatch(chatActions.fetchPrivateHistoryRequest());
   try {
-    const response = await axios.get("/privateHistory", credentials);
+    const response = await axios.get("/privateHistory", { params: { roomId: credentials }});
     console.log(response);
     dispatch(chatActions.fetchPrivateHistorySuccess(response.data));
   } catch (error) {
