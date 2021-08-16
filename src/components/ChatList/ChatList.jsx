@@ -31,8 +31,13 @@ export default function ChatList(props) {
           UserList.map((i) => {
             if (i.isOnline) {
               return (
-                <li onClick={props.beginPrivatDialog}>
-                  <span className={styles.ChatListElement}>{i.nickname}</span>
+                <li>
+                  <span
+                    className={styles.ChatListElement}
+                    onClick={props.beginPrivatDialog}
+                  >
+                    {i.nickname}
+                  </span>
                 </li>
               );
             }
