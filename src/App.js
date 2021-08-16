@@ -39,11 +39,11 @@ function App() {
   // Функционал личных сообщений
   const [PrivateDialog, setPrivateDialog] = useState(false);
 
-  const beginPrivatDialog = () => {
+  const beginPrivateDialog = (event) => {
     setPrivateDialog(true);
-    console.log("начинаем диалог");
+    console.log(event.target.options[event.target.selectedIndex].text);
   };
-  const endPrivatDialog = () => {
+  const endPrivateDialog = () => {
     setPrivateDialog(false);
     console.log("закончили диалог");
   };
@@ -103,8 +103,8 @@ function App() {
                 </div>
                 <div className="ChatListWrapper">
                   <ChatList
-                    beginPrivatDialog={beginPrivatDialog}
-                    endPrivatDialog={endPrivatDialog}
+                    beginPrivatDialog={beginPrivateDialog}
+                    endPrivatDialog={endPrivateDialog}
                   />
                   <Route
                     path="/"

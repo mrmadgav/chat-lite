@@ -5,7 +5,7 @@ import Message from "../Message/Message";
 import { useDispatch, useSelector } from "react-redux";
 import { nanoid } from "nanoid";
 import { useEffect } from "react";
-import { fetchHistory } from "../../Redux/Chat/Chat-operations";
+import { fetchHistory, fetchPrivateHistory } from "../../Redux/Chat/Chat-operations";
 import { filterValue, getAllUsers } from "../../Redux/selectors";
 import styles from "./MessageFlow.module.css";
 import { getHistory, getPrivateHistory } from "../../Redux/selectors";
@@ -40,6 +40,7 @@ export default function MessageFlow(props) {
 
   useEffect(() => {
     dispatch(fetchHistory()).then(() => scrollToBottom());
+    dispatch(fetchPrivateHistory()).then(() => scrollToBottom());
     console.log("сработал UseEffect");
 
     socket.on("message:fromServer", () => {

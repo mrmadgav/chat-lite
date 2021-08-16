@@ -30,7 +30,7 @@ export default function ChatList(props) {
         <li>
           <span
             className={styles.ChatListElement}
-            onClick={props.endPrivatDialog}
+            onClick={props.endPrivateDialog}
           >
             Общий чат
           </span>
@@ -42,7 +42,7 @@ export default function ChatList(props) {
                 <li>
                   <span
                     className={styles.ChatListElement}
-                    onClick={props.beginPrivatDialog}
+                    onClick={props.beginPrivateDialog}
                   >
                     {i.nickname}
                   </span>
