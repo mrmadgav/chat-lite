@@ -33,7 +33,7 @@ export default function MessageFlow(props) {
   useEffect(() => {
     allUsers.length > 1 && scrollToBottom();
     return () => {
-      console.log("Анмаунт юзэффекта от всех юзеров");
+      // console.log("Анмаунт юзэффекта от всех юзеров");
     };
   }, [allUsers]);
 
