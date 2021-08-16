@@ -11,6 +11,7 @@ import UploadImg from "../UploadImg/UploadImg";
 
 export default function Chat() {
   const [copiedMessage, setcopiedMessage] = useState("");
+  
   const allHistory = useSelector(getHistory);
 
   const getCopiedMessage = (id) => {
@@ -18,6 +19,7 @@ export default function Chat() {
     const [copiedValue] = value;
     setcopiedMessage(copiedValue);
   };
+   
   return (
     <>
       <div className={styles.chatContainer}>
@@ -25,7 +27,10 @@ export default function Chat() {
           <span className={styles.chatWelcome}>Welcome to chat</span> <Filter />
           <UploadImg />
         </span>
-        <MessageFlow getCopiedMessage={getCopiedMessage} />
+        <MessageFlow
+          getCopiedMessage={getCopiedMessage}
+          // PrivateDialog={PrivateDialog}
+        />
         <MessageForm copiedMessage={copiedMessage} />
       </div>
     </>

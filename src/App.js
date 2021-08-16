@@ -36,6 +36,15 @@ function App() {
   const getUserNick = useSelector((state) => state.authReducer.user.nickname);
   const dispatch = useDispatch();
 
+  // Функционал личных сообщений
+  const [PrivateDialog, setPrivateDialog] = useState(false);
+
+  const beginPrivatDialog = () => {
+    setPrivateDialog(true);
+    console.log("начинаем диалог");
+  };
+  // Функционал личных сообщений
+
   useEffect(() => {
     setisAuthenticated(getIsAuthenticated);
   }, [getIsAuthenticated]);
@@ -88,8 +97,14 @@ function App() {
                   <LogOut id={getUserId} />
                 </div>
                 <div className="ChatListWrapper">
-                  <ChatList />
-                  <Route path="/" component={Chat} redirectTo="/" />
+                  <ChatList beginPrivatDialog={beginPrivatDialog} />
+                  <Route
+                    path="/"
+                    component={(props) => (
+                      <Chat PrivateDialog={PrivateDialog} {...props} />
+                    )}
+                    redirectTo="/"
+                  />
                 </div>
               </>
             )}

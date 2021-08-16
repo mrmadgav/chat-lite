@@ -6,7 +6,7 @@ import authActions from "../../Redux/Auth/Auth-actions";
 import axios from "axios";
 import styles from "./ChatList.module.css";
 
-export default function ChatList() {
+export default function ChatList(props) {
   const UserList = useSelector(getAllUsers);
   const dispatch = useDispatch();
 
@@ -31,7 +31,7 @@ export default function ChatList() {
           UserList.map((i) => {
             if (i.isOnline) {
               return (
-                <li>
+                <li onClick={props.beginPrivatDialog}>
                   <span className={styles.ChatListElement}>{i.nickname}</span>
                 </li>
               );
