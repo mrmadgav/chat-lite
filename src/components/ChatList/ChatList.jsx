@@ -10,11 +10,11 @@ export default function ChatList(props) {
   const UserList = useSelector(getAllUsers);
   const dispatch = useDispatch();
 
+  console.log("Сработал UseEffect в ChatList");
+  console.log("Пропсы в чатлисте", props);
+
   useEffect(() => {
     const getUsersFromServer = async () => {
-      console.log("Сработал UseEffect в ChatList");
-      console.log("Пропсы в чатлисте", props);
-      
       const users = await axios.get("/users");
       dispatch(authActions.getUsersSuccess(users.data));
     };
