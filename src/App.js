@@ -11,6 +11,9 @@ import { createBrowserHistory } from "history";
 import { getUser } from "./Redux/Auth/Auth-operations";
 import { sendUserList } from "./Redux/Chat/Chat-operations";
 
+//Selectors
+import { getAllUsers } from "./Redux/selectors";
+
 //Components
 import Section from "../src/components/Section/Section";
 import RegisterPanel from "./components/RegisterPanel/RegisterPanel.jsx";
@@ -34,14 +37,20 @@ function App() {
   const getIsAuthenticated = useSelector((state) => state.authReducer.token);
   const getUserId = useSelector((state) => state.authReducer.user.userId);
   const getUserNick = useSelector((state) => state.authReducer.user.nickname);
+
   const dispatch = useDispatch();
 
   // Функционал личных сообщений
   const [PrivateDialog, setPrivateDialog] = useState(false);
-
+  const [RoomId, setRoomId] = useState("");
   const beginPrivateDialog = (event) => {
     setPrivateDialog(true);
-    console.log(event.target.innerHTML);
+
+    const getUserIdForRoom = (i) => {
+      if (i.nickname === event.target.innerHTML) return i._id;
+    };
+    setRoomId(getUserId + getAllUsers.filter(getUserIdForRoom));
+    console.log(RoomId);
   };
   const endPrivateDialog = () => {
     setPrivateDialog(false);
