@@ -54,10 +54,10 @@ function App() {
     };
     console.log("getUserId", getUserId);
     console.log(
-      "allUsers.filter(getUserIdForRoom)",
-      allUsers.filter(getUserIdForRoom)
+      "getUserId + allUsers.filter(getUserIdForRoom)[0]._id",
+      getUserId + allUsers.filter(getUserIdForRoom)[0]._id
     );
-    setRoomId(getUserId + allUsers.filter(getUserIdForRoom));
+    setRoomId(getUserId + allUsers.filter(getUserIdForRoom)[0]._id);
     console.log(RoomId);
   };
 
