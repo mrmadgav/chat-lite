@@ -52,13 +52,7 @@ function App() {
     const getUserIdForRoom = (i) => {
       if (i.nickname === event.target.innerHTML) return i._id;
     };
-    console.log("getUserId", getUserId);
-    console.log(
-      "getUserId + allUsers.filter(getUserIdForRoom)[0]._id",
-      getUserId + allUsers.filter(getUserIdForRoom)[0]._id
-    );
     setRoomId(getUserId + allUsers.filter(getUserIdForRoom)[0]._id);
-    console.log(RoomId);
   };
 
   //закончить диалог (по клику на общий чат)
@@ -128,7 +122,11 @@ function App() {
                   <Route
                     path="/"
                     component={(props) => (
-                      <Chat PrivateDialog={PrivateDialog} {...props} />
+                      <Chat
+                        PrivateDialog={PrivateDialog}
+                        {...props}
+                        RoomId={RoomId}
+                      />
                     )}
                     redirectTo="/"
                   />

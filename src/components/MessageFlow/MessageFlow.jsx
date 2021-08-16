@@ -40,7 +40,7 @@ export default function MessageFlow(props) {
 
   useEffect(() => {
     dispatch(fetchHistory()).then(() => scrollToBottom());
-    dispatch(fetchPrivateHistory()).then(() => scrollToBottom());
+    props.RoomId && dispatch(fetchPrivateHistory(props.RoomId)).then(() => scrollToBottom());
     console.log("сработал UseEffect");
 
     socket.on("message:fromServer", () => {

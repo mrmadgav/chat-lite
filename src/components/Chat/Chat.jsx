@@ -30,6 +30,7 @@ export default function Chat(props) {
         <MessageFlow
           getCopiedMessage={getCopiedMessage}
           PrivateDialog={props.PrivateDialog}
+          RoomId={props.RoomId}
         />
         <MessageForm copiedMessage={copiedMessage} />
       </div>
