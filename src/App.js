@@ -49,6 +49,7 @@ function App() {
     setPrivateDialog(true);
 
     const getUserIdForRoom = (i) => {
+      console.log(i);
       if (i.nickname === event.target.innerHTML) return i._id;
     };
     setRoomId(getUserId + getAllUsers.filter(getUserIdForRoom()));
