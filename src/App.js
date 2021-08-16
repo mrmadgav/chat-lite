@@ -43,15 +43,19 @@ function App() {
   // Функционал личных сообщений
   const [PrivateDialog, setPrivateDialog] = useState(false);
   const [RoomId, setRoomId] = useState("");
+
+  //начать диалог (создать комнату)
   const beginPrivateDialog = (event) => {
     setPrivateDialog(true);
 
     const getUserIdForRoom = (i) => {
       if (i.nickname === event.target.innerHTML) return i._id;
     };
-    setRoomId(getUserId + getAllUsers.filter(getUserIdForRoom));
+    setRoomId(getUserId + getAllUsers.filter(getUserIdForRoom()));
     console.log(RoomId);
   };
+
+  //закончить диалог (по клику на общий чат)
   const endPrivateDialog = () => {
     setPrivateDialog(false);
     console.log("закончили диалог");
