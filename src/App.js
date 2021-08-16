@@ -41,7 +41,7 @@ function App() {
 
   const beginPrivateDialog = (event) => {
     setPrivateDialog(true);
-    console.log(event.target);
+    console.log(event.target.innerHTML);
   };
   const endPrivateDialog = () => {
     setPrivateDialog(false);
