@@ -103,8 +103,8 @@ function App() {
                 </div>
                 <div className="ChatListWrapper">
                   <ChatList
-                    beginPrivatDialog={beginPrivateDialog}
-                    endPrivatDialog={endPrivateDialog}
+                    beginPrivateDialog={beginPrivateDialog}
+                    endPrivateDialog={endPrivateDialog}
                   />
                   <Route
                     path="/"
