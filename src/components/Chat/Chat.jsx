@@ -9,9 +9,9 @@ import { useState } from "react";
 import { getHistory } from "../../Redux/selectors";
 import UploadImg from "../UploadImg/UploadImg";
 
-export default function Chat() {
+export default function Chat(props) {
   const [copiedMessage, setcopiedMessage] = useState("");
-  
+
   const allHistory = useSelector(getHistory);
 
   const getCopiedMessage = (id) => {
@@ -19,7 +19,7 @@ export default function Chat() {
     const [copiedValue] = value;
     setcopiedMessage(copiedValue);
   };
-   
+
   return (
     <>
       <div className={styles.chatContainer}>
@@ -29,7 +29,7 @@ export default function Chat() {
         </span>
         <MessageFlow
           getCopiedMessage={getCopiedMessage}
-          // PrivateDialog={PrivateDialog}
+          PrivateDialog={props.PrivateDialog}
         />
         <MessageForm copiedMessage={copiedMessage} />
       </div>

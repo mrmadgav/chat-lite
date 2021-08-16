@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import { fetchHistory } from "../../Redux/Chat/Chat-operations";
 import { filterValue, getAllUsers } from "../../Redux/selectors";
 import styles from "./MessageFlow.module.css";
-import { getHistory } from "../../Redux/selectors";
+import { getHistory, getPrivateHistory } from "../../Redux/selectors";
 import { useRef } from "react";
 import ChangeMenu from "../ChangeMenu/ChangeMenu";
 import Modal from "../Modal/Modal";
@@ -24,6 +24,7 @@ export default function MessageFlow(props) {
   const [userTyping, setUserTyping] = useState([]);
   const dispatch = useDispatch();
   const allHistory = useSelector(getHistory);
+  const privateHistory = useSelector(getPrivateHistory);
   const messagesEndRef = useRef(null);
   const [deletedMessage, setDeletedMessage] = useState("");
   const [changeMenu, setchangeMenu] = useState(false);
@@ -116,27 +117,28 @@ export default function MessageFlow(props) {
         onDragLeave={(e) => handleDragLeave(e)}
       >
         <div className={`${styles.chatDiv} ${styles.scrollbarFrozenDreams}`}>
-          {allUsers.length > 1 &&
-            allHistory.map((i) => {
-              if (i.text.toLowerCase().includes(filter.toLowerCase())) {
-                return (
-                  <Message
-                    content={i.text}
-                    nick={i.nickname}
-                    date={i.date}
-                    id={i.id}
-                    key={nanoid()}
-                    handleToUpdate={handleToUpdate}
-                    onChangeMenu={onChangeMenu}
-                    getCopiedMessage={props.getCopiedMessage}
-                    handleModal={handleModal}
-                    avatarUrl={allUsers.filter(
-                      (j) => j.nickname === i.nickname
-                    )}
-                  />
-                );
-              }
-            })}
+          {allUsers.length > 1 && !props.PrivateDialog
+            ? allHistory
+            : privateHistory.map((i) => {
+                if (i.text.toLowerCase().includes(filter.toLowerCase())) {
+                  return (
+                    <Message
+                      content={i.text}
+                      nick={i.nickname}
+                      date={i.date}
+                      id={i.id}
+                      key={nanoid()}
+                      handleToUpdate={handleToUpdate}
+                      onChangeMenu={onChangeMenu}
+                      getCopiedMessage={props.getCopiedMessage}
+                      handleModal={handleModal}
+                      avatarUrl={allUsers.filter(
+                        (j) => j.nickname === i.nickname
+                      )}
+                    />
+                  );
+                }
+              })}
           <div id="bottom" ref={messagesEndRef} />
           <div className="draggable-container">
             <input

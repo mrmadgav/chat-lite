@@ -13,6 +13,7 @@ const initialUserState = {
 const messagesInChat = { messages: [] };
 const userList = [];
 const allHistory = [];
+const twoUsersHistory = [];
 const filterValue = "";
 const pickerValue = false;
 const user = createReducer(initialUserState, {
@@ -68,6 +69,10 @@ const filter = createReducer(filterValue, {
 const picker = createReducer(pickerValue, {
   [ChatActions.onPickerSuccess]: (_, { payload }) => payload,
 });
+const privateHistory = createReducer(twoUsersHistory, {
+  [ChatActions.fetchPrivateHistorySuccess]: (_, { payload }) =>
+    payload.data.messages,
+});
 
 export default combineReducers({
   user,
@@ -78,4 +83,5 @@ export default combineReducers({
   history,
   filter,
   picker,
+  privateHistory,
 });
