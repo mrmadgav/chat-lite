@@ -43,6 +43,11 @@ function App() {
     setPrivateDialog(true);
     console.log("начинаем диалог");
   };
+  const endPrivatDialog = () => {
+    setPrivateDialog(false);
+    console.log("закончили диалог");
+  };
+
   // Функционал личных сообщений
 
   useEffect(() => {
@@ -97,7 +102,10 @@ function App() {
                   <LogOut id={getUserId} />
                 </div>
                 <div className="ChatListWrapper">
-                  <ChatList beginPrivatDialog={beginPrivatDialog} />
+                  <ChatList
+                    beginPrivatDialog={beginPrivatDialog}
+                    endPrivatDialog={endPrivatDialog}
+                  />
                   <Route
                     path="/"
                     component={(props) => (

@@ -29,6 +29,14 @@ export default function ChatList(props) {
       <ul className={`${styles.ChatListUl} ${styles.scrollbarFrozenDreams}`}>
         {UserList &&
           UserList.map((i) => {
+            <li>
+              <span
+                className={styles.ChatListElement}
+                onClick={props.endPrivatDialog}
+              >
+                Общий чат
+              </span>
+            </li>;
             if (i.isOnline) {
               return (
                 <li>
