@@ -28,6 +28,10 @@ const sendUpdatedMessageRequest = createAction("chat/onChangeRequest");
 const sendUpdatedMessageSuccess = createAction("chat/onChangeSuccess");
 const sendUpdatedMessageError = createAction("chat/onChangeError");
 
+const fetchPrivateHistoryRequest = createAction("chat/fetchPrivateHistoryRequest");
+const fetchPrivateHistorySuccess = createAction("chat/fetchPrivateHistorySuccess");
+const fetchPrivateHistoryError = createAction("chat/fetchPrivateHistoryError");
+
 export default {
   sendMessageRequest,
   sendMessageSuccess,
@@ -50,4 +54,7 @@ export default {
   sendUpdatedMessageRequest,
   sendUpdatedMessageSuccess,
   sendUpdatedMessageError,
+  fetchPrivateHistoryRequest,
+  fetchPrivateHistorySuccess,
+  fetchPrivateHistoryError,
 };
