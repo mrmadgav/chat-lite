@@ -22,7 +22,7 @@ export const sendMessage = (credentials, currentToken) => async (dispatch) => {
     dispatch(chatActions.sendMessageSuccess(response.data));
     !credentials.roomId
       ? dispatch(fetchHistory())
-      : dispatch(fetchPrivateHistory());
+      : dispatch(fetchPrivateHistory(credentials.roomId));
   } catch (error) {
     dispatch(chatActions.sendMessageError(error.message));
   }
