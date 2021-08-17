@@ -41,7 +41,12 @@ export default function ChatList() {
   return (
     <div className={styles.ChatListWrapper}>
       <span className={styles.ChatListTitle}>OnLine</span>
-      <ul className={`${styles.ChatListUl} ${styles.scrollbarFrozenDreams}`} onClick={(e) => e.target.style.border = "1px solid red"}>
+      <ul
+        className={`${styles.ChatListUl} ${styles.scrollbarFrozenDreams}`}
+        onClick={(e) =>
+          e.target.tagName === "SPAN" && (e.target.style.border = "1px solid red")
+        }
+      >
         <li>
           <span className={styles.ChatListElement} onClick={endPrivateDialog}>
             Общий чат
