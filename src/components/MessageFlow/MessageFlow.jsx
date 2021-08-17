@@ -42,7 +42,12 @@ export default function MessageFlow(props) {
     };
   }, [allUsers]);
 
-  useEffect(() => {  
+  useEffect(() => {
+    console.log("Сработал UseEffect от RoomID");
+    currentRoomId && fetchPrivateHistory(currentRoomId);
+  }, [currentRoomId]);
+
+  useEffect(() => {
     currentRoomId
       ? dispatch(fetchPrivateHistory(currentRoomId)).then(() =>
           scrollToBottom()
