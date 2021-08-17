@@ -44,6 +44,7 @@ export default function MessageFlow(props) {
 
   useEffect(() => {
     console.log("Сработал UseEffect от RoomID");
+    console.log(currentRoomId);
     currentRoomId && fetchPrivateHistory(currentRoomId);
   }, [currentRoomId]);
 
