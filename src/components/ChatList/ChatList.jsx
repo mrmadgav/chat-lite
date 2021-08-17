@@ -44,7 +44,9 @@ export default function ChatList() {
       <ul
         className={`${styles.ChatListUl} ${styles.scrollbarFrozenDreams}`}
         onClick={(e) =>
-          e.target.tagName === "SPAN" && (e.target.style.border = "1px solid red")
+          e.target.tagName === "SPAN" &&
+          ((e.currenttarget.style.border = "none"),
+          (e.target.style.border = "1px solid steelgray"))
         }
       >
         <li>
