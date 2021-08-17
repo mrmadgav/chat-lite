@@ -37,32 +37,8 @@ function App() {
   const getIsAuthenticated = useSelector((state) => state.authReducer.token);
   const getUserId = useSelector((state) => state.authReducer.user.userId);
   const getUserNick = useSelector((state) => state.authReducer.user.nickname);
-  const allUsers = useSelector(getAllUsers);
 
   const dispatch = useDispatch();
-
-  // Функционал личных сообщений
-  const [PrivateDialog, setPrivateDialog] = useState(false);
-  const [RoomId, setRoomId] = useState("");
-
-  //начать диалог (создать комнату)
-  const beginPrivateDialog = (event) => {
-    setPrivateDialog(true);
-
-    const getUserIdForRoom = (i) => {
-      if (i.nickname === event.target.innerHTML) return i._id;
-    };
-    setRoomId(getUserId + allUsers.filter(getUserIdForRoom)[0]._id);
-  };
-
-  //закончить диалог (по клику на общий чат)
-  const endPrivateDialog = () => {
-    setPrivateDialog(false);
-    setRoomId("");
-    console.log("закончили диалог");
-  };
-
-  // Функционал личных сообщений
 
   useEffect(() => {
     setisAuthenticated(getIsAuthenticated);
@@ -116,21 +92,8 @@ function App() {
                   <LogOut id={getUserId} />
                 </div>
                 <div className="ChatListWrapper">
-                  <ChatList
-                    beginPrivateDialog={beginPrivateDialog}
-                    endPrivateDialog={endPrivateDialog}
-                  />
-                  <Route
-                    path="/"
-                    component={(props) => (
-                      <Chat
-                        PrivateDialog={PrivateDialog}
-                        {...props}
-                        RoomId={RoomId}
-                      />
-                    )}
-                    redirectTo="/"
-                  />
+                  <ChatList />
+                  <Route path="/" component={Chat} redirectTo="/" />
                 </div>
               </>
             )}

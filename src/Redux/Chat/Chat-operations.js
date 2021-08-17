@@ -100,3 +100,12 @@ export const sendUpdatedMessage = (data) => async (dispatch) => {
     dispatch(chatActions.sendUpdatedMessageError(error.message));
   }
 };
+
+export const setRoomId = (data) => async (dispatch) => {
+  dispatch(chatActions.setRoomIdRequest());
+  try {
+    dispatch(chatActions.setRoomIdSuccess(data));
+  } catch (error) {
+    dispatch(chatActions.setRoomIdError(error.message));
+  }
+};

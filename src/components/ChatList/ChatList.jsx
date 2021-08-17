@@ -4,11 +4,30 @@ import { getAllUsers } from "../../Redux/selectors";
 import { socket } from "../helpers/io";
 import authActions from "../../Redux/Auth/Auth-actions";
 import axios from "axios";
+import { setRoomId } from "./Redux/Chat/Chat-operations";
 import styles from "./ChatList.module.css";
 
-export default function ChatList(props) {
+export default function ChatList() {
   const UserList = useSelector(getAllUsers);
+  const getUserId = useSelector((state) => state.authReducer.user.userId);
+  const allUsers = useSelector(getAllUsers);
   const dispatch = useDispatch();
+
+  // Функционал личных сообщений
+  //начать диалог (создать комнату)
+  const beginPrivateDialog = (event) => {
+    const getUserIdForRoom = (i) => {
+      if (i.nickname === event.target.innerHTML) return i._id;
+    };
+
+    dispatch(setRoomId(getUserId + allUsers.filter(getUserIdForRoom)[0]._id));
+  };
+  //закончить диалог (по клику на общий чат)
+  const endPrivateDialog = () => {
+    dispatch(setRoomId(null));
+    console.log("закончили диалог");
+  };
+  // Функционал личных сообщений
 
   useEffect(() => {
     const getUsersFromServer = async () => {
@@ -27,10 +46,7 @@ export default function ChatList(props) {
       <span className={styles.ChatListTitle}>OnLine</span>
       <ul className={`${styles.ChatListUl} ${styles.scrollbarFrozenDreams}`}>
         <li>
-          <span
-            className={styles.ChatListElement}
-            onClick={props.endPrivateDialog}
-          >
+          <span className={styles.ChatListElement} onClick={endPrivateDialog}>
             Общий чат
           </span>
         </li>
@@ -41,7 +57,7 @@ export default function ChatList(props) {
                 <li>
                   <span
                     className={styles.ChatListElement}
-                    onClick={props.beginPrivateDialog}
+                    onClick={beginPrivateDialog}
                   >
                     {i.nickname}
                   </span>

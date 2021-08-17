@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { sendMessage } from "../../Redux/Chat/Chat-operations";
-import { getNickname } from "../../Redux/selectors";
+import { getNickname, getRoomId } from "../../Redux/selectors";
 import { getToken } from "../../Redux/Auth/Auth-selectors";
 import { socket } from "../helpers/io";
 import sendImg from "../../img/paws.png";
@@ -27,6 +27,7 @@ export default function MessageForm(props) {
   const currentToken = useSelector(getToken);
   const nickname = useSelector(getNickname);
   const [picker, setPicker] = useState(false);
+  const currentRoomId = useSelector(getRoomId);
 
   useEffect(() => {
     picker && window.addEventListener("click", handleClick);
@@ -81,7 +82,7 @@ export default function MessageForm(props) {
             nickname: nickname,
             text: message,
             id: id,
-            roomId: props.RoomId,            
+            roomId: currentRoomId,            
           },
           currentToken
         )

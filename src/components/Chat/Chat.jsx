@@ -27,12 +27,8 @@ export default function Chat(props) {
           <span className={styles.chatWelcome}>Welcome to chat</span> <Filter />
           <UploadImg />
         </span>
-        <MessageFlow
-          getCopiedMessage={getCopiedMessage}
-          PrivateDialog={props.PrivateDialog}
-          RoomId={props.RoomId}
-        />
-        <MessageForm copiedMessage={copiedMessage} RoomId={props.RoomId} />
+        <MessageFlow getCopiedMessage={getCopiedMessage} />
+        <MessageForm copiedMessage={copiedMessage} />
       </div>
     </>
   );

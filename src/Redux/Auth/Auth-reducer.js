@@ -16,6 +16,8 @@ const allHistory = [];
 const twoUsersHistory = [];
 const filterValue = "";
 const pickerValue = false;
+const privateRoomId = "";
+
 const user = createReducer(initialUserState, {
   [authActions.registerSuccess]: (_, { payload }) => payload.data.user,
   [authActions.LoginSuccess]: (_, { payload }) => {
@@ -76,6 +78,9 @@ const privateHistory = createReducer(twoUsersHistory, {
     return payload.data.messages;
   },
 });
+const roomId = createReducer(privateRoomId, {
+  [ChatActions.setRoomIdSuccess]: (_, { payload }) => payload,
+});
 
 export default combineReducers({
   user,
@@ -87,4 +92,5 @@ export default combineReducers({
   filter,
   picker,
   privateHistory,
+  roomId,
 });

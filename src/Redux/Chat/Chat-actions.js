@@ -32,6 +32,10 @@ const fetchPrivateHistoryRequest = createAction("chat/fetchPrivateHistoryRequest
 const fetchPrivateHistorySuccess = createAction("chat/fetchPrivateHistorySuccess");
 const fetchPrivateHistoryError = createAction("chat/fetchPrivateHistoryError");
 
+const setRoomIdRequest = createAction("chat/setRoomIdRequest");
+const setRoomIdSuccess = createAction("chat/setRoomIdSuccess");
+const setRoomIdError = createAction("chat/setRoomIdError");
+
 export default {
   sendMessageRequest,
   sendMessageSuccess,
@@ -57,4 +61,7 @@ export default {
   fetchPrivateHistoryRequest,
   fetchPrivateHistorySuccess,
   fetchPrivateHistoryError,
+  setRoomIdRequest,
+  setRoomIdSuccess,
+  setRoomIdError,
 };

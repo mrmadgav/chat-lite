@@ -9,7 +9,7 @@ import {
   fetchHistory,
   fetchPrivateHistory,
 } from "../../Redux/Chat/Chat-operations";
-import { filterValue, getAllUsers } from "../../Redux/selectors";
+import { filterValue, getAllUsers, getRoomId } from "../../Redux/selectors";
 import styles from "./MessageFlow.module.css";
 import { getHistory, getPrivateHistory } from "../../Redux/selectors";
 import { useRef } from "react";
@@ -33,6 +33,7 @@ export default function MessageFlow(props) {
   const [changeMenu, setchangeMenu] = useState(false);
   const currentToken = useSelector(getToken);
   const allUsers = useSelector(getAllUsers);
+  const currentRoomId = useSelector(getRoomId);
 
   useEffect(() => {
     allUsers.length > 1 && scrollToBottom();
@@ -41,10 +42,11 @@ export default function MessageFlow(props) {
     };
   }, [allUsers]);
 
-  useEffect(() => {
-    console.log("props.RoomId", props.RoomId, typeof props.RoomId, props.RoomId.length );
-    props.RoomId.length > 1
-      ? dispatch(fetchPrivateHistory(props.RoomId)).then(() => scrollToBottom())
+  useEffect(() => {  
+    currentRoomId
+      ? dispatch(fetchPrivateHistory(currentRoomId)).then(() =>
+          scrollToBottom()
+        )
       : dispatch(fetchHistory()).then(() => scrollToBottom());
     console.log("сработал UseEffect");
 
@@ -124,7 +126,7 @@ export default function MessageFlow(props) {
       >
         <div className={`${styles.chatDiv} ${styles.scrollbarFrozenDreams}`}>
           {allUsers.length > 1 &&
-            (!props.PrivateDialog ? allHistory : privateHistory).map((i) => {
+            (!currentRoomId ? allHistory : privateHistory).map((i) => {
               if (i.text.toLowerCase().includes(filter.toLowerCase())) {
                 return (
                   <Message
