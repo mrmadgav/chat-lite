@@ -66,7 +66,7 @@ export default function MessageFlow(props) {
     };
     socket.on("userTyping", userTyping);
     socket.on("userStoppedTyping", setTyping(false));
-  }, [props.RoomId]);
+  }, [dispatch, props.RoomId]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({
