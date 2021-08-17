@@ -42,6 +42,7 @@ export default function MessageFlow(props) {
   }, [allUsers]);
 
   useEffect(() => {
+    console.log("props.RoomId", props.RoomId);
     props.RoomId
       ? dispatch(fetchPrivateHistory(props.RoomId)).then(() => scrollToBottom())
       : dispatch(fetchHistory()).then(() => scrollToBottom());
