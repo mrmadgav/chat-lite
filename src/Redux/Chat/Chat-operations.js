@@ -98,7 +98,9 @@ export const sendUpdatedMessage = (data) => async (dispatch) => {
   try {
     await axios.post("/message/update", data);
     dispatch(chatActions.sendUpdatedMessageSuccess(data));
-    dispatch(fetchHistory());
+    !data.roomId
+      ? dispatch(fetchHistory())
+      : dispatch(fetchPrivateHistory(data.roomId));
   } catch (error) {
     dispatch(chatActions.sendUpdatedMessageError(error.message));
   }
