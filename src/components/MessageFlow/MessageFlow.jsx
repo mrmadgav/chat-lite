@@ -42,7 +42,7 @@ export default function MessageFlow(props) {
   }, [allUsers]);
 
   useEffect(() => {
-    console.log("props.RoomId", props.RoomId, typeof props.RoomId);
+    console.log("props.RoomId", props.RoomId, typeof props.RoomId, props.RoomId.length );
     props.RoomId.length > 1
       ? dispatch(fetchPrivateHistory(props.RoomId)).then(() => scrollToBottom())
       : dispatch(fetchHistory()).then(() => scrollToBottom());
