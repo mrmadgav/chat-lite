@@ -20,7 +20,9 @@ export const sendMessage = (credentials, currentToken) => async (dispatch) => {
     });
 
     dispatch(chatActions.sendMessageSuccess(response.data));
-    dispatch(fetchHistory());
+    !credentials.roomId
+      ? dispatch(fetchHistory())
+      : dispatch(fetchPrivateHistory());
   } catch (error) {
     dispatch(chatActions.sendMessageError(error.message));
   }
@@ -49,7 +51,9 @@ export const fetchHistory = () => async (dispatch) => {
 export const fetchPrivateHistory = (credentials) => async (dispatch) => {
   dispatch(chatActions.fetchPrivateHistoryRequest());
   try {
-    const response = await axios.get("/privateHistory", { params: { roomId: credentials }});
+    const response = await axios.get("/privateHistory", {
+      params: { roomId: credentials },
+    });
     console.log(response);
     dispatch(chatActions.fetchPrivateHistorySuccess(response.data));
   } catch (error) {
