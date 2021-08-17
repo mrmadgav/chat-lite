@@ -101,8 +101,7 @@ export default function CustomizedMenus(props) {
         </ListItemIcon>
         <ListItemText
           primary="Copy Text"
-          onClick={() => {
-            console.log(props);
+          onClick={() => {           
             props.getCopiedMessage({ id: id });
             setClose(true);
           }}

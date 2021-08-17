@@ -6,16 +6,23 @@ import Filter from "../Filter/Filter";
 import { useSelector } from "react-redux";
 
 import { useState } from "react";
-import { getHistory } from "../../Redux/selectors";
+import {
+  getHistory,
+  getPrivateHistory,
+  getRoomId,
+} from "../../Redux/selectors";
 import UploadImg from "../UploadImg/UploadImg";
 
 export default function Chat(props) {
   const [copiedMessage, setcopiedMessage] = useState("");
-
-  const allHistory = useSelector(getHistory);
+  const roomId = useSelector(getRoomId);
+  const History = useSelector(getHistory);
+  const PrivateHistory = useSelector(getPrivateHistory);
 
   const getCopiedMessage = (id) => {
-    const value = allHistory.filter((i) => i.id === id.id);
+    const value = !roomId
+      ? History
+      : PrivateHistory.filter((i) => i.id === id.id);
     const [copiedValue] = value;
     setcopiedMessage(copiedValue);
   };
