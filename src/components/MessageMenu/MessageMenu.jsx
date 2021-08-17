@@ -75,7 +75,6 @@ export default function CustomizedMenus(props) {
         <ListItemText
           primary="Delete"
           onClick={() => {
-            console.log(roomId);
             dispatch(onDelete({ id: id, roomId: roomId }));
             // socket.emit("message:delete", id);
             props.handleToUpdate(id);
@@ -90,7 +89,7 @@ export default function CustomizedMenus(props) {
         <ListItemText
           primary="Edit"
           onClick={() => {
-            props.onChangeMenu({ id: id, roomId: roomId });
+            props.onChangeMenu({ id: id });
             props.handleToUpdate(id);
             setClose(true);
           }}

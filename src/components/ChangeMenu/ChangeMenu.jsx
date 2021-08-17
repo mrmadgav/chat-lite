@@ -35,7 +35,7 @@ export default function ChangeMenu(props) {
       sendUpdatedMessage({
         id: restValue.id,
         text: updatedMessage,
-        roomId: props.roomId,
+        roomId: RoomId,
       })
     );
     props.onChangeMenu();
