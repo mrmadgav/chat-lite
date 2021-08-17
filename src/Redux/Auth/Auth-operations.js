@@ -93,7 +93,7 @@ export const sendImg = (data, currentToken, roomId) => async (dispatch) => {
   try {
     let formData = new FormData();
     formData.append("img", data);
-    const response = await axios.post("/img?roomId="`${roomId}`, formData, {
+    const response = await axios.post("/img"`?roomId=${roomId}`, formData, {
       headers: { Authorization: "Bearer " + currentToken },
     });
     return dispatch(authActions.sendImgSuccess(response.data));
