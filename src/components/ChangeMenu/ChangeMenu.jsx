@@ -38,9 +38,8 @@ export default function ChangeMenu(props) {
         text: updatedMessage,
         roomId: props.roomId,
       })
-    ).then(() => socket.emit("message:edited"));
+    );
     props.onChangeMenu();
-    console.log("Эмитим сообщение на сервак");
   };
 
   return (
