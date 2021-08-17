@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllUsers } from "../../Redux/selectors";
+import { getAllUsers, getUser } from "../../Redux/selectors";
 import { socket } from "../helpers/io";
 import authActions from "../../Redux/Auth/Auth-actions";
 import axios from "axios";
-import { setRoomId } from "./Redux/Chat/Chat-operations";
+
 import styles from "./ChatList.module.css";
+import { setRoomId } from "../../Redux/Chat/Chat-operations";
 
 export default function ChatList() {
-  const UserList = useSelector(getAllUsers);
-  const getUserId = useSelector((state) => state.authReducer.user.userId);
+  const getUserId = useSelector(getUser);
   const allUsers = useSelector(getAllUsers);
   const dispatch = useDispatch();
 
@@ -39,7 +39,7 @@ export default function ChatList() {
     return () => {
       socket.removeListener("user:login", getUsersFromServer);
     };
-  }, [UserList]);
+  }, [allUsers]);
 
   return (
     <div className={styles.ChatListWrapper}>
@@ -50,8 +50,8 @@ export default function ChatList() {
             Общий чат
           </span>
         </li>
-        {UserList &&
-          UserList.map((i) => {
+        {allUsers &&
+          allUsers.map((i) => {
             if (i.isOnline) {
               return (
                 <li>
