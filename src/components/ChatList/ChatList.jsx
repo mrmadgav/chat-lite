@@ -19,16 +19,13 @@ export default function ChatList() {
     const getUserIdForRoom = (i) => {
       if (i.nickname === event.target.innerHTML) return i._id;
     };
-
     dispatch(setRoomId(getUserId + allUsers.filter(getUserIdForRoom)[0]._id));
   };
   //закончить диалог (по клику на общий чат)
   const endPrivateDialog = () => {
     dispatch(setRoomId(null));
-    console.log("закончили диалог");
   };
   // Функционал личных сообщений
-
   useEffect(() => {
     const getUsersFromServer = async () => {
       const users = await axios.get("/users");
@@ -44,7 +41,7 @@ export default function ChatList() {
   return (
     <div className={styles.ChatListWrapper}>
       <span className={styles.ChatListTitle}>OnLine</span>
-      <ul className={`${styles.ChatListUl} ${styles.scrollbarFrozenDreams}`}>
+      <ul className={`${styles.ChatListUl} ${styles.scrollbarFrozenDreams}`} onClick={(e) => e.currentTarget.style.border = "1px solid red"}>
         <li>
           <span className={styles.ChatListElement} onClick={endPrivateDialog}>
             Общий чат

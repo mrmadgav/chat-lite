@@ -10,7 +10,6 @@ import ListItemText from "@material-ui/core/ListItemText";
 import DraftsIcon from "@material-ui/icons/Drafts";
 import SendIcon from "@material-ui/icons/Send";
 import { onDelete } from "../../Redux/Chat/Chat-operations";
-import { socket } from "../helpers/io";
 import { getRoomId } from "../../Redux/selectors";
 
 const StyledMenu = withStyles({
