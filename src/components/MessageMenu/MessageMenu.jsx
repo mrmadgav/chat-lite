@@ -75,7 +75,7 @@ export default function CustomizedMenus(props) {
         <ListItemText
           primary="Delete"
           onClick={() => {
-            dispatch(onDelete({ id: id }, roomId));
+            dispatch(onDelete({ id: id, roomId: roomId }));
             // socket.emit("message:delete", id);
             props.handleToUpdate(id);
             setClose(true);
