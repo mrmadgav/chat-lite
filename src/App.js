@@ -58,6 +58,7 @@ function App() {
   //закончить диалог (по клику на общий чат)
   const endPrivateDialog = () => {
     setPrivateDialog(false);
+    setRoomId("");
     console.log("закончили диалог");
   };
 
