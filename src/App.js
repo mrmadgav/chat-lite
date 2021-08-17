@@ -11,9 +11,6 @@ import { createBrowserHistory } from "history";
 import { getUser } from "./Redux/Auth/Auth-operations";
 import { sendUserList } from "./Redux/Chat/Chat-operations";
 
-//Selectors
-import { getAllUsers } from "./Redux/selectors";
-
 //Components
 import Section from "../src/components/Section/Section";
 import RegisterPanel from "./components/RegisterPanel/RegisterPanel.jsx";

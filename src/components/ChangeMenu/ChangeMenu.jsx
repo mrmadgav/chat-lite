@@ -10,7 +10,6 @@ import { sendUpdatedMessage } from "../../Redux/Chat/Chat-operations";
 import { useEffect } from "react";
 import acceptSVG from "../../img/accept.svg";
 import styles from "./ChangeMenu.module.css";
-import { socket } from "../helpers/io";
 
 export default function ChangeMenu(props) {
   const [updatedMessage, setupdatedMessage] = useState("");

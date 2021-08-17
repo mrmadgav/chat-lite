@@ -74,7 +74,6 @@ const picker = createReducer(pickerValue, {
 });
 const privateHistory = createReducer(twoUsersHistory, {
   [ChatActions.fetchPrivateHistorySuccess]: (_, { payload }) => {
-    console.log("Payload in fetchPrivateHistorySuccess", payload);
     return payload.data.messages;
   },
 });

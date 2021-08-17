@@ -54,7 +54,7 @@ export const fetchPrivateHistory = (credentials) => async (dispatch) => {
     const response = await axios.get("/privateHistory", {
       params: { roomId: credentials },
     });
-    console.log(response);
+
     dispatch(chatActions.fetchPrivateHistorySuccess(response.data));
   } catch (error) {
     dispatch(chatActions.fetchPrivateHistoryError(error.message));
@@ -93,6 +93,7 @@ export const onDelete = (data) => async (dispatch) => {
 };
 
 export const sendUpdatedMessage = (data) => async (dispatch) => {
+  console.log(data);
   dispatch(chatActions.sendUpdatedMessageRequest());
   try {
     await axios.post("/message/update", data);
