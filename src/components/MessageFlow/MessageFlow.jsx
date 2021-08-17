@@ -44,8 +44,8 @@ export default function MessageFlow(props) {
 
   useEffect(() => {
     console.log("Сработал UseEffect от RoomID");
-    // console.log(currentRoomId);
-    currentRoomId && dispatch(fetchPrivateHistory(currentRoomId));
+    currentRoomId &&
+      dispatch(fetchPrivateHistory(currentRoomId)).then(() => scrollToBottom());
   }, [currentRoomId, dispatch]);
 
   useEffect(() => {

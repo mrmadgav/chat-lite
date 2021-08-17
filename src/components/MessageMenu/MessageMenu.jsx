@@ -89,7 +89,7 @@ export default function CustomizedMenus(props) {
         <ListItemText
           primary="Edit"
           onClick={() => {
-            props.onChangeMenu({ id: id });
+            props.onChangeMenu({ id: id, roomId: roomId });
             props.handleToUpdate(id);
             setClose(true);
           }}
