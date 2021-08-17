@@ -43,7 +43,7 @@ export default function MessageFlow(props) {
 
   useEffect(() => {
     console.log("props.RoomId", props.RoomId, typeof props.RoomId);
-    props.RoomId
+    props.RoomId.length > 1
       ? dispatch(fetchPrivateHistory(props.RoomId)).then(() => scrollToBottom())
       : dispatch(fetchHistory()).then(() => scrollToBottom());
     console.log("сработал UseEffect");
