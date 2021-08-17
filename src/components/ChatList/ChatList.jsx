@@ -44,7 +44,8 @@ export default function ChatList() {
       <ul
         className={`${styles.ChatListUl} ${styles.scrollbarFrozenDreams}`}
         onClick={(e) =>
-          e.target.tagName === "SPAN" && console.log(e.target, e.currentTarget)
+          e.target.tagName === "SPAN" &&
+          console.log(e.target, e.currentTarget, typeof e.currentTarget)
         }
       >
         <li>
