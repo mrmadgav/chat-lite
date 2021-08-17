@@ -117,7 +117,7 @@ export default function MessageFlow(props) {
 
   const handleDrop = (e) => {
     e.preventDefault();
-    dispatch(sendImg(e.dataTransfer.files[0], currentToken));
+    dispatch(sendImg(e.dataTransfer.files[0], currentToken, currentRoomId));
   };
   //Drag & Drop
 
