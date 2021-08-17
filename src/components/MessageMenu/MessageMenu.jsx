@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { withStyles } from "@material-ui/core/styles";
 
 import Menu from "@material-ui/core/Menu";
@@ -11,6 +11,7 @@ import DraftsIcon from "@material-ui/icons/Drafts";
 import SendIcon from "@material-ui/icons/Send";
 import { onDelete } from "../../Redux/Chat/Chat-operations";
 import { socket } from "../helpers/io";
+import { getRoomId } from "../../Redux/selectors";
 
 const StyledMenu = withStyles({
   paper: {
@@ -47,6 +48,7 @@ export default function CustomizedMenus(props) {
   const [close, setClose] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const dispatch = useDispatch();
+  const roomId = useSelector(getRoomId);
   const id = props.id;
 
   useEffect(() => {
@@ -73,8 +75,8 @@ export default function CustomizedMenus(props) {
         <ListItemText
           primary="Delete"
           onClick={() => {
-            dispatch(onDelete({ id: id }));
-            socket.emit("message:delete", id);
+            dispatch(onDelete({ id: id }, roomId));
+            // socket.emit("message:delete", id);
             props.handleToUpdate(id);
             setClose(true);
           }}
@@ -87,7 +89,7 @@ export default function CustomizedMenus(props) {
         <ListItemText
           primary="Edit"
           onClick={() => {
-            props.onChangeMenu({ id: id });         
+            props.onChangeMenu({ id: id });
             props.handleToUpdate(id);
             setClose(true);
           }}

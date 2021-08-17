@@ -84,7 +84,9 @@ export const onDelete = (data) => async (dispatch) => {
   try {
     await axios.post("/message/delete", data);
     dispatch(chatActions.onDeleteSuccess(data));
-    dispatch(fetchHistory());
+    !data.roomId
+      ? dispatch(fetchHistory())
+      : dispatch(fetchPrivateHistory(data.roomId));
   } catch (error) {
     dispatch(chatActions.onDeleteError(error.message));
   }
