@@ -32,7 +32,7 @@ export default function Chat(props) {
           PrivateDialog={props.PrivateDialog}
           RoomId={props.RoomId}
         />
-        <MessageForm copiedMessage={copiedMessage} />
+        <MessageForm copiedMessage={copiedMessage} RoomId={props.RoomId} />
       </div>
     </>
   );

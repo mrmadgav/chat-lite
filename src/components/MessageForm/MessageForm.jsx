@@ -73,7 +73,7 @@ export default function MessageForm(props) {
       socket.emit("message:send", {
         nickname: nickname,
         text: message,
-        id: id,
+        id: id,        
       });
       dispatch(
         sendMessage(
@@ -81,6 +81,7 @@ export default function MessageForm(props) {
             nickname: nickname,
             text: message,
             id: id,
+            roomId: props.RoomId,            
           },
           currentToken
         )
