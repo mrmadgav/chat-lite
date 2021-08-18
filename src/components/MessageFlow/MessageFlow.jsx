@@ -78,7 +78,7 @@ export default function MessageFlow(props) {
 
     socket.on("user:join", (socketId) => {
       // socket.to(socket.id).emit("connect to room", socketId);
-      socket.emit("connect to room", currentUser+socketId);
+      socket.emit("connect to room", socket.id+socketId);
     });
   }, []);
 

@@ -1,5 +1,7 @@
 import authActions from "../Auth/Auth-actions";
 import axios from "axios";
+// import { socket } from "../../components/helpers/io";
+// import { getUser } from "../../Redux/selectors";
 
 axios.defaults.baseURL = "https://chat-lite-back.herokuapp.com";
 
@@ -32,9 +34,10 @@ export const login = (credentials) => async (dispatch) => {
     const response = await axios.post("/login", credentials);
     token.set(response.data.data.token);
     dispatch(authActions.LoginSuccess(response.data));
-
     const users = await axios.get("/users");
     dispatch(authActions.getUsersSuccess(users.data));
+    // const currentUser = useSelector(getUser);
+    // socket.emit("userLogin", currentUser);
   } catch (error) {
     dispatch(authActions.LoginError(error.message));
     dispatch(authActions.getUsersError(error.message));
