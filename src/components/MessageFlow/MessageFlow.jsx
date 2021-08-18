@@ -44,8 +44,7 @@ function MessageFlow(props) {
   const currentRoomId = useSelector(getRoomId);
 
   useEffect(() => {
-    allUsers.length > 1 &&
-      (chatRef.current.scrollTop = Math.pow(9999999999, 999));
+    allUsers.length > 1 && (chatRef.current.scrollTop = 9999999999999);
     return () => {
       // console.log("Анмаунт юзэффекта от всех юзеров");
     };
@@ -80,7 +79,7 @@ function MessageFlow(props) {
   let memoizedFetchHistory = useMemo(() => fetchHistory(), []);
 
   useEffect(() => {
-    chatRef.current.scrollTop = Math.pow(9999999999, 999);
+    chatRef.current.scrollTop = 9999999999999;
     currentRoomId
       ? dispatch(fetchPrivateHistory(currentRoomId)).then(() =>
           scrollToBottom()
