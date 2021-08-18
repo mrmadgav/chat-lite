@@ -9,7 +9,7 @@ import {
   fetchHistory,
   fetchPrivateHistory,
 } from "../../Redux/Chat/Chat-operations";
-import { filterValue, getAllUsers, getRoomId } from "../../Redux/selectors";
+import { filterValue, getAllUsers, getRoomId, getUser } from "../../Redux/selectors";
 import styles from "./MessageFlow.module.css";
 import { getHistory, getPrivateHistory } from "../../Redux/selectors";
 import { useRef } from "react";
@@ -34,6 +34,7 @@ export default function MessageFlow(props) {
   const currentToken = useSelector(getToken);
   const allUsers = useSelector(getAllUsers);
   const currentRoomId = useSelector(getRoomId);
+  const currentUser = useSelector(getUser);
 
   useEffect(() => {
     allUsers.length > 1 && scrollToBottom();
@@ -77,7 +78,7 @@ export default function MessageFlow(props) {
 
     socket.on("user:join", (socketId) => {
       // socket.to(socket.id).emit("connect to room", socketId);
-      socket.emit("connect to room", socketId);
+      socket.emit("connect to room", currentUser+socketId);
     });
   }, []);
 
@@ -85,7 +86,7 @@ export default function MessageFlow(props) {
     messagesEndRef.current?.scrollIntoView({
       behavior: "smooth",
     });
-    messagesEndRef.current.focus();
+    messagesEndRef.current?.focus();
   };
 
   const handleToUpdate = (id) => {
