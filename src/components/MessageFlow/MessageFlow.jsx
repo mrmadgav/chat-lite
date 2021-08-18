@@ -85,7 +85,9 @@ export default function MessageFlow(props) {
       // socket.to(socket.id).emit("connect to room", socketId);
       socket.emit("connect to room", socket.id + socketId);
     });
-    console.log("currentRoomId в useEffect", currentRoomId);
+  }, []);
+
+  useEffect(() => {
     socket.on("privateMessage:fromServer", (id) => {
       console.log("id private msg", id);
       console.log("currentRoomId", currentRoomId);
@@ -98,7 +100,10 @@ export default function MessageFlow(props) {
             scrollToBottom()
           );
     });
-  }, []);
+    return () => {
+      socket.removeListener("privateMessage:fromServer");
+    };
+  }, [currentRoomId, dispatch]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({
