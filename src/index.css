@@ -18,6 +18,9 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
 }
+body::after {
+  opacity: 0.2;
+}
 
 /* Указываем box sizing */
 *,
