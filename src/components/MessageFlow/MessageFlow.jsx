@@ -92,14 +92,8 @@ export default function MessageFlow(props) {
     socket.on("privateMessage:fromServer", (id) => {
       console.log("id private msg", id);
       console.log("currentRoomId", currentRoomId);
-      id === currentRoomId
-        ? dispatch(fetchPrivateHistory(currentRoomId)).then(() =>
-            scrollToBottom()
-          )
-        : id === reverseRoomId(currentRoomId) &&
-          dispatch(fetchPrivateHistory(currentRoomId)).then(() =>
-            scrollToBottom()
-          );
+      (id === currentRoomId) | (id === reverseRoomId(currentRoomId)) &&
+        dispatch(fetchPrivateHistory(id)).then(() => scrollToBottom());
     });
     return () => {
       socket.removeListener("privateMessage:fromServer");
