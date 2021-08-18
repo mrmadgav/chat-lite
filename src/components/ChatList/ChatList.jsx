@@ -19,7 +19,9 @@ export default function ChatList() {
     const getUserIdForRoom = (i) => {
       if (i.nickname === event.target.innerHTML) return i._id;
     };
-    dispatch(setRoomId(getUserId + allUsers.filter(getUserIdForRoom)[0]._id));
+    const roomId = getUserId + allUsers.filter(getUserIdForRoom)[0]._id;
+    dispatch(setRoomId(roomId));
+    localStorage.setItem("roomId", roomId);
   };
   //закончить диалог (по клику на общий чат)
   const endPrivateDialog = () => {

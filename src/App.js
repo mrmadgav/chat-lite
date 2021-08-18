@@ -9,7 +9,7 @@ import { createBrowserHistory } from "history";
 
 //Operations
 import { getUser } from "./Redux/Auth/Auth-operations";
-import { sendUserList } from "./Redux/Chat/Chat-operations";
+import { sendUserList, setRoomId } from "./Redux/Chat/Chat-operations";
 
 //Components
 import Section from "../src/components/Section/Section";
@@ -36,6 +36,10 @@ function App() {
   const getUserNick = useSelector((state) => state.authReducer.user.nickname);
 
   const dispatch = useDispatch();
+  useEffect(() => {
+    const roomId = localStorage.getItem("roomId");
+    dispatch(setRoomId(roomId));
+  }, []);
 
   useEffect(() => {
     setisAuthenticated(getIsAuthenticated);
