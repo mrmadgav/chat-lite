@@ -50,11 +50,11 @@ function MessageFlow(props) {
       // console.log("Анмаунт юзэффекта от всех юзеров");
     };
   }, [allUsers]);
-  
+
   let chatScroll = chatRef.current?.scrollTop;
 
   useEffect(() => {
-    chatScroll = ScrollHeight;
+    chatScroll = 15381;
 
     socket.on("message:fromServer", () => {
       dispatch(fetchHistory()).then(() => scrollToBottom());
