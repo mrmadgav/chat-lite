@@ -47,7 +47,7 @@ export default function LoginPanel() {
             value={email}
             onChange={updateEmail}
             required
-            pattern="\A[a-z0-9!#$%&'*+/=?^_‘{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_‘{|}~-]+)*@
+            pattern="\A[a-z0-9!#$%'*+/=?^_‘{|}~-]+(?:\.[a-z0-9!#$%'*+/=?^_‘{|}~-]+)*@
             (?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\z"
           />
         </label>
