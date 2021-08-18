@@ -83,7 +83,7 @@ export default function MessageFlow(props) {
         )
       : dispatch(fetchHistory())
           .then(() => scrollToBottom())
-          .finally(() => chatRef.classList.remove(`${styles.hidden}`));
+          .finally(() => chatRef.current.classList.remove(`${styles.hidden}`));
 
     socket.on("privateMessage:fromServer", (id) => {
       (id === currentRoomId) | (id === reverseRoomId(currentRoomId)) &&
