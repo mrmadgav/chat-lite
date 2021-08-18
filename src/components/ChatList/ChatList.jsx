@@ -39,10 +39,14 @@ export default function ChatList() {
   }, [allUsers]);
 
   const addActiveClass = (e) => {
-    if (e.target.tagName === "SPAN")
-      for (let i = 0; i < e.currentTarget.childNodes.length; i++) {
-        e.currentTarget.childNodes[i].classList.remove("active");
-      }
+    if (e.target.tagName === "SPAN") console.log("this");
+    console.log(
+      "e.currentTarget.childNodes.length",
+      e.currentTarget.childNodes.length
+    );
+    for (let i = 0; i < e.currentTarget.childNodes.length; i++) {
+      e.currentTarget.childNodes[i].classList.remove("active");
+    }
     e.target.classList.add("active");
   };
 
