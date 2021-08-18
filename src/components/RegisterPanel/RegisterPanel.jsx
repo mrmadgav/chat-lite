@@ -47,6 +47,8 @@ export default function LoginPanel() {
             value={email}
             onChange={updateEmail}
             required
+            pattern="\A[a-z0-9!#$%&'*+/=?^_‘{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_‘{|}~-]+)*@
+            (?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\z"
           />
         </label>
         <label className={styles.contactFormTitle}>
@@ -58,6 +60,8 @@ export default function LoginPanel() {
             value={password}
             onChange={updatePassword}
             className={styles.contactInput}
+            required
+            minlength="8"
           />
           <input
             class={!PasswordReveal ? styles.reveralButton : styles.hideButton}
@@ -75,6 +79,7 @@ export default function LoginPanel() {
             className={styles.contactInput}
             value={nickname}
             onChange={updateNickname}
+            maxlength="20"
             required
           />
         </label>
