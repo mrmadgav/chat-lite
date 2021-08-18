@@ -43,28 +43,6 @@ function MessageFlow(props) {
   const currentUser = useSelector(getUser);
   const currentRoomId = useSelector(getRoomId);
 
-  //
-  let last_known_scroll_position = 0;
-  let ticking = false;
-
-  function doSomething(scroll_pos) {
-    // Делаем что-нибудь с позицией скролла
-  }
-
-  chatRef.current?.addEventListener("scroll", function (e) {
-    last_known_scroll_position = window.scrollY;
-
-    if (!ticking) {
-      window.requestAnimationFrame(function () {
-        doSomething(last_known_scroll_position);
-        ticking = false;
-      });
-
-      ticking = true;
-    }
-  });
-  //
-
   useEffect(() => {
     allUsers.length > 1 && scrollToBottom();
     return () => {
@@ -105,7 +83,10 @@ function MessageFlow(props) {
       ? dispatch(fetchPrivateHistory(currentRoomId)).then(() =>
           scrollToBottom()
         )
-      : dispatch(memoizedFetchHistory).then(() => scrollToBottom());
+      : dispatch(memoizedFetchHistory).then(() => {
+          chatRef.current.scrollTop = 9999999999;
+          // scrollToBottom();
+        });
 
     socket.on("privateMessage:fromServer", (id) => {
       (id === currentRoomId) | (id === reverseRoomId(currentRoomId)) &&
