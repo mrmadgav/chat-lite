@@ -89,7 +89,7 @@ function MessageFlow(props) {
       (id === currentRoomId) | (id === reverseRoomId(currentRoomId)) &&
         dispatch(fetchPrivateHistory(id)).then(() => scrollToBottom());
     });
-    return () => {      
+    return () => {
       socket.removeListener("privateMessage:fromServer");
     };
   }, [currentRoomId]);
@@ -99,7 +99,10 @@ function MessageFlow(props) {
       behavior: "smooth",
     });
     messagesEndRef.current?.focus();
-    console.log(chatRef.current.scrollTop());
+    console.log("window.scrollTop()", window.scrollTop());
+    console.log("chatRef.current?.scrollTop()", chatRef.current?.scrollTop());
+    console.log("chatRef.current?.scrollHeight", chatRef.current?.scrollHeight);
+    console.log("chatRef?.current", chatRef?.current);
   };
 
   const handleToUpdate = (id) => {
