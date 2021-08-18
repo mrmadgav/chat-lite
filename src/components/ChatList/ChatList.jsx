@@ -40,13 +40,10 @@ export default function ChatList() {
 
   const addActiveClass = (e) => {
     if (e.target.tagName === "SPAN") {
-      console.log("this");
-      console.log(
-        "e.currentTarget.childNodes.length",
-        e.currentTarget.childNodes.length
-      );
       for (let i = 0; i < e.currentTarget.childNodes.length; i++) {
-        e.currentTarget.childNodes[i].childNodes[0].classList.remove(`${styles.active}`);
+        e.currentTarget.childNodes[i].childNodes[0].classList.remove(
+          `${styles.active}`
+        );
       }
       e.target.classList.add(`${styles.active}`);
     }
