@@ -89,10 +89,14 @@ export default function MessageFlow(props) {
     socket.on("privateMessage:fromServer", (id) => {
       console.log("id private msg", id);
       console.log("currentRoomId", currentRoomId);
-      id === currentRoomId &&
-        dispatch(fetchPrivateHistory(currentRoomId)).then(() =>
-          scrollToBottom()
-        );
+      id === currentRoomId
+        ? dispatch(fetchPrivateHistory(currentRoomId)).then(() =>
+            scrollToBottom()
+          )
+        : id === reverseRoomId(currentRoomId) &&
+          dispatch(fetchPrivateHistory(currentRoomId)).then(() =>
+            scrollToBottom()
+          );
     });
   }, []);
 
@@ -117,6 +121,12 @@ export default function MessageFlow(props) {
   };
   function toggleModal() {
     setModal(!modal);
+  }
+  function reverseRoomId(roomId) {
+    const firstPart = roomId.substr(0, roomId.length / 2);
+    const secondPart = roomId.substr(roomId.length / 2);
+    const newStr = [secondPart, firstPart].join("");
+    return newStr;
   }
 
   //Drag & Drop
