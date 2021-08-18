@@ -50,7 +50,7 @@ export default function MessageFlow(props) {
     return () => {
       // console.log("Анмаунт юзэффекта от всех юзеров");
     };
-  }, [allUsers, currentRoomId, dispatch]);
+  }, [allUsers, currentRoomId]);
 
   useEffect(() => {
     // currentRoomId
