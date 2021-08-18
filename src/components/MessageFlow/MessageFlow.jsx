@@ -35,6 +35,7 @@ function MessageFlow(props) {
   const allHistory = useSelector(getHistory);
   const privateHistory = useSelector(getPrivateHistory);
   const messagesEndRef = useRef(null);
+  const chatRef = useRef(null);
   const [deletedMessage, setDeletedMessage] = useState("");
   const [changeMenu, setchangeMenu] = useState(false);
   const currentToken = useSelector(getToken);
@@ -88,7 +89,7 @@ function MessageFlow(props) {
       (id === currentRoomId) | (id === reverseRoomId(currentRoomId)) &&
         dispatch(fetchPrivateHistory(id)).then(() => scrollToBottom());
     });
-    return () => {
+    return () => {      
       socket.removeListener("privateMessage:fromServer");
     };
   }, [currentRoomId]);
@@ -98,6 +99,7 @@ function MessageFlow(props) {
       behavior: "smooth",
     });
     messagesEndRef.current?.focus();
+    console.log(chatRef.current.scrollTop());
   };
 
   const handleToUpdate = (id) => {
@@ -153,7 +155,10 @@ function MessageFlow(props) {
         onDragEnter={(e) => handleDragEnter(e)}
         onDragLeave={(e) => handleDragLeave(e)}
       >
-        <div className={`${styles.chatDiv} ${styles.scrollbarFrozenDreams}`}>
+        <div
+          className={`${styles.chatDiv} ${styles.scrollbarFrozenDreams}`}
+          ref={chatRef}
+        >
           {allUsers.length > 1 &&
             (!currentRoomId ? allHistory : privateHistory).map((i) => {
               if (i.text.toLowerCase().includes(filter.toLowerCase())) {
