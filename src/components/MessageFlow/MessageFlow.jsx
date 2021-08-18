@@ -35,9 +35,6 @@ export default function MessageFlow(props) {
   const allUsers = useSelector(getAllUsers);
   const currentRoomId = useSelector(getRoomId);
 
-  const clients = socket.clients();
-  console.log(clients);
-
   useEffect(() => {
     allUsers.length > 1 && scrollToBottom();
     return () => {
@@ -77,7 +74,7 @@ export default function MessageFlow(props) {
     };
     socket.on("userTyping", userTyping);
     socket.on("userStoppedTyping", setTyping(false));
- 
+
     //   socket.on('direct', () => {
     //     console.log(socket.id); // an alphanumeric id...
     //  });
