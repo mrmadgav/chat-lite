@@ -88,6 +88,7 @@ export default function MessageFlow(props) {
   }, []);
 
   useEffect(() => {
+    console.log("сработал useEffect от айдишника комнаты");
     socket.on("privateMessage:fromServer", (id) => {
       console.log("id private msg", id);
       console.log("currentRoomId", currentRoomId);
@@ -103,7 +104,7 @@ export default function MessageFlow(props) {
     return () => {
       socket.removeListener("privateMessage:fromServer");
     };
-  }, [currentRoomId, dispatch]);
+  }, [currentRoomId]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({
