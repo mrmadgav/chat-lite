@@ -79,12 +79,12 @@ function MessageFlow(props) {
   let memoizedFetchHistory = useMemo(() => fetchHistory(), []);
 
   useEffect(() => {
+    chatRef.current.scrollTop = 9999999999;
     currentRoomId
       ? dispatch(fetchPrivateHistory(currentRoomId)).then(() =>
           scrollToBottom()
         )
       : dispatch(memoizedFetchHistory).then(() => {
-          chatRef.current.scrollTop = 9999999999;
           // scrollToBottom();
         });
 
