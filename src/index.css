@@ -12,18 +12,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* overflow-y: hidden; Возможно плохая идея */
+  background-image: "./img/backgroundMainFootPrints.jpg";
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
-/* @media screen and (min-width: 1200) {
-  body {
-    overflow-y: hidden;
-  }
-}
-@media screen and (max-width: 1199) {
-  body {
-    overflow-y: hidden;
-  }
-} */
 
 /* Указываем box sizing */
 *,
