@@ -73,7 +73,7 @@ export default function MessageFlow(props) {
       socket.emit("connect to room", socket.id + socketId);
     });
   }, []);
-  let memoizedFetchHistory = useMemo(() => fetchHistory, []);
+  let memoizedFetchHistory = useMemo(() => fetchHistory(), []);
   useEffect(() => {
     currentRoomId
       ? dispatch(fetchPrivateHistory(currentRoomId)).then(() =>
