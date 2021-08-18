@@ -26,6 +26,7 @@ export default function ChatList() {
   //закончить диалог (по клику на общий чат)
   const endPrivateDialog = () => {
     dispatch(setRoomId(""));
+    localStorage.removeItem("roomId");
   };
   // Функционал личных сообщений
   useEffect(() => {
