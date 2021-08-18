@@ -7,6 +7,7 @@ import styles from "./LogOut.module.css";
 import anonym from "../../img/anonymGit.png";
 import { getToken } from "../../Redux/Auth/Auth-selectors";
 import logOut from "../../img/exit.svg";
+import { useHistory } from "react-router-dom";
 
 export default function LogOut() {
   const nickName = useSelector(getNickname);
@@ -16,9 +17,12 @@ export default function LogOut() {
   const getAvatarUrl = useSelector(getAvatar);
 
   const dispatch = useDispatch();
+  let history = useHistory();
+
   const handleLogout = (e) => {
     e.preventDefault();
     dispatch(logout(currentUserId, currentToken));
+    history.push("/");
   };
   const handleChange = (e) => {
     dispatch(sendAvatar(e.target.files[0], currentToken));
