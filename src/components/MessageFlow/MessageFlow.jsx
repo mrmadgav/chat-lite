@@ -48,11 +48,11 @@ export default function MessageFlow(props) {
     };
   }, [allUsers]);
 
-  useEffect(() => {
-    console.log("Сработал UseEffect от RoomID");
-    currentRoomId &&
-      dispatch(fetchPrivateHistory(currentRoomId)).then(() => scrollToBottom());
-  }, [currentRoomId, dispatch]);
+  // useEffect(() => {
+  //   console.log("Сработал UseEffect от RoomID");
+  //   currentRoomId &&
+  //     dispatch(fetchPrivateHistory(currentRoomId)).then(() => scrollToBottom());
+  // }, [currentRoomId, dispatch]);
 
   useEffect(() => {
     currentRoomId
