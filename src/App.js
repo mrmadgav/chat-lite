@@ -36,11 +36,11 @@ function App() {
   const getUserNick = useSelector((state) => state.authReducer.user.nickname);
 
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     if (isAuthenticated) {
       const roomId = localStorage.getItem("roomId");
-      dispatch(setRoomId(roomId));
+      roomId !== null && dispatch(setRoomId(roomId));
     }
   }, [dispatch, isAuthenticated]);
 

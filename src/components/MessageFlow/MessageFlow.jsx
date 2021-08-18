@@ -119,12 +119,9 @@ export default function MessageFlow(props) {
     setModal(!modal);
   }
   function reverseRoomId(roomId) {
-    let newStr;
-    if (roomId !== null) {
-      const firstPart = roomId.substr(0, roomId.length / 2);
-      const secondPart = roomId.substr(roomId.length / 2);
-      newStr = [secondPart, firstPart].join("");
-    } else newStr = "";
+    const firstPart = roomId.substr(0, roomId.length / 2);
+    const secondPart = roomId.substr(roomId.length / 2);
+    let newStr = [secondPart, firstPart].join("");
     return newStr;
   }
 
