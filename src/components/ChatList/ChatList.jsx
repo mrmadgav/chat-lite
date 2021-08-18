@@ -58,7 +58,7 @@ export default function ChatList() {
       >
         <li>
           <span className={styles.ChatListElement} onClick={endPrivateDialog}>
-            Общий чат
+            All Users
           </span>
         </li>
         {allUsers &&
