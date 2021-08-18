@@ -51,11 +51,11 @@ function MessageFlow(props) {
     // Делаем что-нибудь с позицией скролла
   }
 
-  window.addEventListener("scroll", function (e) {
+  chatRef.addEventListener("scroll", function (e) {
     last_known_scroll_position = window.scrollY;
 
     if (!ticking) {
-      window.requestAnimationFrame(function () {
+      chatRef.requestAnimationFrame(function () {
         doSomething(last_known_scroll_position);
         ticking = false;
       });
