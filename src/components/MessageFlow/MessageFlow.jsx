@@ -23,7 +23,8 @@ import Modal from "../Modal/Modal";
 import { sendImg } from "../../Redux/Auth/Auth-operations";
 import { getToken } from "../../Redux/Auth/Auth-selectors";
 
-export default function MessageFlow(props) {
+export default React.memo(MessageFlow);
+function MessageFlow(props) {
   const [modal, setModal] = useState(false);
   const [modalSrc, setModalSrc] = useState("");
   const filter = useSelector(filterValue);
@@ -73,7 +74,9 @@ export default function MessageFlow(props) {
       socket.emit("connect to room", socket.id + socketId);
     });
   }, []);
+
   let memoizedFetchHistory = useMemo(() => fetchHistory(), []);
+
   useEffect(() => {
     currentRoomId
       ? dispatch(fetchPrivateHistory(currentRoomId)).then(() =>
