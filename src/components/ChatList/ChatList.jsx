@@ -23,7 +23,7 @@ export default function ChatList() {
   };
   //закончить диалог (по клику на общий чат)
   const endPrivateDialog = () => {
-    dispatch(setRoomId(null));
+    dispatch(setRoomId(""));
   };
   // Функционал личных сообщений
   useEffect(() => {

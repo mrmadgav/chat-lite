@@ -13,7 +13,12 @@
   font-family: "Franklin Gothic Medium";
   font-size: 16px;
   color: gray;
+  cursor: pointer;
 }
+.active {
+  border: 1px solid steelblue;
+}
+
 @media screen and (max-width: 1199px) {
   .ChatListElement {
     min-width: 90px;
@@ -26,11 +31,9 @@
 }
 .ChatListTitle {
   display: block;
-  /* background-color: lightsteelblue; */
   color: rgb(140, 175, 207);
   text-align: center;
   font-family: "Franklin Gothic Medium";
-  /* color: whitesmoke; */
 }
 @media screen and (max-width: 1199px) {
   .ChatListTitle {
