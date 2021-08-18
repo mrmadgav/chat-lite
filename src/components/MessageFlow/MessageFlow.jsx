@@ -22,7 +22,6 @@ import ChangeMenu from "../ChangeMenu/ChangeMenu";
 import Modal from "../Modal/Modal";
 import { sendImg } from "../../Redux/Auth/Auth-operations";
 import { getToken } from "../../Redux/Auth/Auth-selectors";
-import { useMemo } from "react";
 
 export default function MessageFlow(props) {
   const [modal, setModal] = useState(false);
@@ -152,29 +151,27 @@ export default function MessageFlow(props) {
         onDragLeave={(e) => handleDragLeave(e)}
       >
         <div className={`${styles.chatDiv} ${styles.scrollbarFrozenDreams}`}>
-          {useMemo(() => {
-            allUsers.length > 1 &&
-              (!currentRoomId ? allHistory : privateHistory).map((i) => {
-                if (i.text.toLowerCase().includes(filter.toLowerCase())) {
-                  return (
-                    <Message
-                      content={i.text}
-                      nick={i.nickname}
-                      date={i.date}
-                      id={i.id}
-                      key={nanoid()}
-                      handleToUpdate={handleToUpdate}
-                      onChangeMenu={onChangeMenu}
-                      getCopiedMessage={props.getCopiedMessage}
-                      handleModal={handleModal}
-                      avatarUrl={allUsers.filter(
-                        (j) => j.nickname === i.nickname
-                      )}
-                    />
-                  );
-                }
-              });
-          }, [allHistory, allUsers, currentRoomId, filter, handleModal, onChangeMenu, privateHistory, props.getCopiedMessage])}
+          {allUsers.length > 1 &&
+            (!currentRoomId ? allHistory : privateHistory).map((i) => {
+              if (i.text.toLowerCase().includes(filter.toLowerCase())) {
+                return (
+                  <Message
+                    content={i.text}
+                    nick={i.nickname}
+                    date={i.date}
+                    id={i.id}
+                    key={nanoid()}
+                    handleToUpdate={handleToUpdate}
+                    onChangeMenu={onChangeMenu}
+                    getCopiedMessage={props.getCopiedMessage}
+                    handleModal={handleModal}
+                    avatarUrl={allUsers.filter(
+                      (j) => j.nickname === i.nickname
+                    )}
+                  />
+                );
+              }
+            })}
           <div id="bottom" ref={messagesEndRef} />
           <div className="draggable-container">
             <input
