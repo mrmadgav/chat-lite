@@ -37,9 +37,11 @@ function App() {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    const roomId = localStorage.getItem("roomId");
-    dispatch(setRoomId(roomId));
-  }, []);
+    if (isAuthenticated) {
+      const roomId = localStorage.getItem("roomId");
+      dispatch(setRoomId(roomId));
+    }
+  }, [dispatch, isAuthenticated]);
 
   useEffect(() => {
     setisAuthenticated(getIsAuthenticated);
