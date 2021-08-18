@@ -9,7 +9,12 @@ import {
   fetchHistory,
   fetchPrivateHistory,
 } from "../../Redux/Chat/Chat-operations";
-import { filterValue, getAllUsers, getRoomId, getUser } from "../../Redux/selectors";
+import {
+  filterValue,
+  getAllUsers,
+  getRoomId,
+  getUser,
+} from "../../Redux/selectors";
 import styles from "./MessageFlow.module.css";
 import { getHistory, getPrivateHistory } from "../../Redux/selectors";
 import { useRef } from "react";
@@ -78,7 +83,14 @@ export default function MessageFlow(props) {
 
     socket.on("user:join", (socketId) => {
       // socket.to(socket.id).emit("connect to room", socketId);
-      socket.emit("connect to room", socket.id+socketId);
+      socket.emit("connect to room", socket.id + socketId);
+    });
+
+    socket.on("privateMessage:fromServer", (id) => {
+      console.log("id private msg", id);
+      console.log("currentRoomId", currentRoomId);
+      id === currentRoomId &&
+        dispatch(fetchPrivateHistory(currentRoomId)).then(() => scrollToBottom());
     });
   }, []);
 
