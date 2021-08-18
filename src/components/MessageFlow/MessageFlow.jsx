@@ -76,6 +76,7 @@ export default function MessageFlow(props) {
   }, []);
 
   useEffect(() => {
+    console.log("chatRef", chatRef);
     currentRoomId
       ? dispatch(fetchPrivateHistory(currentRoomId)).then(() =>
           scrollToBottom()
