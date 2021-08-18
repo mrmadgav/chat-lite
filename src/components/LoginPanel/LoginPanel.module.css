@@ -60,23 +60,6 @@
   border-radius: 4px;
   background-color: ghostwhite;
 }
-@media screen and (min-width: 1200px) {
-  .formRegContainer {
-    padding: 50px 25px;
-  }
-}
-@media (min-width: 768px) and (max-width: 1199px) {
-  .formRegContainer {
-    margin-top: 20px;
-    padding: 50px;
-  }
-}
-@media (min-width: 320px) and (max-width: 767px) {
-  .formRegContainer {
-    padding: 50px 25px;
-  }
-}
-
 .reveralButton {
   width: 20px;
   height: 20px;
@@ -107,3 +90,22 @@
   background-color: inherit;
   opacity: 0.7;
 }
+
+
+@media screen and (min-width: 1200px) {
+  .formRegContainer {
+    padding: 50px 25px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  .formRegContainer {
+    margin-top: 20px;
+    padding: 50px;
+  }
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  .formRegContainer {
+    padding: 50px 25px;
+  }
+}
+
