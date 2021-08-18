@@ -55,7 +55,7 @@ function MessageFlow(props) {
     last_known_scroll_position = window.scrollY;
 
     if (!ticking) {
-      chatRef.current?.requestAnimationFrame(function () {
+      window.requestAnimationFrame(function () {
         doSomething(last_known_scroll_position);
         ticking = false;
       });
