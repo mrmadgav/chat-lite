@@ -47,7 +47,7 @@ export default function ChatList() {
       );
       for (let i = 0; i < e.currentTarget.childNodes.length; i++) {
         console.log(e.currentTarget.childNodes[i]);
-        e.currentTarget.childNodes[i].classList.remove("active");
+        e.currentTarget.childNodes[i].child.classList.remove("active");
       }
       e.target.classList.add("active");
     }
