@@ -17,7 +17,6 @@ import ChangeMenu from "../ChangeMenu/ChangeMenu";
 import Modal from "../Modal/Modal";
 import { sendImg } from "../../Redux/Auth/Auth-operations";
 import { getToken } from "../../Redux/Auth/Auth-selectors";
-import { io } from "socket.io-client";
 
 export default function MessageFlow(props) {
   const [modal, setModal] = useState(false);
@@ -76,12 +75,8 @@ export default function MessageFlow(props) {
     socket.on("userTyping", userTyping);
     socket.on("userStoppedTyping", setTyping(false));
 
-    // socket.on("user:join", (socketId) => {
-    //   // socket.to(socket.id).emit("connect to room", socketId);
-    //   socket.emit("connect to room", socketId);
-    // });
-
-    io.on("user:join", (socket, socketId) => {
+    socket.on("user:join", (socketId) => {
+      // socket.to(socket.id).emit("connect to room", socketId);
       socket.emit("connect to room", socketId);
     });
   }, []);
