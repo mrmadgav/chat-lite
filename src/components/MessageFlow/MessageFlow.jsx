@@ -54,7 +54,7 @@ function MessageFlow(props) {
   let chatScroll = chatRef.current?.scrollTop;
 
   useEffect(() => {
-    chatScroll = 15381;
+    chatScroll = ScrollHeight;
 
     socket.on("message:fromServer", () => {
       dispatch(fetchHistory()).then(() => scrollToBottom());
@@ -104,7 +104,7 @@ function MessageFlow(props) {
       behavior: "smooth",
     });
     messagesEndRef.current?.focus();
-    setScrollHeight(chatRef.current?.scrollHeight);
+    !currentRoomId && setScrollHeight(chatRef.current?.scrollHeight);
     // console.log("chatRef.current?.scrollHeight", chatRef.current?.scrollHeight);
     // console.log("chatRef?.current", chatRef?.current);
   };
