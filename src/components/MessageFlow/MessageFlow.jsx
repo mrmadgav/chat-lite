@@ -75,10 +75,8 @@ export default function MessageFlow(props) {
     socket.on("userTyping", userTyping);
     socket.on("userStoppedTyping", setTyping(false));
 
-    socket.on("user:join", (socketId) => {
-      console.log("socketId", socketId);
-      // socket.join(socketId);
-      console.log("SOCKET", socket);
+    socket.on("user:join", (socketId) => {     
+      socket.to(socket.id).emit("connect to room", socketId);
     });
   }, []);
 
