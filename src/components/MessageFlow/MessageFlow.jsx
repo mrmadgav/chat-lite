@@ -80,7 +80,9 @@ export default function MessageFlow(props) {
       ? dispatch(fetchPrivateHistory(currentRoomId)).then(
           () => (objDiv.scrollTop = objDiv.scrollHeight)
         )
-      : dispatch(fetchHistory()) /*.then(() => scrollToBottom())*/;
+      : dispatch(fetchHistory()).then(
+          () => (objDiv.scrollTop = objDiv.scrollHeight)
+        );
 
     socket.on("privateMessage:fromServer", (id) => {
       (id === currentRoomId) | (id === reverseRoomId(currentRoomId)) &&
