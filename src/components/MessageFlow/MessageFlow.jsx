@@ -99,8 +99,8 @@ function MessageFlow(props) {
       behavior: "smooth",
     });
     messagesEndRef.current?.focus();
-    console.log("window.scrollTop()", window.scrollTop());
-    console.log("chatRef.current?.scrollTop()", chatRef.current?.scrollTop());
+    console.log("window.scrollTop()", window.scrollTop);
+    console.log("chatRef.current?.scrollTop()", chatRef.current?.scrollTop);
     console.log("chatRef.current?.scrollHeight", chatRef.current?.scrollHeight);
     console.log("chatRef?.current", chatRef?.current);
   };
