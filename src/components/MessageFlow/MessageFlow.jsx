@@ -77,6 +77,7 @@ export default function MessageFlow(props) {
 
     socket.on("user:join", (socketId) => {
       console.log("socketId", socketId);
+      socket.join(socketId);
     });
   }, []);
 
