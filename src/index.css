@@ -15,8 +15,6 @@ body {
   background-image: url("./img/footprints-309158_960_720\ 1.png");
   background-position: center;
   background-position: 50%;
-  background-size: 220px;
-  background-repeat: space;
 }
 
 /* Указываем box sizing */
@@ -106,9 +104,13 @@ li {
   display: block;
 }
 
-@media screen and (min-width: 480px) and (max-width: 767px) {
+@media screen and (min-width: 320px) and (max-width: 767px) {
   .AppUnlogged {
     display: block;
+  }
+  body {
+    background-size: 200px;
+    background-repeat-x: no-repeat;
   }
 }
 
@@ -116,11 +118,19 @@ li {
   .AppUnlogged {
     display: flex;
   }
+  body {
+    background-size: 300px;
+    background-repeat: space;
+  }
 }
 
 @media screen and (min-width: 1200px) {
   .AppUnlogged {
     display: flex;
     margin-top: 10%;
+  }
+  body {
+    background-size: 220px;
+    background-repeat: space;
   }
 }
