@@ -49,8 +49,6 @@ export default function MessageFlow(props) {
   }, [allUsers]);
 
   useEffect(() => {
-    console.log("Рендер главного компонента");
-
     socket.on("message:fromServer", () => {
       dispatch(fetchHistory()).then(() => scrollToBottom());
     });
@@ -77,11 +75,13 @@ export default function MessageFlow(props) {
   }, []);
 
   useEffect(() => {
-    currentRoomId
-      ? dispatch(fetchPrivateHistory(currentRoomId)).then(() =>
-          scrollToBottom()
-        )
-      : dispatch(fetchHistory()).then(() => scrollToBottom());
+    const objDiv = document.getElementsByClassName(`${styles.chatDiv}`);
+    objDiv.scrollTop = objDiv.scrollHeight;
+    // currentRoomId
+    //   ? dispatch(fetchPrivateHistory(currentRoomId)).then(() =>
+    //       scrollToBottom()
+    //     )
+    //   : dispatch(fetchHistory()).then(() => scrollToBottom());
 
     socket.on("privateMessage:fromServer", (id) => {
       (id === currentRoomId) | (id === reverseRoomId(currentRoomId)) &&
