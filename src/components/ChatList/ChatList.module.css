@@ -14,34 +14,10 @@
   font-size: 16px;
   color: gray;
   cursor: pointer;
-
-  /*3D*/
-  /* -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -webkit-box-shadow: 0px 4px 0px rgb(138, 153, 114),
-    0px 4px 5px rgba(0, 0, 0, 0.7);
-  -moz-box-shadow: 0px 9px 0px rgb(138, 153, 114),
-    0px 4px 5px rgba(0, 0, 0, 0.7);
-  box-shadow: 0px 4px 0px rgb(138, 153, 114), 0px 4px 5px rgba(0, 0, 0, 0.7);
-
-  -webkit-transition: all 0.1s ease;
-  -moz-transition: all 0.1s ease;
-  -ms-transition: all 0.1s ease;
-  -o-transition: all 0.1s ease;
-  transition: all 0.1s ease; */
 }
 
-/* .ChatListElement:hover {
-  lighten: 7%;
-} */
 .active {
   border: 1px solid steelblue;
-  /* transform: scale(1.1); */
-  /* -webkit-box-shadow: 0px 1px 0px rgb(138, 153, 114),
-    0px 2px 2px rgba(0, 0, 0, 0.7);
-  -moz-box-shadow: 0px 1px 0px rgb(138, 153, 114),
-    0px 2px 2px rgba(0, 0, 0, 0.7);
-  box-shadow: 0px 1px 0px rgb(138, 153, 114), 0px 2px 2px rgba(0, 0, 0, 0.7); */
 }
 
 @media screen and (max-width: 1199px) {
@@ -112,6 +88,8 @@
   }
   .ChatListWrapper {
     margin-bottom: 10px;
+    max-height: 680px;
+    overflow-y: scroll;
   }
   .ChatListElement {
     padding: 5px;
