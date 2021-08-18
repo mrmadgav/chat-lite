@@ -34,7 +34,6 @@ export default function MessageFlow(props) {
   const allHistory = useSelector(getHistory);
   const privateHistory = useSelector(getPrivateHistory);
   const messagesEndRef = useRef(null);
-  const chatRef = useRef(null);
   const [deletedMessage, setDeletedMessage] = useState("");
   const [changeMenu, setchangeMenu] = useState(false);
   const currentToken = useSelector(getToken);
@@ -42,12 +41,12 @@ export default function MessageFlow(props) {
   const currentUser = useSelector(getUser);
   const currentRoomId = useSelector(getRoomId);
 
-  // useEffect(() => {
-  //   allUsers.length > 1 && scrollToBottom();
-  //   return () => {
-  //     // console.log("Анмаунт юзэффекта от всех юзеров");
-  //   };
-  // }, [allUsers]);
+  useEffect(() => {
+    allUsers.length > 1 && scrollToBottom();
+    return () => {
+      // console.log("Анмаунт юзэффекта от всех юзеров");
+    };
+  }, [allUsers]);
 
   useEffect(() => {
     socket.on("message:fromServer", () => {
@@ -76,14 +75,11 @@ export default function MessageFlow(props) {
   }, []);
 
   useEffect(() => {
-    console.log("chatRef", chatRef);
     currentRoomId
       ? dispatch(fetchPrivateHistory(currentRoomId)).then(() =>
           scrollToBottom()
         )
-      : dispatch(fetchHistory())
-          .then(() => scrollToBottom())
-          .finally(() => chatRef.current.classList.remove(`${styles.hidden}`));
+      : dispatch(fetchHistory()).then(() => scrollToBottom());
 
     socket.on("privateMessage:fromServer", (id) => {
       (id === currentRoomId) | (id === reverseRoomId(currentRoomId)) &&
@@ -154,10 +150,7 @@ export default function MessageFlow(props) {
         onDragEnter={(e) => handleDragEnter(e)}
         onDragLeave={(e) => handleDragLeave(e)}
       >
-        <div
-          className={`${styles.chatDiv} ${styles.scrollbarFrozenDreams} ${styles.hidden}`}
-          ref={chatRef}
-        >
+        <div className={`${styles.chatDiv} ${styles.scrollbarFrozenDreams}`}>
           {allUsers.length > 1 &&
             (!currentRoomId ? allHistory : privateHistory).map((i) => {
               if (i.text.toLowerCase().includes(filter.toLowerCase())) {
