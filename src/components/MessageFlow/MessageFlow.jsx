@@ -51,7 +51,7 @@ function MessageFlow(props) {
     // Делаем что-нибудь с позицией скролла
   }
 
-  chatRef.addEventListener("scroll", function (e) {
+  chatRef.current?.addEventListener("scroll", function (e) {
     last_known_scroll_position = window.scrollY;
 
     if (!ticking) {
