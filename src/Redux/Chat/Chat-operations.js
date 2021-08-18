@@ -93,7 +93,6 @@ export const onDelete = (data) => async (dispatch) => {
 };
 
 export const sendUpdatedMessage = (data) => async (dispatch) => {
-  console.log(data);
   dispatch(chatActions.sendUpdatedMessageRequest());
   try {
     await axios.post("/message/update", data);

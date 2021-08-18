@@ -48,19 +48,12 @@ export default function MessageFlow(props) {
     };
   }, [allUsers]);
 
-  // useEffect(() => {
-  //   console.log("Сработал UseEffect от RoomID");
-  //   currentRoomId &&
-  //     dispatch(fetchPrivateHistory(currentRoomId)).then(() => scrollToBottom());
-  // }, [currentRoomId, dispatch]);
-
   useEffect(() => {
     currentRoomId
       ? dispatch(fetchPrivateHistory(currentRoomId)).then(() =>
           scrollToBottom()
         )
       : dispatch(fetchHistory()).then(() => scrollToBottom());
-    console.log("сработал UseEffect");
 
     socket.on("message:fromServer", () => {
       dispatch(fetchHistory()).then(() => scrollToBottom());
@@ -87,9 +80,7 @@ export default function MessageFlow(props) {
     });
   }, []);
 
-  useEffect(() => {
-    console.log("сработал useEffect от айдишника комнаты");
-
+  useEffect(() => { 
     currentRoomId
       ? dispatch(fetchPrivateHistory(currentRoomId)).then(() =>
           scrollToBottom()
