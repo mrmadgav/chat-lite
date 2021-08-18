@@ -11,7 +11,7 @@
   transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
   background-color: rgb(214, 240, 208);
   font-family: "Franklin Gothic Medium";
-  font-size: 16px;
+  font-size: 14px;
   color: gray;
   cursor: pointer;
 }
