@@ -89,9 +89,14 @@ export default function MessageFlow(props) {
 
   useEffect(() => {
     console.log("сработал useEffect от айдишника комнаты");
+
+    currentRoomId
+      ? dispatch(fetchPrivateHistory(currentRoomId)).then(() =>
+          scrollToBottom()
+        )
+      : dispatch(fetchHistory()).then(() => scrollToBottom());
+
     socket.on("privateMessage:fromServer", (id) => {
-      console.log("id private msg", id);
-      console.log("currentRoomId", currentRoomId);
       (id === currentRoomId) | (id === reverseRoomId(currentRoomId)) &&
         dispatch(fetchPrivateHistory(id)).then(() => scrollToBottom());
     });
