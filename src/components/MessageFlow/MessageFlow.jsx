@@ -42,15 +42,11 @@ export default function MessageFlow(props) {
   const currentRoomId = useSelector(getRoomId);
 
   useEffect(() => {
-    allUsers.length > 1 && currentRoomId
-      ? dispatch(fetchPrivateHistory(currentRoomId)).then(() =>
-          scrollToBottom()
-        )
-      : dispatch(fetchHistory()).then(() => scrollToBottom());
+    allUsers.length > 1 && scrollToBottom();
     return () => {
       // console.log("Анмаунт юзэффекта от всех юзеров");
     };
-  }, [allUsers, currentRoomId]);
+  }, [allUsers]);
 
   useEffect(() => {
     // currentRoomId
@@ -84,7 +80,7 @@ export default function MessageFlow(props) {
     });
   }, []);
 
-  useEffect(() => {
+  useEffect(() => { 
     currentRoomId
       ? dispatch(fetchPrivateHistory(currentRoomId)).then(() =>
           scrollToBottom()
