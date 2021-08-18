@@ -38,14 +38,20 @@ export default function ChatList() {
     };
   }, [allUsers]);
 
+  const addActiveClass = (e) => {
+    if (e.target.tagName === "SPAN")
+      for (let i = 0; i < e.currentTarget.childNodes.length; i++) {
+        e.currentTarget.childNodes[i].classList.remove("active");
+      }
+    e.target.classList.add("active");
+  };
+
   return (
     <div className={styles.ChatListWrapper}>
       <span className={styles.ChatListTitle}>OnLine</span>
       <ul
         className={`${styles.ChatListUl} ${styles.scrollbarFrozenDreams}`}
-        onClick={(e) =>
-          e.target.tagName === "SPAN" && console.log(e.currentTarget.childNodes)
-        }
+        onClick={addActiveClass}
       >
         <li>
           <span className={styles.ChatListElement} onClick={endPrivateDialog}>
