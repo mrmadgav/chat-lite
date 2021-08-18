@@ -27,7 +27,6 @@ export default React.memo(MessageFlow);
 function MessageFlow(props) {
   const [modal, setModal] = useState(false);
   const [modalSrc, setModalSrc] = useState("");
-  const [ScrollHeight, setScrollHeight] = useState("");
   const filter = useSelector(filterValue);
   const [EditMessageID, setEditMessageID] = useState(null);
   const [typing, setTyping] = useState(false);
@@ -51,11 +50,7 @@ function MessageFlow(props) {
     };
   }, [allUsers]);
 
-  let chatScroll = chatRef.current?.scrollTop;
-
-  useEffect(() => {
-    chatScroll = ScrollHeight;
-
+  useEffect(() => { 
     socket.on("message:fromServer", () => {
       dispatch(fetchHistory()).then(() => scrollToBottom());
     });
@@ -103,10 +98,7 @@ function MessageFlow(props) {
     messagesEndRef.current?.scrollIntoView({
       behavior: "smooth",
     });
-    messagesEndRef.current?.focus();
-    !currentRoomId && setScrollHeight(chatRef.current?.scrollHeight);
-    // console.log("chatRef.current?.scrollHeight", chatRef.current?.scrollHeight);
-    // console.log("chatRef?.current", chatRef?.current);
+    messagesEndRef.current?.focus(); 
   };
 
   const handleToUpdate = (id) => {
