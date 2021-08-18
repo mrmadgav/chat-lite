@@ -75,14 +75,13 @@ export default function MessageFlow(props) {
   }, []);
 
   useEffect(() => {
+    const objDiv = document.getElementsByClassName(`${styles.chatDiv}`);
     currentRoomId
-      ? dispatch(fetchPrivateHistory(currentRoomId)) /*.then(() =>
-    scrollToBottom()
-    )*/
+      ? dispatch(fetchPrivateHistory(currentRoomId)).then(
+          () => (objDiv.scrollTop = objDiv.scrollHeight)
+        )
       : dispatch(fetchHistory()) /*.then(() => scrollToBottom())*/;
 
-    const objDiv = document.getElementsByClassName(`${styles.chatDiv}`);
-    objDiv.scrollTop = objDiv.scrollHeight;
     socket.on("privateMessage:fromServer", (id) => {
       (id === currentRoomId) | (id === reverseRoomId(currentRoomId)) &&
         dispatch(fetchPrivateHistory(id)).then(() => scrollToBottom());
