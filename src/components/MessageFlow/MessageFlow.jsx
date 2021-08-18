@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useState } from "react";
 import { socket } from "../helpers/io";
 import Message from "../Message/Message";
@@ -73,13 +73,13 @@ export default function MessageFlow(props) {
       socket.emit("connect to room", socket.id + socketId);
     });
   }, []);
-
+  let memoizedFetchHistory = useMemo(() => fetchHistory, []);
   useEffect(() => {
     currentRoomId
       ? dispatch(fetchPrivateHistory(currentRoomId)).then(() =>
           scrollToBottom()
         )
-      : dispatch(fetchHistory()).then(() => scrollToBottom());
+      : dispatch(memoizedFetchHistory).then(() => scrollToBottom());
 
     socket.on("privateMessage:fromServer", (id) => {
       (id === currentRoomId) | (id === reverseRoomId(currentRoomId)) &&
