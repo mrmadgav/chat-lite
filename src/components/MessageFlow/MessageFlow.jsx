@@ -1,48 +1,50 @@
-import React, { useMemo } from "react";
-import { useState } from "react";
-import { socket } from "../helpers/io";
-import Message from "../Message/Message";
+import React, { useMemo, useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { nanoid } from "nanoid";
-import { useEffect } from "react";
+// socket
+import { socket } from "../helpers/io";
+//operations
+import { sendImg } from "../../Redux/Auth/Auth-operations";
 import {
   fetchHistory,
   fetchPrivateHistory,
 } from "../../Redux/Chat/Chat-operations";
-import {
-  filterValue,
-  getAllUsers,
-  getRoomId,
-  getUser,
-} from "../../Redux/selectors";
-import styles from "./MessageFlow.module.css";
+//selectors
+import { filterValue, getAllUsers, getRoomId } from "../../Redux/selectors";
 import { getHistory, getPrivateHistory } from "../../Redux/selectors";
-import { useRef } from "react";
+import { getToken } from "../../Redux/Auth/Auth-selectors";
+//components
+import Message from "../Message/Message";
 import ChangeMenu from "../ChangeMenu/ChangeMenu";
 import Modal from "../Modal/Modal";
-import { sendImg } from "../../Redux/Auth/Auth-operations";
-import { getToken } from "../../Redux/Auth/Auth-selectors";
+//styles
+import styles from "./MessageFlow.module.css";
+//other
+import { nanoid } from "nanoid";
 
 export default React.memo(MessageFlow);
 function MessageFlow(props) {
+  //dispatch
+  const dispatch = useDispatch();
+  //states
   const [modal, setModal] = useState(false);
   const [modalSrc, setModalSrc] = useState("");
-  const filter = useSelector(filterValue);
   const [EditMessageID, setEditMessageID] = useState(null);
   const [typing, setTyping] = useState(false);
   const [userTyping, setUserTyping] = useState([]);
-  const dispatch = useDispatch();
-  const allHistory = useSelector(getHistory);
-  const privateHistory = useSelector(getPrivateHistory);
-  const messagesEndRef = useRef(null);
-  const chatRef = useRef(null);
   const [deletedMessage, setDeletedMessage] = useState("");
   const [changeMenu, setchangeMenu] = useState(false);
+  //refs
+  const messagesEndRef = useRef(null);
+  const chatRef = useRef(null);
+  // selectors
+  const allHistory = useSelector(getHistory);
+  const privateHistory = useSelector(getPrivateHistory);
+  const filter = useSelector(filterValue);
   const currentToken = useSelector(getToken);
   const allUsers = useSelector(getAllUsers);
-  const currentUser = useSelector(getUser);
   const currentRoomId = useSelector(getRoomId);
 
+  //Use Effects
   useEffect(() => {
     allUsers.length > 1 && (chatRef.current.scrollTop = 999999999999999);
     return () => {
@@ -81,12 +83,8 @@ function MessageFlow(props) {
   useEffect(() => {
     chatRef.current.scrollTop = 999999999999999;
     currentRoomId
-      ? dispatch(fetchPrivateHistory(currentRoomId)).then(() =>
-          scrollToBottom()
-        )
-      : dispatch(memoizedFetchHistory).then(() => {
-          // scrollToBottom();
-        });
+      ? dispatch(fetchPrivateHistory(currentRoomId))
+      : dispatch(memoizedFetchHistory);
 
     socket.on("privateMessage:fromServer", (id) => {
       (id === currentRoomId) | (id === reverseRoomId(currentRoomId)) &&
@@ -97,13 +95,13 @@ function MessageFlow(props) {
     };
   }, [currentRoomId]);
 
+  //functions
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({
       behavior: "smooth",
     });
     messagesEndRef.current?.focus();
   };
-
   const handleToUpdate = (id) => {
     setDeletedMessage(id);
   };
@@ -146,7 +144,7 @@ function MessageFlow(props) {
     e.preventDefault();
     dispatch(sendImg(e.dataTransfer.files[0], currentToken, currentRoomId));
   };
-  //Drag & Drop
+  //Drag & Drop end
 
   return (
     <div className={styles.chatWrapper}>
