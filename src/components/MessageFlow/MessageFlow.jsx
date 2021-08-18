@@ -75,9 +75,9 @@ export default function MessageFlow(props) {
     socket.on("userTyping", userTyping);
     socket.on("userStoppedTyping", setTyping(false));
 
-    //   socket.on('direct', () => {
-    //     console.log(socket.id); // an alphanumeric id...
-    //  });
+    socket.on("user:join", (socketId) => {
+      console.log("socketId", socketId);
+    });
   }, []);
 
   const scrollToBottom = () => {
