@@ -85,7 +85,7 @@ export default function MessageFlow(props) {
       // socket.to(socket.id).emit("connect to room", socketId);
       socket.emit("connect to room", socket.id + socketId);
     });
-
+    console.log("currentRoomId в useEffect", currentRoomId);
     socket.on("privateMessage:fromServer", (id) => {
       console.log("id private msg", id);
       console.log("currentRoomId", currentRoomId);
