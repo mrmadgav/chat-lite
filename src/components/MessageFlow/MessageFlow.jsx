@@ -49,11 +49,7 @@ export default function MessageFlow(props) {
   }, [allUsers]);
 
   useEffect(() => {
-    // currentRoomId
-    //   ? dispatch(fetchPrivateHistory(currentRoomId)).then(() =>
-    //       scrollToBottom()
-    //     )
-    //   : dispatch(fetchHistory()).then(() => scrollToBottom());
+    console.log("Рендер главного компонента");
 
     socket.on("message:fromServer", () => {
       dispatch(fetchHistory()).then(() => scrollToBottom());
