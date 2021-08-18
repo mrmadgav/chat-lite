@@ -42,18 +42,22 @@ export default function MessageFlow(props) {
   const currentRoomId = useSelector(getRoomId);
 
   useEffect(() => {
-    allUsers.length > 1 && scrollToBottom();
-    return () => {
-      // console.log("Анмаунт юзэффекта от всех юзеров");
-    };
-  }, [allUsers]);
-
-  useEffect(() => {
-    currentRoomId
+    allUsers.length > 1 && currentRoomId
       ? dispatch(fetchPrivateHistory(currentRoomId)).then(() =>
           scrollToBottom()
         )
       : dispatch(fetchHistory()).then(() => scrollToBottom());
+    return () => {
+      // console.log("Анмаунт юзэффекта от всех юзеров");
+    };
+  }, [allUsers, currentRoomId, dispatch]);
+
+  useEffect(() => {
+    // currentRoomId
+    //   ? dispatch(fetchPrivateHistory(currentRoomId)).then(() =>
+    //       scrollToBottom()
+    //     )
+    //   : dispatch(fetchHistory()).then(() => scrollToBottom());
 
     socket.on("message:fromServer", () => {
       dispatch(fetchHistory()).then(() => scrollToBottom());
@@ -80,7 +84,7 @@ export default function MessageFlow(props) {
     });
   }, []);
 
-  useEffect(() => { 
+  useEffect(() => {
     currentRoomId
       ? dispatch(fetchPrivateHistory(currentRoomId)).then(() =>
           scrollToBottom()
