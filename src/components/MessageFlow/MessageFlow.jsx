@@ -38,8 +38,8 @@ export default function MessageFlow(props) {
   const [changeMenu, setchangeMenu] = useState(false);
   const currentToken = useSelector(getToken);
   const allUsers = useSelector(getAllUsers);
-  const currentRoomId = useSelector(getRoomId);
   const currentUser = useSelector(getUser);
+  const currentRoomId = useSelector(getRoomId);
 
   useEffect(() => {
     allUsers.length > 1 && scrollToBottom();
@@ -90,7 +90,9 @@ export default function MessageFlow(props) {
       console.log("id private msg", id);
       console.log("currentRoomId", currentRoomId);
       id === currentRoomId &&
-        dispatch(fetchPrivateHistory(currentRoomId)).then(() => scrollToBottom());
+        dispatch(fetchPrivateHistory(currentRoomId)).then(() =>
+          scrollToBottom()
+        );
     });
   }, []);
 
