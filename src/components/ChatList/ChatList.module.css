@@ -15,7 +15,7 @@
   color: gray;
   cursor: pointer;
 }
-.active {
+.active span {
   border: 1px solid steelblue;
 }
 
