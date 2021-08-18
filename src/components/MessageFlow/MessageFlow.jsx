@@ -41,28 +41,12 @@ export default function MessageFlow(props) {
   const currentUser = useSelector(getUser);
   const currentRoomId = useSelector(getRoomId);
 
-  let last_known_scroll_position = 0;
-  let ticking = false;
-
-  window.addEventListener("scroll", function (e) {
-    last_known_scroll_position = window.scrollY;
-
-    if (!ticking) {
-      window.requestAnimationFrame(function () {
-        scrollToBottom(last_known_scroll_position);
-        ticking = false;
-      });
-
-      ticking = true;
-    }
-  });
-
-  useEffect(() => {
-    allUsers.length > 1 && scrollToBottom();
-    return () => {
-      // console.log("Анмаунт юзэффекта от всех юзеров");
-    };
-  }, [allUsers]);
+  // useEffect(() => {
+  //   allUsers.length > 1 && scrollToBottom();
+  //   return () => {
+  //     // console.log("Анмаунт юзэффекта от всех юзеров");
+  //   };
+  // }, [allUsers]);
 
   useEffect(() => {
     socket.on("message:fromServer", () => {
