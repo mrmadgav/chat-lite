@@ -21,8 +21,7 @@ export default function LogOut() {
 
   const handleLogout = (e) => {
     e.preventDefault();
-    dispatch(logout(currentUserId, currentToken));
-    history.push("/");
+    dispatch(logout(currentUserId, currentToken)).then(() => history.push("/"));
   };
   const handleChange = (e) => {
     dispatch(sendAvatar(e.target.files[0], currentToken));
