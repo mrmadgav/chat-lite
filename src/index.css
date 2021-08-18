@@ -12,9 +12,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("./img/footprints-309158_960_720\ 1.png");
-  background-position: center;
-  background-position: 50%;
 }
 
 /* Указываем box sizing */
@@ -108,19 +105,18 @@ li {
   .AppUnlogged {
     display: block;
   }
-  body {
-    background-size: 200px;
-    background-repeat-x: no-repeat;
-  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1199px) {
   .AppUnlogged {
     display: flex;
   }
-  body {
-    background-size: 300px;
+  .AppLogged {
+    background-image: url("./img/footprints-309158_960_720\ 1.png");
+    background-position: center;
+    background-position: 50%;
     background-repeat: space;
+    background-size: 300px;
   }
 }
 
@@ -129,7 +125,10 @@ li {
     display: flex;
     margin-top: 10%;
   }
-  body {
+  .AppLogged {
+    background-image: url("./img/footprints-309158_960_720\ 1.png");
+    background-position: center;
+    background-position: 50%;
     background-size: 220px;
     background-repeat: space;
   }
