@@ -20,16 +20,6 @@
   border: 1px solid steelblue;
 }
 
-@media screen and (max-width: 1199px) {
-  .ChatListElement {
-    min-width: 90px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .ChatListElement {
-    width: 90px;
-  }
-}
 .ChatListTitle {
   display: block;
   color: rgb(140, 175, 207);
@@ -41,8 +31,27 @@
     font-size: 12px;
     padding-top: 10px;
   }
+  .ChatListElement {
+    min-width: 90px;
+  }
 }
+.ChatListWrapper {
+  background-color: ghostwhite;
+  border-radius: 5px;
+}
+
 @media screen and (min-width: 1200px) {
+  .ChatListElement {
+    width: 90px;
+  }
+  .ChatListWrapper {
+    padding: 20px;
+    margin-left: 50px;
+  }
+  .ChatListUl {
+    overflow-y: scroll;
+    max-height: 500px;
+  }
   .ChatListTitle {
     margin-bottom: 25px;
     font-size: 20px;
@@ -53,19 +62,10 @@
   }
 }
 
-.ChatListWrapper {
-  background-color: ghostwhite;
-  border-radius: 5px;
-}
-
-@media screen and (min-width: 1200px) {
+@media (min-width: 768px) and (max-width: 1199px) {
   .ChatListWrapper {
-    padding: 20px;
-    margin-left: 50px;
-  }
-  .ChatListUl {
+    max-height: 680px;
     overflow-y: scroll;
-    max-height: 500px;
   }
 }
 
@@ -88,8 +88,6 @@
   }
   .ChatListWrapper {
     margin-bottom: 10px;
-    max-height: 680px;
-    overflow-y: scroll;
   }
   .ChatListElement {
     padding: 5px;
