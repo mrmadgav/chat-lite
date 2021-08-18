@@ -41,12 +41,12 @@ export default function MessageFlow(props) {
   const currentUser = useSelector(getUser);
   const currentRoomId = useSelector(getRoomId);
 
-  useEffect(() => {
-    allUsers.length > 1 && scrollToBottom();
-    return () => {
-      // console.log("Анмаунт юзэффекта от всех юзеров");
-    };
-  }, [allUsers]);
+  // useEffect(() => {
+  //   allUsers.length > 1 && scrollToBottom();
+  //   return () => {
+  //     // console.log("Анмаунт юзэффекта от всех юзеров");
+  //   };
+  // }, [allUsers]);
 
   useEffect(() => {
     socket.on("message:fromServer", () => {
@@ -75,14 +75,14 @@ export default function MessageFlow(props) {
   }, []);
 
   useEffect(() => {
+    currentRoomId
+      ? dispatch(fetchPrivateHistory(currentRoomId)) /*.then(() =>
+    scrollToBottom()
+    )*/
+      : dispatch(fetchHistory()) /*.then(() => scrollToBottom())*/;
+
     const objDiv = document.getElementsByClassName(`${styles.chatDiv}`);
     objDiv.scrollTop = objDiv.scrollHeight;
-    // currentRoomId
-    //   ? dispatch(fetchPrivateHistory(currentRoomId)).then(() =>
-    //       scrollToBottom()
-    //     )
-    //   : dispatch(fetchHistory()).then(() => scrollToBottom());
-
     socket.on("privateMessage:fromServer", (id) => {
       (id === currentRoomId) | (id === reverseRoomId(currentRoomId)) &&
         dispatch(fetchPrivateHistory(id)).then(() => scrollToBottom());
