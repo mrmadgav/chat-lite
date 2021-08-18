@@ -1,7 +1,7 @@
-import React, { Suspense } from "react";
+import React from "react";
 import styles from "./Chat.module.css";
 import MessageForm from "../MessageForm/MessageForm";
-// import MessageFlow from "../MessageFlow/MessageFlow";
+import MessageFlow from "../MessageFlow/MessageFlow";
 import Filter from "../Filter/Filter";
 import { useSelector } from "react-redux";
 
@@ -12,7 +12,6 @@ import {
   getRoomId,
 } from "../../Redux/selectors";
 import UploadImg from "../UploadImg/UploadImg";
-const MessageFlow = React.lazy(() => import("../MessageFlow/MessageFlow"));
 
 export default function Chat(props) {
   const [copiedMessage, setcopiedMessage] = useState("");
@@ -35,9 +34,7 @@ export default function Chat(props) {
           <span className={styles.chatWelcome}>Welcome to chat</span> <Filter />
           <UploadImg />
         </span>
-        <Suspense fallback={<div>Загрузка...</div>}>
-          <MessageFlow getCopiedMessage={getCopiedMessage} />
-        </Suspense>
+        <MessageFlow getCopiedMessage={getCopiedMessage} />
         <MessageForm copiedMessage={copiedMessage} />
       </div>
     </>
