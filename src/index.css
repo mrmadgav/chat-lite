@@ -12,13 +12,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("./img/backgroundMainFootPrints.jpg");
+  background-image: url("./img/footprints-309158_960_720.webp");
   background-position: center;
   /* background-repeat: no-repeat; */
   background-size: contain;
-}
-body::after {
-  opacity: 0.2;
 }
 
 /* Указываем box sizing */
