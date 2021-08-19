@@ -47,7 +47,7 @@ export default function LoginPanel() {
             value={email}
             onChange={updateEmail}
             required
-            pattern="/.+@.+\..+/i"
+            pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$"
           />
         </label>
         <label className={styles.contactFormTitle}>
