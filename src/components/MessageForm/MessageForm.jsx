@@ -19,7 +19,7 @@ import "@pnotify/core/dist/BrightTheme.css";
 import { useEffect } from "react";
 
 defaultModules.set(PNotifyMobile, {});
-defaultModules.maxTextHeight = null;
+defaultModules.maxTextHeight = "null";
 
 export default function MessageForm(props) {
   const [notify, setNotify] = useState(false);
