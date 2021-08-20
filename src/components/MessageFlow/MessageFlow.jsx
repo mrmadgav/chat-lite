@@ -89,8 +89,10 @@ function MessageFlow(props) {
     socket.on("privateMessage:fromServer", (id, nickname) => {
       (id === currentRoomId) | (id === reverseRoomId(currentRoomId)) &&
         dispatch(fetchPrivateHistory(id)).then(() => scrollToBottom());
+
+      //Пуши на десктоп
       if (id !== (currentRoomId && reverseRoomId(currentRoomId))) {
-        window.innerWidth >= 320
+        window.innerWidth >= 1200
           ? new Notification(`New message from ${nickname}`)
           : !("Notification" in window)
           ? Notification.requestPermission()
@@ -98,8 +100,19 @@ function MessageFlow(props) {
       }
     });
 
+    socket.on("privateDeleteMessage:fromServer", (id) => {
+      (id === currentRoomId) | (id === reverseRoomId(currentRoomId)) &&
+        dispatch(fetchPrivateHistory(id)).then(() => scrollToBottom());
+    });
+    socket.on("privateEditMessage:fromServer", (id) => {
+      (id === currentRoomId) | (id === reverseRoomId(currentRoomId)) &&
+        dispatch(fetchPrivateHistory(id)).then(() => scrollToBottom());
+    });
+
     return () => {
       socket.removeListener("privateMessage:fromServer");
+      socket.removeListener("privateDeleteMessage:fromServer");
+      socket.removeListener("privateEditMessage:fromServer");
     };
   }, [currentRoomId]);
 
