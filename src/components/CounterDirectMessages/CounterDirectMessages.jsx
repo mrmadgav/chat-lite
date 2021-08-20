@@ -32,7 +32,7 @@ export default function CounterDirectMessages(props) {
     });
 
     if (currentRoomId.includes(props.id)) {
-      document.getElementById(`${props.id}`).classList.add(`${styles.hidden}`);
+      document.getElementById(`${props.id}`)?.classList.add(`${styles.hidden}`);
       setCounter(0);
     }
     // return () => {
