@@ -13,6 +13,7 @@ export default function ChatList() {
   // Функционал личных сообщений
   //начать диалог (создать комнату)
   const beginPrivateDialog = (event) => {
+    console.log(event.currentTarget.childNodes);
     const getUserIdForRoom = (i) => {
       if (i.nickname === event.target.innerHTML) return i._id;
     };

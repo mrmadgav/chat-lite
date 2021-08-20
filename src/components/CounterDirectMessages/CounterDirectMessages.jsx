@@ -35,14 +35,6 @@ export default function CounterDirectMessages(props) {
     // };
   }, [counter, currentRoomId, itemId, props.id]);
 
-  useEffect(() => {
-    console.log("сработал UseEffect", currentRoomId, props.id);
-    if (currentRoomId === props.id) {
-      document.getElementById(`${props.id}`).classList.add(`${styles.hidden}`);
-      setCounter(0);
-    }
-  }, [currentRoomId, props.id]);
-
   return (
     <span className={`${styles.counter} ${styles.hidden}`} id={`${itemId}`}>
       {counter}
