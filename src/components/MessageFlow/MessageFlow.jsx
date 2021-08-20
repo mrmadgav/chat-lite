@@ -58,11 +58,15 @@ function MessageFlow(props) {
     });
 
     socket.on("User edit message", () => {
-      dispatch(fetchHistory());
+      currentRoomId
+      ? dispatch(fetchPrivateHistory(currentRoomId))
+      : dispatch(memoizedFetchHistory);
     });
 
     socket.on("DeletingMessage", () => {
-      dispatch(fetchHistory());
+      currentRoomId
+      ? dispatch(fetchPrivateHistory(currentRoomId))
+      : dispatch(memoizedFetchHistory);
     });
 
     const userTyping = (data) => {
