@@ -110,9 +110,9 @@ function MessageFlow(props) {
     });
 
     return () => {
-      socket.removeListener("privateMessage:fromServer");
-      socket.removeListener("privateDeleteMessage:fromServer");
-      socket.removeListener("privateEditMessage:fromServer");
+      // socket.removeListener("privateMessage:fromServer");
+      // socket.removeListener("privateDeleteMessage:fromServer");
+      // socket.removeListener("privateEditMessage:fromServer");
     };
   }, [currentRoomId]);
 
