@@ -96,7 +96,6 @@ export default function MessageForm(props) {
           styling: "brighttheme",
           delay: 1000,
           killer: true,
-          scroll: false,
         });
       setNotify(!notify);
     }
