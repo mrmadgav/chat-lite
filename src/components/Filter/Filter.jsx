@@ -20,7 +20,7 @@ function Filter() {
         onChange={onHandleFilter}
         className={styles.filterInput}
       />
-      {filter && <ClearInputButton />}
+      {filter && <ClearInputButton setFilter={setFilter}/>}
     </label>
   );
 }
