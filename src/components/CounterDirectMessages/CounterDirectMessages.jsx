@@ -28,6 +28,11 @@ export default function CounterDirectMessages(props) {
           .getElementById(`${props.id}`)
           .classList.remove(`${styles.hidden}`);
         setCounter(counter + 1);
+      } else {
+        document
+          .getElementById(`${props.id}`)
+          .classList.add(`${styles.hidden}`);
+        setCounter(0);
       }
     });
     // return () => {
