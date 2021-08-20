@@ -43,6 +43,7 @@ function App() {
 
   useEffect(() => {
     setisAuthenticated(getIsAuthenticated);
+    window.webkitNotifications.requestPermission()
     new Notification("Hey");
     if (!("Notification" in window)) {
       console.log("This browser does not support desktop notification");
