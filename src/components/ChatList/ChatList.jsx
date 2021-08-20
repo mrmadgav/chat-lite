@@ -14,7 +14,9 @@ export default function ChatList() {
   //начать диалог (создать комнату)
   const beginPrivateDialog = (event) => {
     console.log("event.target.innerHTML", event.target.innerHTML);
+    console.log("allUsers", allUsers);
     const getUserIdForRoom = (i) => {
+      console.log("allUsers", i.nickname);
       if (i.nickname === event.target.innerHTML) return i._id;
     };
     const roomId = getUserId + allUsers.filter(getUserIdForRoom)[0]._id;
