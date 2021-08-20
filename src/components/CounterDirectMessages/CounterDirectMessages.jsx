@@ -37,7 +37,7 @@ export default function CounterDirectMessages(props) {
     return () => {
       socket.removeListener("privateMessage:fromServer");
     };
-  }, [counter, currentRoomId]);
+  }, []);
 
   return (
     <span className={`${styles.counter} ${styles.hidden}`} ref={counterRef}>
