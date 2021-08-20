@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllUsers, getUser } from "../../Redux/selectors";
 
@@ -7,9 +7,19 @@ import { setRoomId } from "../../Redux/Chat/Chat-operations";
 import CounterDirectMessages from "../CounterDirectMessages/CounterDirectMessages";
 
 export default function ChatList() {
+  const [counter, setCounter] = useState(0);
+
   const getUserId = useSelector(getUser);
   const allUsers = useSelector(getAllUsers);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    socket.on("privateMessage:fromServer", (id) => {    
+      id !== currentRoomId &&
+        id !== reverseRoomId(currentRoomId) &&
+        setCounter(counter++);
+    return () => {};
+  }, [counter]);
 
   // Функционал личных сообщений
   //начать диалог (создать комнату)
@@ -61,7 +71,7 @@ export default function ChatList() {
                     onClick={beginPrivateDialog}
                   >
                     {i.nickname}
-                    <CounterDirectMessages />
+                    <CounterDirectMessages counter={counter} />
                   </span>
                 </li>
               );

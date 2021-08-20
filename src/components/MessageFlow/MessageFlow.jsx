@@ -89,9 +89,6 @@ function MessageFlow(props) {
     socket.on("privateMessage:fromServer", (id) => {
       (id === currentRoomId) | (id === reverseRoomId(currentRoomId)) &&
         dispatch(fetchPrivateHistory(id)).then(() => scrollToBottom());
-      id !== currentRoomId &&
-        id !== reverseRoomId(currentRoomId) &&
-        console.log("this");
     });
 
     return () => {
