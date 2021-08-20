@@ -1,4 +1,5 @@
-import React, { useSelector, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { getRoomId } from "../../Redux/selectors";
 import styles from "./CounterDirectMessages.module.css";
 import { socket } from "../helpers/io";
