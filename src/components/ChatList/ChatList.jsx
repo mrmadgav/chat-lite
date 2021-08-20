@@ -1,44 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllUsers, getRoomId, getUser } from "../../Redux/selectors";
+import { getAllUsers, getUser } from "../../Redux/selectors";
 
 import styles from "./ChatList.module.css";
 import { setRoomId } from "../../Redux/Chat/Chat-operations";
 import CounterDirectMessages from "../CounterDirectMessages/CounterDirectMessages";
-import { socket } from "../helpers/io";
 
-export default function ChatList() {
-  const [counter, setCounter] = useState(0);
-
+export default function ChatList() { 
   const getUserId = useSelector(getUser);
   const allUsers = useSelector(getAllUsers);
   const dispatch = useDispatch();
-  const currentRoomId = useSelector(getRoomId);
-
-  // useEffect(() => {
-  //   socket.on("privateMessage:fromServer", (id) => {
-  //     (id !== currentRoomId && id !== reverseRoomId(currentRoomId)) && setCounter(counter++)}
-  //   return () => {}
-  // }, [])
-
-  function reverseRoomId(roomId) {
-    const firstPart = roomId.substr(0, roomId.length / 2);
-    const secondPart = roomId.substr(roomId.length / 2);
-    let newStr = [secondPart, firstPart].join("");
-    return newStr;
-  }
-
-  useEffect(() => {
-    console.log("сработал UseEffect");
-    socket.on("privateMessage:fromServer", (id) => {
-      id !== currentRoomId &&
-        id !== reverseRoomId(currentRoomId) &&
-        setCounter(counter + 1);
-    });
-    return () => {
-      socket.removeListener("privateMessage:fromServer");
-    };
-  }, [counter, currentRoomId]);
 
   // Функционал личных сообщений
   //начать диалог (создать комнату)
@@ -90,7 +61,7 @@ export default function ChatList() {
                     onClick={beginPrivateDialog}
                   >
                     {i.nickname}
-                    <CounterDirectMessages counter={counter} />
+                    <CounterDirectMessages id={i._id}/>
                   </span>
                 </li>
               );
