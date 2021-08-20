@@ -1,6 +1,6 @@
 import React from "react";
 import acceptSVG from "../../img/accept.svg";
-import styles from "./ChangeMenu.module.css";
+import styles from "./ClearInputButton.module.css";
 
 export default function ClearInputButton() {
   return (
