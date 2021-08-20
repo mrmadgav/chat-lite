@@ -82,7 +82,7 @@ function MessageFlow(props) {
 
   useEffect(() => {
     console.log("Маунт useEffect со слушателями привата");
-    
+
     chatRef.current.scrollTop = 999999999999999;
     currentRoomId
       ? dispatch(fetchPrivateHistory(currentRoomId))
@@ -117,7 +117,7 @@ function MessageFlow(props) {
       socket.removeListener("privateDeleteMessage:fromServer");
       socket.removeListener("privateEditMessage:fromServer");
     };
-  }, [currentRoomId, dispatch, memoizedFetchHistory]);
+  }, [currentRoomId]);
 
   //functions
   const scrollToBottom = () => {
