@@ -25,10 +25,13 @@ export default function CounterDirectMessages(props) {
   useEffect(() => {
     console.log("сработал UseEffect");
     socket.on("privateMessage:fromServer", (id) => {
-      id !== (currentRoomId && reverseRoomId(currentRoomId)) &&
-        id.includes(itemId) &&
-        counterRef.current?.classList.remove(`${styles.hidden}`) &&
+      if (
+        id !== (currentRoomId && reverseRoomId(currentRoomId)) &&
+        id.includes(itemId)
+      ) {
+        counterRef.current?.classList.remove(`${styles.hidden}`);
         setCounter(counter + 1);
+      }
     });
 
     return () => {
