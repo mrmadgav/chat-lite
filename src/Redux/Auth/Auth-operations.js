@@ -76,6 +76,18 @@ export const getUser = (currentToken) => async (dispatch) => {
   }
 };
 
+export const getUsers = (currentToken) => async (dispatch) => {
+  dispatch(authActions.getUsersRequest());
+  try {
+    const users = await axios.get("/users", {
+      headers: { Authorization: "Bearer " + currentToken },
+    });
+    dispatch(authActions.getUsersSuccess(users.data));
+  } catch (error) { 
+    dispatch(authActions.getUsersError(error.message));
+  }
+};
+
 export const sendAvatar = (data, currentToken) => async (dispatch) => {
   dispatch(authActions.sendAvatarRequest());
   try {

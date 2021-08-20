@@ -29,6 +29,7 @@ export default function ChatList() {
     localStorage.removeItem("roomId");
   };
   // Функционал личных сообщений
+
   // useEffect(() => {
   //   const getUsersFromServer = async () => {
   //     const users = await axios.get("/users");

@@ -8,7 +8,7 @@ import { socket } from "./components/helpers/io";
 import { createBrowserHistory } from "history";
 
 //Operations
-import { getUser } from "./Redux/Auth/Auth-operations";
+import { getUser, getUsers } from "./Redux/Auth/Auth-operations";
 import { sendUserList, setRoomId } from "./Redux/Chat/Chat-operations";
 
 //Components
@@ -57,7 +57,7 @@ function App() {
 
   useEffect(() => {
     const userJoin = (data) => {
-      dispatch(sendUserList(data));
+      dispatch(getUsers());
     };
     socket.on("user:login", userJoin);
     return () => {
