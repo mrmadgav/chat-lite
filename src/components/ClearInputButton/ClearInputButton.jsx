@@ -1,5 +1,5 @@
 import React from "react";
-import acceptSVG from "../../img/accept.svg";
+import clearSVG from "../../img/clear.png";
 import styles from "./ClearInputButton.module.css";
 
 export default function ClearInputButton(props) {
@@ -7,9 +7,9 @@ export default function ClearInputButton(props) {
     <button
       type="button"
       onClick={() => props.clearInput()}
-      className={styles.acceptBtn}
+      className={styles.clearBtn}
     >
-      <img src={acceptSVG} alt="" className={styles.acceptIMG} />
+      <img src={clearSVG} alt="" className={styles.clearIMG} />
     </button>
   );
 }
