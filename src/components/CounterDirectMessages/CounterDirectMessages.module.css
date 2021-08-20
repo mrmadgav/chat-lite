@@ -4,6 +4,8 @@
   border-radius: 50%;
   border: 1px solid steelblue;
   position: absolute;
+  left: 75%;
+  top: 65%;
 }
 /* .hidden {
     display: none;

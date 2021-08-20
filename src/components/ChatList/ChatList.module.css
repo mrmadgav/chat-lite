@@ -138,4 +138,6 @@
     #e6dee9 100%
   );
 }
-
+.ChatListLI {
+  position: relative;
+}

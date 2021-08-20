@@ -55,7 +55,7 @@ export default function ChatList() {
           allUsers.map((i) => {
             if (i.isOnline) {
               return (
-                <li>
+                <li className={styles.ChatListLI}>
                   <span
                     className={styles.ChatListElement}
                     onClick={beginPrivateDialog}
