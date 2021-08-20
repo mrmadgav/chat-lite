@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { onFilter } from "../../Redux/Chat/Chat-operations";
+import ClearInputButton from "../ClearInputButton/ClearInputButton";
 import styles from "./Filter.module.css";
 
 function Filter() {
@@ -17,8 +18,9 @@ function Filter() {
         type="text"
         placeholder="find your message"
         onChange={onHandleFilter}
-        className={styles.filterInput}        
+        className={styles.filterInput}
       />
+      {filter && <ClearInputButton />}
     </label>
   );
 }
