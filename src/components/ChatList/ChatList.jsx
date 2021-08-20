@@ -29,17 +29,17 @@ export default function ChatList() {
     localStorage.removeItem("roomId");
   };
   // Функционал личных сообщений
-  useEffect(() => {
-    const getUsersFromServer = async () => {
-      const users = await axios.get("/users");
-      dispatch(authActions.getUsersSuccess(users.data));
-    };
+  // useEffect(() => {
+  //   const getUsersFromServer = async () => {
+  //     const users = await axios.get("/users");
+  //     dispatch(authActions.getUsersSuccess(users.data));
+  //   };
 
-    socket.on("user:login", getUsersFromServer);
-    return () => {
-      socket.removeListener("user:login", getUsersFromServer);
-    };
-  }, [allUsers]);
+  //   socket.on("user:login", getUsersFromServer);
+  //   return () => {
+  //     socket.removeListener("user:login", getUsersFromServer);
+  //   };
+  // }, [allUsers]);
 
   const addActiveClass = (e) => {
     if (e.target.tagName === "SPAN") {
