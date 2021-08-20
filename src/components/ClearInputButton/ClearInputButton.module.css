@@ -1,14 +1,12 @@
 .clearIMG {
-  width: 20px;
-  height: 20px;
+  opacity: 50%;
 }
 .clearBtn {
   border: none;
   background: none;
   position: absolute;
-  left: 80%;
-  top: 31%;
 }
+
 .updateMessageInput {
   margin-top: 10px;
   margin-bottom: 5px;
@@ -22,4 +20,36 @@
   outline: 0;
   outline-offset: 0;
   box-shadow: 0 0 0 2px rgb(255, 184, 158) inset, 0 0 0 4px white inset;
+}
+@media screen and (min-width: 1200px) {
+  .clearBtn {
+    left: 80%;
+    top: 31%;
+  }
+  .clearIMG {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .clearBtn {
+    left: 81%;
+    top: 22%;
+  }
+  .clearIMG {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .clearBtn {
+    left: 87%;
+    top: 26%;
+  }
+  .clearIMG {
+    width: 12px;
+    height: 12px;
+  }
 }
