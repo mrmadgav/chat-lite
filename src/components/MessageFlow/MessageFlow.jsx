@@ -86,13 +86,12 @@ function MessageFlow(props) {
       ? dispatch(fetchPrivateHistory(currentRoomId))
       : dispatch(memoizedFetchHistory);
 
-    socket.on("privateMessage:fromServer", (id) => {
+    socket.on("privateMessage:fromServer", (id, nickname) => {
       (id === currentRoomId) | (id === reverseRoomId(currentRoomId)) &&
         dispatch(fetchPrivateHistory(id)).then(() => scrollToBottom());
       if (id !== (currentRoomId && reverseRoomId(currentRoomId))) {
-        const incomeUser = allUsers.find(id);
         window.innerWidth >= 1200
-          ? new Notification(`New message from ${incomeUser.nickname}`)
+          ? new Notification(`New message from ${nickname}`)
           : !("Notification" in window)
           ? Notification.requestPermission()
           : console.log("Уведомления запрещены в браузере");
