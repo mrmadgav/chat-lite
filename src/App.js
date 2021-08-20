@@ -11,6 +11,9 @@ import { createBrowserHistory } from "history";
 import { getUser, getUsers } from "./Redux/Auth/Auth-operations";
 import { sendUserList, setRoomId } from "./Redux/Chat/Chat-operations";
 
+//Selectors
+import { getToken } from "./Redux/Auth/Auth-selectors";
+
 //Components
 import Section from "../src/components/Section/Section";
 import RegisterPanel from "./components/RegisterPanel/RegisterPanel.jsx";
@@ -34,6 +37,7 @@ function App() {
   const getIsAuthenticated = useSelector((state) => state.authReducer.token);
   const getUserId = useSelector((state) => state.authReducer.user.userId);
   const getUserNick = useSelector((state) => state.authReducer.user.nickname);
+  const currentToken = useSelector(getToken);
 
   const dispatch = useDispatch();
 
@@ -57,7 +61,7 @@ function App() {
 
   useEffect(() => {
     const userJoin = (data) => {
-      dispatch(getUsers());
+      dispatch(getUsers(currentToken));
     };
     socket.on("user:login", userJoin);
     return () => {
