@@ -34,6 +34,6 @@ export default function CounterDirectMessages(props) {
   }, []);
 
   return (
-    <span className={`${styles.counter} ${styles.hidden}`} id={itemId}>{counter}</span>
+    <span className={`${styles.counter} ${styles.hidden}`} id={`#${itemId}`>{counter}</span>
   );
 }
