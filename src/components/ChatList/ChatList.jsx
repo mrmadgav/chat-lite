@@ -61,7 +61,7 @@ export default function ChatList() {
                   >
                     {i.nickname}
                   </span>
-                  <CounterDirectMessages id={i._id} />
+                  {i._id !== getUserId && <CounterDirectMessages id={i._id} />}
                 </li>
               );
             }

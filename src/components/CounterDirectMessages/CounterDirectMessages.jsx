@@ -15,7 +15,7 @@ export default function CounterDirectMessages(props) {
     let newStr = [secondPart, firstPart].join("");
     return newStr;
   }
-  
+
   useEffect(() => {
     setItemId(props.id);
     socket.on("privateMessage:fromServer", (id) => {
@@ -23,20 +23,28 @@ export default function CounterDirectMessages(props) {
       if (
         id.includes(props.id) &&
         id !== (currentRoomId && reverseRoomId(currentRoomId))
-      ) {     
-        console.log("itemId", itemId);  
-        console.log("typeof itemId", typeof itemId); 
-        console.log("document.getElementById", document.getElementById(`${itemId}`));   
-        document.getElementById(`${props.id}`).classList.remove(`${styles.hidden}`);
+      ) {
+        document
+          .getElementById(`${props.id}`)
+          .classList.remove(`${styles.hidden}`);
         setCounter(counter + 1);
       }
     });
-    return () => {
-      socket.removeListener("privateMessage:fromServer");
-    };
+    // return () => {
+    //   socket.removeListener("privateMessage:fromServer");
+    // };
   }, [counter, currentRoomId, itemId, props.id]);
 
+  useEffect(() => {
+    if (currentRoomId === props.id) {
+      document.getElementById(`${props.id}`).classList.add(`${styles.hidden}`);
+      setCounter(0);
+    }
+  }, [currentRoomId, props.id]);
+
   return (
-    <span className={`${styles.counter} ${styles.hidden}`} id={`${itemId}`}>{counter}</span>
+    <span className={`${styles.counter} ${styles.hidden}`} id={`${itemId}`}>
+      {counter}
+    </span>
   );
 }
