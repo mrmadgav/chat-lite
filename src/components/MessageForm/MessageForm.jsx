@@ -92,7 +92,7 @@ export default function MessageForm(props) {
     } else {
       !notify &&
         notice({
-          text: "Агрессивное молчание не принесет тебе удовлетворения",
+          text: "Агрессивно помолчим?)",
           styling: "brighttheme",
           delay: 1000,
           killer: true,
