@@ -28,7 +28,6 @@ export default function CounterDirectMessages(props) {
       id !== (currentRoomId && reverseRoomId(currentRoomId)) &&
         id.includes(itemId) &&
         setCounter(counter + 1);
-      counterRef.current?.classList.remove(`${styles.hidden}`);
     });
     return () => {
       socket.removeListener("privateMessage:fromServer");
