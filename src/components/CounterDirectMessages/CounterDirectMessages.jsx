@@ -26,7 +26,7 @@ export default function CounterDirectMessages(props) {
     console.log("сработал UseEffect");
     socket.on("privateMessage:fromServer", (id) => {
       if (
-        id.includes(itemId) &&
+        id.includes(itemId) &&  
         id !== (currentRoomId && reverseRoomId(currentRoomId))
       ) {
         counterRef.current?.classList.remove(`${styles.hidden}`);
@@ -37,7 +37,7 @@ export default function CounterDirectMessages(props) {
     return () => {
       socket.removeListener("privateMessage:fromServer");
     };
-  }, [counter, currentRoomId]);
+  }, []);
 
   return (
     <span className={`${styles.counter} ${styles.hidden}`} ref={counterRef}>
