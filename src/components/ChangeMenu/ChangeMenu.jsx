@@ -48,7 +48,7 @@ export default function ChangeMenu(props) {
         value={updatedMessage}
         onChange={updateMessage}
         ref={(input) => input && input.focus()}
-        className={styles.updateMessageImput}
+        className={styles.updateMessageInput}
       />
       <button type="button" onClick={sendChanges} className={styles.acceptBtn}>
         <img src={acceptSVG} alt="" className={styles.acceptIMG} />
