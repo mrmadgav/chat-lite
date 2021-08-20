@@ -42,19 +42,15 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (isAuthenticated) {
-      const roomId = localStorage.getItem("roomId");
-      roomId !== null && dispatch(setRoomId(roomId));
-    }
-  }, [dispatch, isAuthenticated]);
-
-  useEffect(() => {
     setisAuthenticated(getIsAuthenticated);
+    new Notification('Hey')
   }, [getIsAuthenticated]);
 
   useEffect(() => {
     if (isAuthenticated) {
       dispatch(getUser(isAuthenticated));
+      const roomId = localStorage.getItem("roomId");
+      roomId !== null && dispatch(setRoomId(roomId));
     }
     setisAuthenticated(getIsAuthenticated);
   }, [isAuthenticated]);
