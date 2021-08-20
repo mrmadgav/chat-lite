@@ -90,9 +90,9 @@ function MessageFlow(props) {
       (id === currentRoomId) | (id === reverseRoomId(currentRoomId)) &&
         dispatch(fetchPrivateHistory(id)).then(() => scrollToBottom());
       if (id !== (currentRoomId && reverseRoomId(currentRoomId))) {
-        const incomeUser = allUsers.map((i) => i.id === id && i.nickname);
+        const incomeUser = allUsers.find(id);
         window.innerWidth >= 1200
-          ? new Notification(`New message from ${incomeUser}`)
+          ? new Notification(`New message from ${incomeUser.nickname}`)
           : !("Notification" in window)
           ? Notification.requestPermission()
           : console.log("Уведомления запрещены в браузере");
