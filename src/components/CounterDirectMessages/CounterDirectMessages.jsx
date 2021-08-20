@@ -17,7 +17,7 @@ export default function CounterDirectMessages(props) {
   }
 
   useEffect(() => {
-    setItemId(props._id);
+    setItemId(props.id);
     return () => {};
   }, []);
 
