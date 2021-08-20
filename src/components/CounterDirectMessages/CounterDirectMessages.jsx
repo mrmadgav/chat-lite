@@ -25,7 +25,8 @@ export default function CounterDirectMessages(props) {
         id !== (currentRoomId && reverseRoomId(currentRoomId))
       ) {     
         console.log("itemId", itemId);  
-        console.log("typeof itemId", typeof itemId);  
+        console.log("typeof itemId", typeof itemId); 
+        console.log("document.getElementById", document.getElementById(`${itemId}`));   
         document.getElementById(`${itemId}`).classList.remove(`${styles.hidden}`);
         setCounter(counter + 1);
       }
