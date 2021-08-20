@@ -17,14 +17,14 @@ export default function CounterDirectMessages(props) {
   }
   
   useEffect(() => {
-    console.log("сработал UseEffect");
     setItemId(props.id);
     socket.on("privateMessage:fromServer", (id) => {
+      console.log("Пришло сообщение с сервера");
       if (
         id.includes(itemId) &&
         id !== (currentRoomId && reverseRoomId(currentRoomId))
       ) {
-        document.getElementById(`#${itemId}`).classList.remove(`${styles.hidden}`);
+        document.getElementById(`${itemId}`).classList.remove(`${styles.hidden}`);
         setCounter(counter + 1);
       }
     });
