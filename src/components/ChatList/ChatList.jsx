@@ -4,6 +4,7 @@ import { getAllUsers, getUser } from "../../Redux/selectors";
 
 import styles from "./ChatList.module.css";
 import { setRoomId } from "../../Redux/Chat/Chat-operations";
+import CounterDirectMessages from "../CounterDirectMessages/CounterDirectMessages";
 
 export default function ChatList() {
   const getUserId = useSelector(getUser);
@@ -60,6 +61,11 @@ export default function ChatList() {
                     onClick={beginPrivateDialog}
                   >
                     {i.nickname}
+                  </span>
+                  <span
+                    className={`${styles.countIncomeMessages} ${styles.hidden}`}
+                  >
+                    <CounterDirectMessages />
                   </span>
                 </li>
               );
