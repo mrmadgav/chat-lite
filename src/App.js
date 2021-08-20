@@ -41,19 +41,19 @@ function App() {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    Notification.requestPermission();
-    return () => {};
-  }, []);
+  // useEffect(() => {
+  //   Notification.requestPermission();
+  //   return () => {};
+  // }, []);
 
   useEffect(() => {
     setisAuthenticated(getIsAuthenticated);
-    new Notification("Hey");
-    if (!("Notification" in window)) {
-      console.log("This browser does not support desktop notification");
-    } else {
-      Notification.requestPermission();
-    }
+    // new Notification("Hey");
+    // if (!("Notification" in window)) {
+    //   console.log("This browser does not support desktop notification");
+    // } else {
+    //   Notification.requestPermission();
+    // }
   }, [getIsAuthenticated]);
 
   useEffect(() => {
