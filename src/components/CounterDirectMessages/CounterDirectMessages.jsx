@@ -7,6 +7,7 @@ import { socket } from "../helpers/io";
 export default function CounterDirectMessages(props) {
   const currentRoomId = useSelector(getRoomId);
   const [counter, setCounter] = useState(0);
+  const [itemId, setItemId] = useState("");
 
   function reverseRoomId(roomId) {
     const firstPart = roomId.substr(0, roomId.length / 2);
@@ -16,11 +17,15 @@ export default function CounterDirectMessages(props) {
   }
 
   useEffect(() => {
-    console.log("props", props);
+    setItemId(props._id);
+    return () => {};
+  }, []);
+
+  useEffect(() => {
     console.log("сработал UseEffect");
     socket.on("privateMessage:fromServer", (id) => {
       id !== (currentRoomId && reverseRoomId(currentRoomId)) &&
-        id.includes(props.id) &&
+        id.includes(itemId) &&
         setCounter(counter + 1);
     });
     return () => {
