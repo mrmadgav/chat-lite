@@ -63,8 +63,8 @@ export default function ChatList() {
                     onClick={beginPrivateDialog}
                   >
                     {i.nickname}
-                    <CounterDirectMessages id={i._id} />
                   </span>
+                    <CounterDirectMessages id={i._id} />
                 </li>
               );
             }
