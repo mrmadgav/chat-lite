@@ -23,7 +23,7 @@ export default function CounterDirectMessages(props) {
       if (
         id.includes(itemId) &&
         id !== (currentRoomId && reverseRoomId(currentRoomId))
-      ) {
+      ) {       
         document.getElementById(`${itemId}`).classList.remove(`${styles.hidden}`);
         setCounter(counter + 1);
       }
@@ -34,6 +34,6 @@ export default function CounterDirectMessages(props) {
   }, []);
 
   return (
-    <span className={`${styles.counter} ${styles.hidden}`} id={`#${itemId}`}>{counter}</span>
+    <span className={`${styles.counter} ${styles.hidden}`} id={`${itemId}`}>{counter}</span>
   );
 }
