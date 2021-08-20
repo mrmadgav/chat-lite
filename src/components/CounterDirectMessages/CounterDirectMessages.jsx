@@ -16,6 +16,7 @@ export default function CounterDirectMessages(props) {
   }
 
   useEffect(() => {
+    console.log("props", props);
     console.log("сработал UseEffect");
     socket.on("privateMessage:fromServer", (id) => {
       id !== (currentRoomId && reverseRoomId(currentRoomId)) &&
