@@ -5,7 +5,7 @@ import styles from "./ChatList.module.css";
 import { setRoomId } from "../../Redux/Chat/Chat-operations";
 import CounterDirectMessages from "../CounterDirectMessages/CounterDirectMessages";
 
-export default function ChatList() { 
+export default function ChatList() {
   const getUserId = useSelector(getUser);
   const allUsers = useSelector(getAllUsers);
   const dispatch = useDispatch();
@@ -13,6 +13,7 @@ export default function ChatList() {
   // Функционал личных сообщений
   //начать диалог (создать комнату)
   const beginPrivateDialog = (event) => {
+    console.log("event.target.innerHTML", event.target.innerHTML);
     const getUserIdForRoom = (i) => {
       if (i.nickname === event.target.innerHTML) return i._id;
     };
@@ -60,7 +61,7 @@ export default function ChatList() {
                     onClick={beginPrivateDialog}
                   >
                     {i.nickname}
-                    <CounterDirectMessages id={i._id}/>
+                    <CounterDirectMessages id={i._id} />
                   </span>
                 </li>
               );
