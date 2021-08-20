@@ -6,7 +6,7 @@ export default function ClearInputButton(props) {
   return (
     <button
       type="button"
-      onClick={() => props.setFilter("")}
+      onClick={() => props.clearInput}
       className={styles.acceptBtn}
     >
       <img src={acceptSVG} alt="" className={styles.acceptIMG} />
