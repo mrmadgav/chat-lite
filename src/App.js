@@ -61,6 +61,7 @@ function App() {
 
   useEffect(() => {
     const userJoin = (data) => {
+      console.log(currentToken);
       dispatch(getUsers(currentToken));
     };
     socket.on("user:login", userJoin);
@@ -68,6 +69,7 @@ function App() {
       socket.removeListener("user:login", userJoin);
     };
   });
+
   return (
     <Section>
       <div className={!isAuthenticated ? "AppUnlogged" : "AppLogged"}>
