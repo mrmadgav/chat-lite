@@ -1,9 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllUsers, getUser } from "../../Redux/selectors";
-import { socket } from "../helpers/io";
-import authActions from "../../Redux/Auth/Auth-actions";
-import axios from "axios";
 
 import styles from "./ChatList.module.css";
 import { setRoomId } from "../../Redux/Chat/Chat-operations";
@@ -29,18 +26,6 @@ export default function ChatList() {
     localStorage.removeItem("roomId");
   };
   // Функционал личных сообщений
-
-  // useEffect(() => {
-  //   const getUsersFromServer = async () => {
-  //     const users = await axios.get("/users");
-  //     dispatch(authActions.getUsersSuccess(users.data));
-  //   };
-
-  //   socket.on("user:login", getUsersFromServer);
-  //   return () => {
-  //     socket.removeListener("user:login", getUsersFromServer);
-  //   };
-  // }, [allUsers]);
 
   const addActiveClass = (e) => {
     if (e.target.tagName === "SPAN") {

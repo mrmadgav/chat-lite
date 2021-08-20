@@ -9,7 +9,7 @@ import { createBrowserHistory } from "history";
 
 //Operations
 import { getUser, getUsers } from "./Redux/Auth/Auth-operations";
-import { sendUserList, setRoomId } from "./Redux/Chat/Chat-operations";
+import { setRoomId } from "./Redux/Chat/Chat-operations";
 
 //Selectors
 import { getToken } from "./Redux/Auth/Auth-selectors";
@@ -60,13 +60,14 @@ function App() {
   }, [isAuthenticated]);
 
   useEffect(() => {
-    const userJoin = (data) => {
-      console.log(currentToken);
+    const checkUsers = () => {
       dispatch(getUsers(currentToken));
     };
-    socket.on("user:login", userJoin);
+    socket.on("user:login", checkUsers);
+    socket.on("user:logout", checkUsers);
     return () => {
-      socket.removeListener("user:login", userJoin);
+      socket.removeListener("user:login", checkUsers);
+      socket.removeListener("user:logout", checkUsers);
     };
   });
 
