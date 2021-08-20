@@ -109,7 +109,7 @@
 }
 
 .scrollbarFrozenDreams::-webkit-scrollbar {
-  width: 6px;
+  width: 3px;
   background-color: #f5f5f5;
 }
 
