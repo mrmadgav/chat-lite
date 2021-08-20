@@ -5,7 +5,7 @@ import ClearInputButton from "../ClearInputButton/ClearInputButton";
 import styles from "./Filter.module.css";
 
 function Filter() {
-  const [filter, setFilter] = useState([]);
+  const [filter, setFilter] = useState("");
 
   const dispatch = useDispatch();
   const inputRef = useRef(null);
