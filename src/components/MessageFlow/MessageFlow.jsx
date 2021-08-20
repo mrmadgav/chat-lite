@@ -110,11 +110,12 @@ function MessageFlow(props) {
     });
 
     return () => {
-      // socket.removeListener("privateMessage:fromServer");
-      // socket.removeListener("privateDeleteMessage:fromServer");
-      // socket.removeListener("privateEditMessage:fromServer");
+      console.log("Анмаунт useEffect со слушателями привата");
+      socket.removeListener("privateMessage:fromServer");
+      socket.removeListener("privateDeleteMessage:fromServer");
+      socket.removeListener("privateEditMessage:fromServer");
     };
-  }, [currentRoomId]);
+  }, [currentRoomId, dispatch, memoizedFetchHistory]);
 
   //functions
   const scrollToBottom = () => {
