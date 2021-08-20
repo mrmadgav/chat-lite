@@ -69,6 +69,10 @@
     max-height: 680px;
     overflow-y: scroll;
   }
+  .ChatListUl li {  
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 767px) {

@@ -4,12 +4,32 @@
   min-width: 20px;
   border-radius: 50%;
   position: absolute;
-  left: 75%;
-  top: -10%;
   text-align: center;
   background-color: coral;
   color: white;
+  box-shadow: inset rgb(0 0 0 / 25%) 0 -3px 8px,
+    inset rgb(252 255 255 / 70%) 0 3px 8px, rgb(0 0 0 / 80%) 0 3px 8px -3px;
 }
 .hidden {
   display: none;
+}
+@media screen and (min-width: 1200px) {
+  .counter {
+    left: 75%;
+    top: -10%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .counter {
+    left: 87%;
+    top: -22%;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .counter {
+    left: 84%;
+    top: 22%;
+  }
 }
