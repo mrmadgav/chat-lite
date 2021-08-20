@@ -17,6 +17,7 @@ function Filter() {
   const clearInput = () => {
     setFilter("");
     inputRef.current.value = "";
+    dispatch(onFilter(""));
   };
   return (
     <label className={styles.label}>
