@@ -48,11 +48,11 @@ function App() {
 
   useEffect(() => {
     setisAuthenticated(getIsAuthenticated);
-    window.innerWidth >= 1200
-      ? new Notification("Hey")
-      : !("Notification" in window)
-      ? Notification.requestPermission()
-      : console.log("Уведомления запрещены в браузере");
+    // window.innerWidth >= 1200
+    //   ? new Notification("Hey")
+    //   : !("Notification" in window)
+    //   ? Notification.requestPermission()
+    //   : console.log("Уведомления запрещены в браузере");
 
     // new Notification("Hey");
     // if (!("Notification" in window)) {

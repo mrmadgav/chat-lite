@@ -89,6 +89,13 @@ function MessageFlow(props) {
     socket.on("privateMessage:fromServer", (id) => {
       (id === currentRoomId) | (id === reverseRoomId(currentRoomId)) &&
         dispatch(fetchPrivateHistory(id)).then(() => scrollToBottom());
+      if (id !== (currentRoomId && reverseRoomId(currentRoomId))) {
+        window.innerWidth >= 1200
+          ? new Notification(`${id}`)
+          : !("Notification" in window)
+          ? Notification.requestPermission()
+          : console.log("Уведомления запрещены в браузере");
+      }
     });
 
     return () => {
