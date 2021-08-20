@@ -21,19 +21,19 @@ export default function CounterDirectMessages(props) {
     socket.on("privateMessage:fromServer", (id) => {
       console.log("Пришло сообщение с сервера");
       if (
-        id.includes(itemId) &&
+        id.includes(props.id) &&
         id !== (currentRoomId && reverseRoomId(currentRoomId))
       ) {     
         console.log("itemId", itemId);  
         console.log("typeof itemId", typeof itemId); 
         console.log("document.getElementById", document.getElementById(`${itemId}`));   
-        document.getElementById(`${itemId}`).classList.remove(`${styles.hidden}`);
+        document.getElementById(`${props.id}`).classList.remove(`${styles.hidden}`);
         setCounter(counter + 1);
       }
     });
-    // return () => {
-    //   socket.removeListener("privateMessage:fromServer");
-    // };
+    return () => {
+      socket.removeListener("privateMessage:fromServer");
+    };
   }, [counter, currentRoomId, itemId, props.id]);
 
   return (
