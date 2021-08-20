@@ -13,7 +13,6 @@ export default function ChatList() {
   // Функционал личных сообщений
   //начать диалог (создать комнату)
   const beginPrivateDialog = (event) => {
-    console.log(event.currentTarget.childNodes);
     const getUserIdForRoom = (i) => {
       if (i.nickname === event.target.innerHTML) return i._id;
     };
@@ -29,6 +28,7 @@ export default function ChatList() {
   // Функционал личных сообщений
 
   const addActiveClass = (e) => {
+    e.currentTarget.childNodes.childNodes[1]?.classList.add(`${styles.hidden}`);
     if (e.target.tagName === "SPAN") {
       for (let i = 0; i < e.currentTarget.childNodes.length; i++) {
         e.currentTarget.childNodes[i].childNodes[0].classList.remove(
