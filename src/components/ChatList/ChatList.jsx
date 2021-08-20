@@ -27,7 +27,7 @@ export default function ChatList() {
   };
   // Функционал личных сообщений
 
-  const addActiveClass = (e) => {  
+  const addActiveClass = (e) => {
     if (e.target.tagName === "SPAN") {
       for (let i = 0; i < e.currentTarget.childNodes.length; i++) {
         e.currentTarget.childNodes[i].childNodes[0].classList.remove(
