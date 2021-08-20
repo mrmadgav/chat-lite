@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useSelector } from "react-redux";
 import { getRoomId } from "../../Redux/selectors";
 import styles from "./CounterDirectMessages.module.css";
@@ -8,6 +8,7 @@ export default function CounterDirectMessages(props) {
   const currentRoomId = useSelector(getRoomId);
   const [counter, setCounter] = useState(0);
   const [itemId, setItemId] = useState("");
+  const counterRef = useRef(null);
 
   function reverseRoomId(roomId) {
     const firstPart = roomId.substr(0, roomId.length / 2);
@@ -27,6 +28,7 @@ export default function CounterDirectMessages(props) {
       id !== (currentRoomId && reverseRoomId(currentRoomId)) &&
         id.includes(itemId) &&
         setCounter(counter + 1);
+      counterRef.current?.classList.remove(`${styles.hidden}`);
     });
     return () => {
       socket.removeListener("privateMessage:fromServer");
@@ -34,6 +36,8 @@ export default function CounterDirectMessages(props) {
   }, [counter, currentRoomId]);
 
   return (
-    <span className={`${styles.counter} ${styles.hidden} `}>{counter}</span>
+    <span className={`${styles.counter} ${styles.hidden}`} ref={counterRef}>
+      {counter}
+    </span>
   );
 }

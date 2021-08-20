@@ -13,10 +13,7 @@ export default function ChatList() {
   // Функционал личных сообщений
   //начать диалог (создать комнату)
   const beginPrivateDialog = (event) => {
-    console.log("event.target.innerHTML", event.target.innerHTML);
-    console.log("allUsers", allUsers);
     const getUserIdForRoom = (i) => {
-      console.log("allUsers", i.nickname);
       if (i.nickname === event.target.innerHTML) return i._id;
     };
     const roomId = getUserId + allUsers.filter(getUserIdForRoom)[0]._id;
@@ -64,7 +61,7 @@ export default function ChatList() {
                   >
                     {i.nickname}
                   </span>
-                    <CounterDirectMessages id={i._id} />
+                  <CounterDirectMessages id={i._id} />
                 </li>
               );
             }

@@ -1,12 +1,13 @@
 .counter {
+  font-size: 12px;
   width: 20px;
-  height: 20px;
   border-radius: 50%;
-  border: 1px solid steelblue;
+  border: 1px solid #4682b4;
   position: absolute;
   left: 75%;
-  top: 65%;
+  top: -10%;
+  text-align: center;
 }
-/* .hidden {
+.hidden {
     display: none;
-  } */
+  }
