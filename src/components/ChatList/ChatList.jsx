@@ -61,11 +61,11 @@ export default function ChatList() {
                     onClick={beginPrivateDialog}
                   >
                     {i.nickname}
-                  </span>
-                  <span
-                    className={`${styles.countIncomeMessages} ${styles.hidden}`}
-                  >
-                    <CounterDirectMessages />
+                    <span
+                      className={`${styles.countIncomeMessages} ${styles.hidden}`}
+                    >
+                      <CounterDirectMessages />
+                    </span>
                   </span>
                 </li>
               );
