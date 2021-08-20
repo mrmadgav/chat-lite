@@ -21,7 +21,7 @@ export default function CounterDirectMessages(props) {
     socket.on("privateMessage:fromServer", (id) => {
       console.log("Пришло сообщение с сервера");
       if (
-        id.includes(props.id) &&
+        id?.includes(props.id) &&
         id !== (currentRoomId && reverseRoomId(currentRoomId))
       ) {
         document
