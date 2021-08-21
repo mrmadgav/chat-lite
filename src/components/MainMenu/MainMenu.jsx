@@ -30,7 +30,7 @@ const MainMenu = () => {
                 height="30px"
                 margin-right="10"
               />
-              Register
+              <span className={styles.navigationSpan}>Register</span>
             </NavLink>
           </li>
           <li className={styles.navLink}>

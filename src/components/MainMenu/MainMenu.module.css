@@ -43,6 +43,9 @@
   color: coral;
   fill: coral;
 }
+.navigationSpan {
+  color: lightsteelblue;
+}
 .MainBar {
   display: flex;
   flex-direction: column;
