@@ -21,6 +21,7 @@ export const register = (credentials) => async (dispatch) => {
     dispatch(authActions.registerSuccess(response.data));
     dispatch(login(credentials));
   } catch (error) {
+    console.log(error);
     dispatch(authActions.registerError(error.message));
   }
 };
