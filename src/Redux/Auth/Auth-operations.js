@@ -24,18 +24,26 @@ export const register = (credentials) => async (dispatch) => {
   }
 };
 
+// export const login = (credentials) => async (dispatch) => {
+//   dispatch(authActions.LoginRequest());
+//   try {
+//     const response = await axios
+//       .post("/login", credentials)
+//       .catch((e) => console.log(e));
+//     token.set(response.data.data.token);
+//     dispatch(authActions.LoginSuccess(response.data));
+//   } catch (error) {
+//     dispatch(authActions.LoginError(error.message));
+//   }
+// };
+
 export const login = (credentials) => async (dispatch) => {
   dispatch(authActions.LoginRequest());
-  try {
-    const response = await axios
-      .post("/login", credentials)
-      .catch((e) => console.log(e));
-    token.set(response.data.data.token);
-    dispatch(authActions.LoginSuccess(response.data));
-  } catch (error) {
-    dispatch(authActions.LoginError(error.message));
-  }
+  const response = await axios.post("/login", credentials);
+  token.set(response.data.data.token);
+  dispatch(authActions.LoginSuccess(response.data));
 };
+login.catch((e) => console.log(e));
 
 // export const login = (credentials) => (dispatch) => {
 //   dispatch(authActions.LoginRequest());
