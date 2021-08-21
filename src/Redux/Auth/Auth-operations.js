@@ -28,17 +28,15 @@ export const login = (credentials) => async (dispatch) => {
   dispatch(authActions.LoginRequest());
   try {
     const response = await axios.post("/login", credentials).catch((e) => {
-      console.log("ERROR", e);
       if (e.response) {
-        console.log(e.response.data);
-        console.log(e.response.status);
-        console.log(e.response.headers);
+        console.log(e.response);
+        dispatch(authActions.LoginError(e.response.message));
       }
     });
     token.set(response.data.data.token);
     dispatch(authActions.LoginSuccess(response.data));
   } catch (error) {
-    dispatch(authActions.LoginError(error.message));
+    console.log(error);
   }
 };
 
