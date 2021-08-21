@@ -88,12 +88,12 @@ function MessageFlow(props) {
 
   let memoizedFetchHistory = useMemo(() => fetchHistory(), []);
 
-  useEffect(() => {    
+  useEffect(() => {
     console.log("МАУНТ ЮЗ ЭФФЕКТА В MESSAGE FLOW currentRoomId, currentUser");
     chatRef.current.scrollTop = 999999999999999;
-    currentRoomId
-      ? dispatch(fetchPrivateHistory(currentRoomId))
-      : dispatch(memoizedFetchHistory);
+    // currentRoomId
+    //   ? dispatch(fetchPrivateHistory(currentRoomId))
+    //   : dispatch(memoizedFetchHistory);
 
     socket.on("privateMessage:fromServer", (id, nickname) => {
       (id === currentRoomId) | (id === reverseRoomId(currentRoomId)) &&
@@ -126,7 +126,7 @@ function MessageFlow(props) {
       socket.removeListener("privateDeleteMessage:fromServer");
       socket.removeListener("privateEditMessage:fromServer");
     };
-  }, [currentRoomId, currentUser, dispatch, memoizedFetchHistory]);
+  }, [currentRoomId, currentUser]);
 
   //functions
   const scrollToBottom = () => {

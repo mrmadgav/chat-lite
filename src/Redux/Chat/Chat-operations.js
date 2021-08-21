@@ -1,5 +1,7 @@
 import chatActions from "./Chat-actions.js";
 import axios from "axios";
+import { useSelector } from "react-redux";
+import { getRoomId } from "../selectors.js";
 
 axios.defaults.baseURL = "https://chat-lite-back.herokuapp.com";
 
@@ -105,6 +107,7 @@ export const setRoomId = (data) => async (dispatch) => {
   dispatch(chatActions.setRoomIdRequest());
   try {
     dispatch(chatActions.setRoomIdSuccess(data));
+    data ? dispatch(fetchPrivateHistory(data)) : dispatch(fetchHistory());
   } catch (error) {
     dispatch(chatActions.setRoomIdError(error.message));
   }
