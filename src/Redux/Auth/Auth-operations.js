@@ -35,6 +35,7 @@ export const login = (credentials) => async (dispatch) => {
         dispatch(authActions.LoginSuccess(response.data));
       })
       .catch((response) => {
+        console.log(response);
         console.log("AND THIS");
         dispatch(authActions.LoginError(response.message));
       });
