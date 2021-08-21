@@ -90,14 +90,13 @@ export default function MessageForm(props) {
       setMessage("");
       setPicker(false);
     } else {
-      !notify &&
-        notice({
-          text: "Агрессивно помолчим?)",
-          styling: "brighttheme",
-          delay: 1000,
-          killer: true,
-        });
-      setNotify(true);
+      !notify && setNotify(true);
+      notice({
+        text: "Агрессивно помолчим?)",
+        styling: "brighttheme",
+        delay: 1000,
+        killer: true,
+      });
     }
     console.log("notify", notify);
     setTimeout(() => setNotify(false), 2000);
