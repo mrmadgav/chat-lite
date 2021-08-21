@@ -64,7 +64,7 @@ function App() {
       socket.removeListener("user:login", checkUsers);
       socket.removeListener("user:logout", checkUsers);
     };
-  }, []);
+  }, [getUserNick]);
 
   return (
     <Section>
