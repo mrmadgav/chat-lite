@@ -15,11 +15,12 @@ export default function ChatList() {
     console.log("currentActiveChat", currentActiveChat);
     console.log(
       "document.getElementById(currentActiveChat)",
-      document.getElementById("currentActiveChat")
+      document.getElementById(`${currentActiveChat}`)
     );
     currentActiveChat &&
       document
-        .getElementById("currentActiveChat")?.classList.add(`${styles.active}`);
+        .getElementById(`${currentActiveChat}`)
+        ?.classList.add(`${styles.active}`);
   }, []);
   // Функционал личных сообщений
   //начать диалог (создать комнату)
