@@ -37,7 +37,7 @@
   outline: none;
 }
 .NavLink:hover {
-  color: coral;
+  color: coral !;
 }
 .NavLink:hover svg {
   color: coral;
