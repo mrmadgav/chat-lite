@@ -21,20 +21,20 @@ export const register = (credentials) => async (dispatch) => {
     dispatch(authActions.registerSuccess(response.data));
     dispatch(login(credentials));
   } catch (error) {
-    console.log(error);
     dispatch(authActions.registerError(error.message));
   }
 };
 
-export const login = (credentials) => async (dispatch) => {
+export const login = (credentials, res) => async (dispatch) => {
   dispatch(authActions.LoginRequest());
   try {
     const response = await axios.post("/login", credentials);
     token.set(response.data.data.token);
     dispatch(authActions.LoginSuccess(response.data));
   } catch (error) {
+    console.log(res);
     dispatch(authActions.LoginError(error.message));
-    dispatch(authActions.getUsersError(error.message));
+    // dispatch(authActions.getUsersError(error.message));
   }
 };
 
