@@ -72,6 +72,7 @@ function App() {
   }, [isAuthenticated]);
 
   useEffect(() => {
+    console.log(currentToken)
     const checkUsers = () => {
       dispatch(getUsers(currentToken));
     };
