@@ -59,8 +59,8 @@ export default function MessageForm(props) {
   function allowNotify() {
     let timeout = setTimeout(1500, notifyTrue);
     function notifyTrue() {
-      setNotify(false);
-      clearTimeout(timeout);
+      if (notify) setNotify(false);
+      else clearTimeout(timeout);
     }
   }
 
