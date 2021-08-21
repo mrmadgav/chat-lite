@@ -45,7 +45,7 @@ export default {
   getCurrentUserRequest,
   getCurrentUserSuccess,
   getCurrentUserError,
-  getUserRequest,
+  getUsersRequest,
   getUserSuccess,
   getUserError,
   getUsersRequest,
