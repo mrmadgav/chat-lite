@@ -34,12 +34,12 @@ export const login = (credentials) => async (dispatch) => {
         token.set(response.data.data.token);
         dispatch(authActions.LoginSuccess(response.data));
       })
-      .catch((error) => {
+      .catch((response) => {
         console.log("AND THIS");
-        console.log(error);
+        dispatch(authActions.LoginError(response.message));
       });
   } catch (error) {
-    dispatch(authActions.LoginError(error.message));
+    console.log(error);
   }
 };
 
