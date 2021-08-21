@@ -81,8 +81,6 @@ function MessageFlow(props) {
   let memoizedFetchHistory = useMemo(() => fetchHistory(), []);
 
   useEffect(() => {
-    console.log("Маунт useEffect со слушателями привата");
-
     chatRef.current.scrollTop = 999999999999999;
     currentRoomId
       ? dispatch(fetchPrivateHistory(currentRoomId))
@@ -94,6 +92,7 @@ function MessageFlow(props) {
 
       //Пуши на десктоп
       if (id !== (currentRoomId && reverseRoomId(currentRoomId))) {
+        console.log(id);
         Notification.requestPermission();
         window.innerWidth >= 1200
           ? new Notification(`New message from ${nickname}`)
@@ -113,7 +112,6 @@ function MessageFlow(props) {
     });
 
     return () => {
-      console.log("Анмаунт useEffect со слушателями привата");
       socket.removeListener("privateMessage:fromServer");
       socket.removeListener("privateDeleteMessage:fromServer");
       socket.removeListener("privateEditMessage:fromServer");
