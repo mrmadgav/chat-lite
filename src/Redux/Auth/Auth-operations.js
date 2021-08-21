@@ -27,7 +27,14 @@ export const register = (credentials) => async (dispatch) => {
 export const login = (credentials) => async (dispatch) => {
   dispatch(authActions.LoginRequest());
   try {
-    const response = await axios.post("/login", credentials).catch(e => console.log("ERROR", e));
+    const response = await axios.post("/login", credentials).catch((e) => {
+      console.log("ERROR", e);
+      if (e.response) {
+        console.log(e.response.data);
+        console.log(e.response.status);
+        console.log(e.response.headers);
+      }
+    });
     token.set(response.data.data.token);
     dispatch(authActions.LoginSuccess(response.data));
   } catch (error) {
