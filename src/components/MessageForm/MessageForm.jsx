@@ -99,7 +99,8 @@ export default function MessageForm(props) {
           killer: true,
         });
       setNotify(!notify);
-      setTimeout(2000, setNotify(!notify));
+      console.log("notify before timeout", notify);
+      setTimeout(1100, setNotify(!notify));
     }
   };
 
