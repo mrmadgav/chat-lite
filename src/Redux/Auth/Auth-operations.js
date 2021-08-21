@@ -27,7 +27,7 @@ export const register = (credentials) => async (dispatch) => {
 export const login = (credentials) => async (dispatch) => {
   dispatch(authActions.LoginRequest());
   try {
-    const response = await axios
+    await axios
       .post("/login", credentials)
       .then((response) => {
         token.set(response.data.data.token);
