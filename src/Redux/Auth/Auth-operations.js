@@ -72,7 +72,7 @@ export const getUser = (currentToken) => async (dispatch) => {
     const users = await axios.get("/users", {
       headers: { Authorization: "Bearer " + currentToken },
     });
-    dispatch(authActions.getUsersSuccess(users.data));
+    // dispatch(authActions.getUsersSuccess(users.data));
   } catch (error) {
     dispatch(authActions.getUserError(error.message));
     dispatch(authActions.getUsersError(error.message));
