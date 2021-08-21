@@ -52,8 +52,8 @@ export const logout = (id, currentToken) => async (dispatch) => {
     token.set(currentToken);
     await axios.post("/logout", { id: id });
 
-    dispatch(authActions.LogoutSuccess());
     token.unset();
+    dispatch(authActions.LogoutSuccess());
   } catch (error) {
     dispatch(authActions.LogoutError(error.message));
   }
