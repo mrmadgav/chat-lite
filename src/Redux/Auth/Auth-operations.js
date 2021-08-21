@@ -42,7 +42,10 @@ export const login = (credentials) => (dispatch) => {
     const response = axios.post("/login", credentials);
     resolve(token.set(response.data.data.token));
   })
-    .then((response) => dispatch(authActions.LoginSuccess(response.data)))
+    .then((response) => {
+      console.log(response);
+      dispatch(authActions.LoginSuccess(response.data));
+    })
     .catch((response) => console.log(response.message));
 };
 
