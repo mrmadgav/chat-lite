@@ -16,11 +16,17 @@ export const register = (credentials) => async (dispatch) => {
   dispatch(authActions.registerRequest());
 
   try {
-    const response = await axios.post("/registration", credentials);
-    dispatch(authActions.registerSuccess(response.data));
-    dispatch(login(credentials));
+    await axios
+      .post("/registration", credentials)
+      .then((response) => {
+        dispatch(authActions.registerSuccess(response.data));
+        dispatch(login(credentials));
+      })
+      .catch((e) => {
+        e.response && dispatch(authActions.registerError(e.message));
+      });
   } catch (error) {
-    dispatch(authActions.registerError(error.message));
+    console.log(error);
   }
 };
 
@@ -35,7 +41,6 @@ export const login = (credentials) => async (dispatch) => {
       })
       .catch((e) => {
         if (e.response) {
-          console.log(e.response);
           dispatch(authActions.LoginError(e.response.data.message));
         }
       });
