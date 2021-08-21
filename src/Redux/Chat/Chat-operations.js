@@ -18,11 +18,7 @@ export const sendMessage = (credentials, currentToken) => async (dispatch) => {
     const response = await axios.post("/user/messages/send", credentials, {
       headers: { Authorization: "Bearer " + currentToken },
     });
-
     dispatch(chatActions.sendMessageSuccess(response.data));
-    // !credentials.roomId
-    //   ? dispatch(fetchHistory())
-    //   : dispatch(fetchPrivateHistory(credentials.roomId));
   } catch (error) {
     dispatch(chatActions.sendMessageError(error.message));
   }

@@ -91,8 +91,7 @@ function MessageFlow(props) {
         dispatch(fetchPrivateHistory(id)).then(() => scrollToBottom());
 
       //Пуши на десктоп
-      if (id !== (currentRoomId && reverseRoomId(currentRoomId))) {
-        console.log(id);
+      if (id !== currentRoomId && id !== reverseRoomId(currentRoomId)) {       
         Notification.requestPermission();
         window.innerWidth >= 1200
           ? new Notification(`New message from ${nickname}`)
