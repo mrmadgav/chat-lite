@@ -99,8 +99,8 @@ export default function MessageForm(props) {
           killer: true,
         });
       setNotify(!notify);
+      setTimeout(1100, setNotify(!notify));
     }
-    setTimeout(1100, setNotify(!notify));
   };
 
   const userTyping = (e) => {
