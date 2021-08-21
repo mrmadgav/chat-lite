@@ -35,7 +35,7 @@ export default function ChatList() {
   const endPrivateDialog = () => {
     dispatch(setRoomId(""));
     localStorage.removeItem("roomId");
-    localStorage.removeItem("activeChat");
+    localStorage.setItem("activeChat", "allUsers");
   };
   // ------------ //
 
@@ -58,7 +58,7 @@ export default function ChatList() {
         onClick={addActiveClass}
       >
         <li>
-          <span className={styles.ChatListElement} onClick={endPrivateDialog}>
+          <span className={styles.ChatListElement} id="allUsers" onClick={endPrivateDialog}>
             All Users
           </span>
         </li>
