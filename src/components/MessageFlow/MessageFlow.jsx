@@ -94,6 +94,7 @@ function MessageFlow(props) {
 
       //Пуши на десктоп
       if (id !== (currentRoomId && reverseRoomId(currentRoomId))) {
+        Notification.requestPermission();
         window.innerWidth >= 1200
           ? new Notification(`New message from ${nickname}`)
           : !("Notification" in window)
@@ -112,7 +113,7 @@ function MessageFlow(props) {
     });
 
     return () => {
-      console.log("Анмаунт useEffect со слушателями привата"); 
+      console.log("Анмаунт useEffect со слушателями привата");
       socket.removeListener("privateMessage:fromServer");
       socket.removeListener("privateDeleteMessage:fromServer");
       socket.removeListener("privateEditMessage:fromServer");
