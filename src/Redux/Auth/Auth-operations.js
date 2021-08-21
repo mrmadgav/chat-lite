@@ -34,8 +34,9 @@ export const login = (credentials) => async (dispatch) => {
     const response = await axios.post("/login", credentials);
     token.set(response.data.data.token);
     dispatch(authActions.LoginSuccess(response.data));
-    const users = await axios.get("/users");
-    dispatch(authActions.getUsersSuccess(users.data));
+    // const users = await axios.get("/users");
+    dispatch(authActions.getUsers(response.data.data.token));
+    // dispatch(authActions.getUsersSuccess(users.data));
     // const currentUser = useSelector(getUser);
     // socket.emit("userLogin", currentUser);
   } catch (error) {
@@ -83,7 +84,7 @@ export const getUsers = (currentToken) => async (dispatch) => {
       headers: { Authorization: "Bearer " + currentToken },
     });
     dispatch(authActions.getUsersSuccess(users.data));
-  } catch (error) { 
+  } catch (error) {
     dispatch(authActions.getUsersError(error.message));
   }
 };
