@@ -9,7 +9,13 @@ import {
   fetchPrivateHistory,
 } from "../../Redux/Chat/Chat-operations";
 //selectors
-import { filterValue, getAllUsers, getNickname, getRoomId, getUser } from "../../Redux/selectors";
+import {
+  filterValue,
+  getAllUsers,
+  getNickname,
+  getRoomId,
+  getUser,
+} from "../../Redux/selectors";
 import { getHistory, getPrivateHistory } from "../../Redux/selectors";
 import { getToken } from "../../Redux/Auth/Auth-selectors";
 //components
@@ -92,13 +98,17 @@ function MessageFlow(props) {
         dispatch(fetchPrivateHistory(id)).then(() => scrollToBottom());
 
       //Пуши на десктоп
-      if (id !== currentRoomId && id !== reverseRoomId(currentRoomId) && id.includes(currentUser)) {
-        Notification.requestPermission();
-        window.innerWidth >= 1200
-          ? new Notification(`New message from ${nickname}`)
-          : !("Notification" in window)
-          ? Notification.requestPermission()
-          : console.log("Уведомления запрещены в браузере");
+      console.log("currentUser", currentUser);
+      console.log("id", id);
+      if (id.includes(currentUser)) {
+        if (id !== currentRoomId && id !== reverseRoomId(currentRoomId)) {
+          Notification.requestPermission();
+          window.innerWidth >= 1200
+            ? new Notification(`New message from ${nickname}`)
+            : !("Notification" in window)
+            ? Notification.requestPermission()
+            : console.log("Уведомления запрещены в браузере");
+        }
       }
     });
 
