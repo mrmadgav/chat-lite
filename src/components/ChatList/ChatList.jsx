@@ -13,25 +13,13 @@ export default function ChatList() {
   useEffect(() => {
     const currentActiveChat = localStorage.getItem("activeChat");
     if (allUsers) {
-      console.log("currentActiveChat", currentActiveChat);
-      console.log(
-        "document.getElementById(currentActiveChat)",
-        document.getElementById(`${currentActiveChat}`)
-      );
-      console.log(
-        "document.getElementById(currentActiveChat)",
-        document.getElementById(`"${currentActiveChat}"`)
-      );
-      console.log(
-        "document.getElementById(currentActiveChat)",
-        document.getElementById(currentActiveChat)
-      );
       currentActiveChat &&
         document
           .getElementById(`${currentActiveChat}`)
           ?.classList.add(`${styles.active}`);
     }
   }, [allUsers]);
+
   // Функционал личных сообщений
   //начать диалог (создать комнату)
   const beginPrivateDialog = (event) => {
@@ -47,8 +35,9 @@ export default function ChatList() {
   const endPrivateDialog = () => {
     dispatch(setRoomId(""));
     localStorage.removeItem("roomId");
+    localStorage.removeItem("activeChat");
   };
-  // Функционал личных сообщений
+  // ------------ //
 
   const addActiveClass = (e) => {
     if (e.target.tagName === "SPAN") {
