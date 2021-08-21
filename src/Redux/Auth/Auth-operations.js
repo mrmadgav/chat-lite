@@ -20,7 +20,7 @@ export const register = (credentials) => async (dispatch) => {
     token.set(response.data.token);
     dispatch(authActions.registerSuccess(response.data));
     console.log("response.data", response.data);
-    // dispatch(login())
+    dispatch(login(credentials));
   } catch (error) {
     dispatch(authActions.registerError(error.message));
   }
