@@ -112,8 +112,7 @@ function MessageFlow(props) {
     });
 
     return () => {
-      console.log("Анмаунт useEffect со слушателями привата");
-      console.log("Анмаунт useEffect со слушателями привата");
+      console.log("Анмаунт useEffect со слушателями привата"); 
       socket.removeListener("privateMessage:fromServer");
       socket.removeListener("privateDeleteMessage:fromServer");
       socket.removeListener("privateEditMessage:fromServer");
