@@ -87,8 +87,7 @@ function MessageFlow(props) {
 
   let memoizedFetchHistory = useMemo(() => fetchHistory(), []); 
 
-  useEffect(() => {
-    console.log("маунт юз эффекта, где надо юзера");
+  useEffect(() => {  
     chatRef.current.scrollTop = 999999999999999;
     currentRoomId
       ? dispatch(fetchPrivateHistory(currentRoomId))

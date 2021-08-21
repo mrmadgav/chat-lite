@@ -1,5 +1,5 @@
-import React from "react";
-import { useDispatch, useSelector, useEffect } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { getAllUsers, getUser } from "../../Redux/selectors";
 import styles from "./ChatList.module.css";
 import { setRoomId } from "../../Redux/Chat/Chat-operations";
@@ -13,8 +13,14 @@ export default function ChatList() {
   useEffect(() => {
     const currentActiveChat = localStorage.getItem("activeChat");
     console.log("currentActiveChat", currentActiveChat);
-    console.log("document.getElementById(currentActiveChat)", document.getElementById("currentActiveChat"));
-    currentActiveChat && document.getElementById("currentActiveChat").classList.add(`${styles.active}`)
+    console.log(
+      "document.getElementById(currentActiveChat)",
+      document.getElementById("currentActiveChat")
+    );
+    currentActiveChat &&
+      document
+        .getElementById("currentActiveChat")
+        .classList.add(`${styles.active}`);
   }, []);
   // Функционал личных сообщений
   //начать диалог (создать комнату)
