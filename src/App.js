@@ -81,7 +81,7 @@ function App() {
       socket.removeListener("user:login", checkUsers);
       socket.removeListener("user:logout", checkUsers);
     };
-  });
+  }, [currentToken]);
 
   return (
     <Section>
