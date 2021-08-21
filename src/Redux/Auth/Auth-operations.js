@@ -31,6 +31,7 @@ export const login = (credentials) => async (dispatch) => {
     await axios
       .post("/login", credentials)
       .then((response) => {
+        console.log(response);
         token.set(response.data.data.token);
         dispatch(authActions.LoginSuccess(response.data));
       })
