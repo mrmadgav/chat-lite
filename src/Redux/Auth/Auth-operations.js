@@ -14,28 +14,36 @@ export const token = {
 
 export const register = (credentials) => async (dispatch) => {
   dispatch(authActions.registerRequest());
-  let response = null;
+
   try {
-    response = await axios.post("/registration", credentials);
-    // token.set(response.data.token);
+    const response = await axios.post("/registration", credentials);
     dispatch(authActions.registerSuccess(response.data));
     dispatch(login(credentials));
   } catch (error) {
-    console.log(response);
     dispatch(authActions.registerError(error.message));
   }
 };
 
-export const login = (credentials) => async (dispatch) => {
+// export const login = (credentials) => async (dispatch) => {
+//   dispatch(authActions.LoginRequest());
+//   try {
+//     const response = await axios.post("/login", credentials);
+//     token.set(response.data.data.token);
+//     dispatch(authActions.LoginSuccess(response.data));
+//   } catch (error) {
+//     dispatch(authActions.LoginError(error.message));
+//   }
+// };
+
+export const login = (credentials) => (dispatch) => {
   dispatch(authActions.LoginRequest());
-  try {
-    const response = await axios.post("/login", credentials);
-    token.set(response.data.data.token);
-    dispatch(authActions.LoginSuccess(response.data));
-  } catch (error) {
-    dispatch(authActions.LoginError(error.message));
-    // dispatch(authActions.getUsersError(error.message));
-  }
+
+  new Promise((resolve, reject) => {
+    const response = axios.post("/login", credentials);
+    resolve(token.set(response.data.data.token));
+  })
+    .then((response) => dispatch(authActions.LoginSuccess(response.data)))
+    .catch((response) => console.log(response.message));
 };
 
 export const logout = (id, currentToken) => async (dispatch) => {
