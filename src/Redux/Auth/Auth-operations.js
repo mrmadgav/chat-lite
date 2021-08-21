@@ -28,7 +28,7 @@ export const register = (credentials) => async (dispatch) => {
 
 export const login = (credentials) => async (dispatch) => {
   dispatch(authActions.LoginRequest());
-  dispatch(authActions.getUsersRequest());
+  // dispatch(authActions.getUsersRequest());
 
   try {
     const response = await axios.post("/login", credentials);
