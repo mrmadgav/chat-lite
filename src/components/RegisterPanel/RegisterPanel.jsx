@@ -25,10 +25,7 @@ export default function LoginPanel() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(register({ email, password, nickname })).then((response) => {
-      console.log(response);
-      // history.push("/login");
-    });
+    dispatch(register({ email, password, nickname }));
   };
 
   const revealPassword = () => {

@@ -17,6 +17,7 @@ export const register = (credentials) => async (dispatch) => {
 
   try {
     const response = await axios.post("/registration", credentials);
+    console.log(response);
     // token.set(response.data.token);
     dispatch(authActions.registerSuccess(response.data));
     dispatch(login(credentials));
