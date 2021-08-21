@@ -9,7 +9,7 @@ import {
   fetchPrivateHistory,
 } from "../../Redux/Chat/Chat-operations";
 //selectors
-import { filterValue, getAllUsers, getRoomId } from "../../Redux/selectors";
+import { filterValue, getAllUsers, getNickname, getRoomId, getUser } from "../../Redux/selectors";
 import { getHistory, getPrivateHistory } from "../../Redux/selectors";
 import { getToken } from "../../Redux/Auth/Auth-selectors";
 //components
@@ -43,6 +43,7 @@ function MessageFlow(props) {
   const currentToken = useSelector(getToken);
   const allUsers = useSelector(getAllUsers);
   const currentRoomId = useSelector(getRoomId);
+  const currentUser = useSelector(getUser);
 
   //Use Effects
   useEffect(() => {
@@ -91,7 +92,7 @@ function MessageFlow(props) {
         dispatch(fetchPrivateHistory(id)).then(() => scrollToBottom());
 
       //Пуши на десктоп
-      if (id !== currentRoomId && id !== reverseRoomId(currentRoomId)) {       
+      if (id !== currentRoomId && id !== reverseRoomId(currentRoomId) && id.includes(currentUser)) {
         Notification.requestPermission();
         window.innerWidth >= 1200
           ? new Notification(`New message from ${nickname}`)
