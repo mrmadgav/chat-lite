@@ -19,8 +19,7 @@ export default function ChatList() {
     );
     currentActiveChat &&
       document
-        .getElementById("currentActiveChat")
-        .classList.add(`${styles.active}`);
+        .getElementById("currentActiveChat")?.classList.add(`${styles.active}`);
   }, []);
   // Функционал личных сообщений
   //начать диалог (создать комнату)
