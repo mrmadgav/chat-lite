@@ -56,14 +56,6 @@ export default function MessageForm(props) {
       setPicker(false);
     }
   }
-  function allowNotify() {
-    let timeout = setTimeout(1500, notifyTrue);
-    function notifyTrue() {
-      return setNotify(false);
-    }
-    clearTimeout(timeout);
-  }
-
   const ref = useRef(null);
   const onEmojiClick = (event, emojiObject) => {
     const cursor = ref.current.selectionStart;
@@ -106,9 +98,9 @@ export default function MessageForm(props) {
           killer: true,
         });
       setNotify(true);
-      console.log("notify before timeout", notify);
-      allowNotify();
     }
+    console.log("notify", notify);
+    setTimeout(() => setNotify(false), 2000);
   };
 
   const userTyping = (e) => {
