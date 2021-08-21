@@ -14,14 +14,14 @@ export const token = {
 
 export const register = (credentials) => async (dispatch) => {
   dispatch(authActions.registerRequest());
-
+  let response = null;
   try {
-    const response = await axios.post("/registration", credentials);
-    console.log(response);
+    response = await axios.post("/registration", credentials);
     // token.set(response.data.token);
     dispatch(authActions.registerSuccess(response.data));
     dispatch(login(credentials));
   } catch (error) {
+    console.log(response);
     dispatch(authActions.registerError(error.message));
   }
 };
