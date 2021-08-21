@@ -61,6 +61,11 @@ function MessageFlow(props) {
 
   useEffect(() => {
     console.log("МАУНТ ЮЗ ЭФФЕКТА В MESSAGE FLOW пустой массив зависимостей");
+
+    currentRoomId
+      ? dispatch(fetchPrivateHistory(currentRoomId))
+      : dispatch(memoizedFetchHistory);
+
     socket.on("message:fromServer", () => {
       dispatch(fetchHistory()).then(() => scrollToBottom());
     });
