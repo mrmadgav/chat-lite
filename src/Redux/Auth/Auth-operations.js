@@ -35,7 +35,7 @@ export const login = (credentials) => async (dispatch) => {
     token.set(response.data.data.token);
     dispatch(authActions.LoginSuccess(response.data));
     // const users = await axios.get("/users");
-    dispatch(authActions.getUsers(response.data.data.token));
+    // dispatch(authActions.getUsers(response.data.data.token));
     // dispatch(authActions.getUsersSuccess(users.data));
     // const currentUser = useSelector(getUser);
     // socket.emit("userLogin", currentUser);
