@@ -126,7 +126,7 @@ function MessageFlow(props) {
       socket.removeListener("privateDeleteMessage:fromServer");
       socket.removeListener("privateEditMessage:fromServer");
     };
-  }, [currentRoomId, currentUser]);
+  }, [currentRoomId]);
 
   //functions
   const scrollToBottom = () => {
