@@ -40,6 +40,7 @@ export const login = (credentials) => (dispatch) => {
 
   new Promise((resolve, reject) => {
     const response = axios.post("/login", credentials);
+    console.log(response);
     resolve(token.set(response.data.data.token));
   })
     .then((response) => {
