@@ -20,12 +20,12 @@ export const register = (credentials) => async (dispatch) => {
       .post("/registration", credentials)
       .then((response) => {
         dispatch(authActions.registerSuccess(response.data));
-        dispatch(login(credentials));
       })
       .catch((e) => {
         e.response &&
           dispatch(authActions.registerError(e.response.data.message));
       });
+    dispatch(login(credentials));
   } catch (error) {
     console.log(error);
   }
