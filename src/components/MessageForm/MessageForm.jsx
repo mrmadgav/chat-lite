@@ -89,8 +89,8 @@ export default function MessageForm(props) {
       );
       setMessage("");
       setPicker(false);
-    } else {
-      !notify && setNotify(true);
+    } else if (!notify) {
+      setNotify(true);
       notice({
         text: "Агрессивно помолчим?)",
         styling: "brighttheme",
