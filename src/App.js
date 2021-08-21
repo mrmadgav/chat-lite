@@ -41,25 +41,8 @@ function App() {
 
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   Notification.requestPermission();
-  //   return () => {};
-  // }, []);
-
   useEffect(() => {
     setisAuthenticated(getIsAuthenticated);
-    // window.innerWidth >= 1200
-    //   ? new Notification("Hey")
-    //   : !("Notification" in window)
-    //   ? Notification.requestPermission()
-    //   : console.log("Уведомления запрещены в браузере");
-
-    // new Notification("Hey");
-    // if (!("Notification" in window)) {
-    //   console.log("This browser does not support desktop notification");
-    // } else {
-    //   Notification.requestPermission();
-    // }
   }, [getIsAuthenticated]);
 
   useEffect(() => {
@@ -72,9 +55,8 @@ function App() {
   }, [isAuthenticated]);
 
   useEffect(() => {
-    console.log(currentToken)
-    const checkUsers = () => {
-      dispatch(getUsers(currentToken));
+    const checkUsers = (userNick) => {
+      userNick !== getUserNick && dispatch(getUsers(currentToken));
     };
     socket.on("user:login", checkUsers);
     socket.on("user:logout", checkUsers);

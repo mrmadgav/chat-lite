@@ -33,7 +33,7 @@ export const login = (credentials) => async (dispatch) => {
   try {
     const response = await axios.post("/login", credentials);
     token.set(response.data.data.token);
-    dispatch(authActions.LoginSuccess(response.data));
+    dispatch(authActions.LoginSuccess(response.data)).then(() => dispatch(authActions.getUsers(response.data.data.token)));
     // const users = await axios.get("/users");
     // dispatch(authActions.getUsers(response.data.data.token));
     // dispatch(authActions.getUsersSuccess(users.data));
