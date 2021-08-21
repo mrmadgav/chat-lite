@@ -27,11 +27,13 @@ export const register = (credentials) => async (dispatch) => {
 export const login = (credentials) => async (dispatch) => {
   dispatch(authActions.LoginRequest());
   try {
-    const response = await axios
+    await axios
       .post("/login", credentials)
-      .catch((e) => console.log(e));
-    token.set(response.data.data.token);
-    dispatch(authActions.LoginSuccess(response.data));
+      .then((response) => {
+        token.set(response.data.data.token);
+        dispatch(authActions.LoginSuccess(response.data));
+      })
+      .catch((error) => console.log(error));
   } catch (error) {
     dispatch(authActions.LoginError(error.message));
   }
