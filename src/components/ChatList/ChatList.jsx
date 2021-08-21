@@ -12,24 +12,26 @@ export default function ChatList() {
 
   useEffect(() => {
     const currentActiveChat = localStorage.getItem("activeChat");
-    console.log("currentActiveChat", currentActiveChat);
-    console.log(
-      "document.getElementById(currentActiveChat)",
-      document.getElementById(`${currentActiveChat}`)
-    );
-    console.log(
-      "document.getElementById(currentActiveChat)",
-      document.getElementById(`"${currentActiveChat}"`)
-    );
-    console.log(
-      "document.getElementById(currentActiveChat)",
-      document.getElementById(currentActiveChat)
-    );
-    currentActiveChat &&
-      document
-        .getElementById(`${currentActiveChat}`)
-        ?.classList.add(`${styles.active}`);
-  }, []);
+    if (allUsers) {
+      console.log("currentActiveChat", currentActiveChat);
+      console.log(
+        "document.getElementById(currentActiveChat)",
+        document.getElementById(`${currentActiveChat}`)
+      );
+      console.log(
+        "document.getElementById(currentActiveChat)",
+        document.getElementById(`"${currentActiveChat}"`)
+      );
+      console.log(
+        "document.getElementById(currentActiveChat)",
+        document.getElementById(currentActiveChat)
+      );
+      currentActiveChat &&
+        document
+          .getElementById(`${currentActiveChat}`)
+          ?.classList.add(`${styles.active}`);
+    }
+  }, [allUsers]);
   // Функционал личных сообщений
   //начать диалог (создать комнату)
   const beginPrivateDialog = (event) => {
