@@ -57,6 +57,7 @@ export default function MessageForm(props) {
     }
   }
   function allowNotify() {
+    console.log("можно еще одну нотификашку");
     setNotify(false);
   }
 
