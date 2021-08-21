@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, useEffect } from "react-redux";
 import { getAllUsers, getUser } from "../../Redux/selectors";
 import styles from "./ChatList.module.css";
 import { setRoomId } from "../../Redux/Chat/Chat-operations";
@@ -10,6 +10,12 @@ export default function ChatList() {
   const allUsers = useSelector(getAllUsers);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    const currentActiveChat = localStorage.getItem("activeChat");
+    console.log("currentActiveChat", currentActiveChat);
+    console.log("document.getElementById(currentActiveChat)", document.getElementById("currentActiveChat"));
+    currentActiveChat && document.getElementById("currentActiveChat").classList.add(`${styles.active}`)
+  }, []);
   // Функционал личных сообщений
   //начать диалог (создать комнату)
   const beginPrivateDialog = (event) => {
@@ -19,6 +25,7 @@ export default function ChatList() {
     const roomId = getUserId + allUsers.filter(getUserIdForRoom)[0]._id;
     dispatch(setRoomId(roomId));
     localStorage.setItem("roomId", roomId);
+    localStorage.setItem("activeChat", event.target.innerHTML);
   };
   //закончить диалог (по клику на общий чат)
   const endPrivateDialog = () => {
@@ -58,6 +65,7 @@ export default function ChatList() {
                   <span
                     className={styles.ChatListElement}
                     onClick={beginPrivateDialog}
+                    id={i.nickname}
                   >
                     {i.nickname}
                   </span>

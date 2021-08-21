@@ -85,8 +85,7 @@ function MessageFlow(props) {
     });
   }, []);
 
-  let memoizedFetchHistory = useMemo(() => fetchHistory(), []);
-  console.log("текущий юзер", currentUser);
+  let memoizedFetchHistory = useMemo(() => fetchHistory(), []); 
 
   useEffect(() => {
     console.log("маунт юз эффекта, где надо юзера");
@@ -99,9 +98,7 @@ function MessageFlow(props) {
       (id === currentRoomId) | (id === reverseRoomId(currentRoomId)) &&
         dispatch(fetchPrivateHistory(id)).then(() => scrollToBottom());
 
-      //Пуши на десктоп
-      console.log("currentUser", currentUser);
-      console.log("id", id);
+      //Пуши на десктоп 
       if (id.includes(currentUser)) {
         if (id !== currentRoomId && id !== reverseRoomId(currentRoomId)) {
           Notification.requestPermission();
