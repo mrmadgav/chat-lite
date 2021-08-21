@@ -54,18 +54,18 @@ function App() {
     setisAuthenticated(getIsAuthenticated);
   }, [isAuthenticated]);
 
-  useEffect(() => {
-    const checkUsers = (userNick) => {
-      console.log(userNick, getUserNick);
-      userNick !== getUserNick && dispatch(getUsers(currentToken));
-    };
-    socket.on("user:login", checkUsers);
-    socket.on("user:logout", checkUsers);
-    return () => {
-      socket.removeListener("user:login", checkUsers);
-      socket.removeListener("user:logout", checkUsers);
-    };
-  }, [currentToken, dispatch, getUserNick]);
+  // useEffect(() => {
+  //   const checkUsers = (userNick) => {
+  //     console.log(userNick, getUserNick);
+  //     userNick !== getUserNick && dispatch(getUsers(currentToken));
+  //   };
+  //   socket.on("user:login", checkUsers);
+  //   socket.on("user:logout", checkUsers);
+  //   return () => {
+  //     socket.removeListener("user:login", checkUsers);
+  //     socket.removeListener("user:logout", checkUsers);
+  //   };
+  // }, [currentToken, dispatch, getUserNick]);
 
   return (
     <Section>
