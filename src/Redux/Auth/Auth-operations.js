@@ -35,10 +35,10 @@ export const login = (credentials) => async (dispatch) => {
         token.set(response.data.data.token);
         dispatch(authActions.LoginSuccess(response.data));
       })
-      .catch((response) => {
-        console.log(response);
+      .catch((e) => {
+        console.log(e);
         console.log("AND THIS");
-        dispatch(authActions.LoginError(response.message));
+        dispatch(authActions.LoginError(e.message));
       });
   } catch (error) {
     console.log(error);
