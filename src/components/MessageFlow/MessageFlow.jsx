@@ -60,6 +60,7 @@ function MessageFlow(props) {
   }, [allUsers]);
 
   useEffect(() => {
+    console.log("МАУНТ ЮЗ ЭФФЕКТА В MESSAGE FLOW пустой массив зависимостей");
     socket.on("message:fromServer", () => {
       dispatch(fetchHistory()).then(() => scrollToBottom());
     });
@@ -85,9 +86,10 @@ function MessageFlow(props) {
     });
   }, []);
 
-  let memoizedFetchHistory = useMemo(() => fetchHistory(), []); 
+  let memoizedFetchHistory = useMemo(() => fetchHistory(), []);
 
-  useEffect(() => {  
+  useEffect(() => {    
+    console.log("МАУНТ ЮЗ ЭФФЕКТА В MESSAGE FLOW currentRoomId, currentUser");
     chatRef.current.scrollTop = 999999999999999;
     currentRoomId
       ? dispatch(fetchPrivateHistory(currentRoomId))
@@ -97,7 +99,7 @@ function MessageFlow(props) {
       (id === currentRoomId) | (id === reverseRoomId(currentRoomId)) &&
         dispatch(fetchPrivateHistory(id)).then(() => scrollToBottom());
 
-      //Пуши на десктоп 
+      //Пуши на десктоп
       if (id.includes(currentUser)) {
         if (id !== currentRoomId && id !== reverseRoomId(currentRoomId)) {
           Notification.requestPermission();

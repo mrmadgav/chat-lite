@@ -56,7 +56,9 @@ function App() {
 
   useEffect(() => {
     const checkUsers = (userNick) => {
-      getUserNick && dispatch(getUsers(currentToken));
+      if (currentToken) {
+        getUserNick && dispatch(getUsers(currentToken));
+      }
     };
     socket.on("user:login", checkUsers);
     socket.on("user:logout", checkUsers);
