@@ -57,8 +57,11 @@ export default function MessageForm(props) {
     }
   }
   function allowNotify() {
-    console.log("можно еще одну нотификашку");
-    setNotify(false);
+    let timeout = setTimeout(1500, notifyTrue);
+    function notifyTrue() {
+      setNotify(false);
+      clearTimeout(timeout);
+    }
   }
 
   const ref = useRef(null);
@@ -104,7 +107,7 @@ export default function MessageForm(props) {
         });
       setNotify(true);
       console.log("notify before timeout", notify);
-      setTimeout(1500, allowNotify);
+      allowNotify();
     }
   };
 
