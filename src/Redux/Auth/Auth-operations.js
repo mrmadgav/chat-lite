@@ -34,8 +34,8 @@ export const login = (credentials) => async (dispatch) => {
     const response = await axios.post("/login", credentials);
     token.set(response.data.data.token);
     dispatch(authActions.LoginSuccess(response.data));
-    console.log("токен в getUsers", response.data.data.token);
-    dispatch(authActions.getUsers(response.data.data.token));
+    // console.log("токен в getUsers", response.data.data.token);
+    // dispatch(authActions.getUsers(response.data.data.token));
     // const users = await axios.get("/users");
     // dispatch(authActions.getUsers(response.data.data.token));
     // dispatch(authActions.getUsersSuccess(users.data));
@@ -72,7 +72,7 @@ export const getUser = (currentToken) => async (dispatch) => {
     const users = await axios.get("/users", {
       headers: { Authorization: "Bearer " + currentToken },
     });
-    // dispatch(authActions.getUsersSuccess(users.data));
+    dispatch(authActions.getUsersSuccess(users.data));
   } catch (error) {
     dispatch(authActions.getUserError(error.message));
     dispatch(authActions.getUsersError(error.message));
