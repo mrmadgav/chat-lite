@@ -23,6 +23,7 @@ export const register = (credentials) => async (dispatch) => {
         dispatch(login(credentials));
       })
       .catch((e) => {
+        console.log(e.response);
         e.response && dispatch(authActions.registerError(e.message));
       });
   } catch (error) {
