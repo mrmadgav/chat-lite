@@ -17,6 +17,14 @@ export default function ChatList() {
       "document.getElementById(currentActiveChat)",
       document.getElementById(`${currentActiveChat}`)
     );
+    console.log(
+      "document.getElementById(currentActiveChat)",
+      document.getElementById(`"${currentActiveChat}"`)
+    );
+    console.log(
+      "document.getElementById(currentActiveChat)",
+      document.getElementById(currentActiveChat)
+    );
     currentActiveChat &&
       document
         .getElementById(`${currentActiveChat}`)
