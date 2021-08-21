@@ -56,6 +56,9 @@ export default function MessageForm(props) {
       setPicker(false);
     }
   }
+  function allowNotify() {
+    setNotify(false);
+  }
 
   const ref = useRef(null);
   const onEmojiClick = (event, emojiObject) => {
@@ -100,7 +103,7 @@ export default function MessageForm(props) {
         });
       setNotify(true);
       console.log("notify before timeout", notify);
-      setTimeout(1500, setNotify(false));
+      setTimeout(1500, allowNotify);
     }
   };
 
