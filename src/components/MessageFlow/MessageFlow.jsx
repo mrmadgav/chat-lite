@@ -93,7 +93,7 @@ function MessageFlow(props) {
         setUserTyping(user);
       }
     };
-    socket.on("userTyping", userTyping);
+    socket.on("userTyping", (data) => userTyping(data));
     socket.on("userStoppedTyping", setTyping(false));
 
     socket.on("user:join", (socketId) => {
