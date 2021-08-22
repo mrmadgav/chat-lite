@@ -100,12 +100,14 @@ export default function MessageForm(props) {
   };
 
   const userTyping = (e) => {
-    let timeout = setTimeout(3000, socket.emit("stopTyping"));
+    let timeout = setTimeout(500, socket.emit("stopTyping"));
     if (e.which !== 13) {
-      socket.emit("typing", { user: nickname, typing: true });
+      socket.emit("typing", { user: nickname, typing: true, roomId: currentRoomId });
     } else {
+      console.log("THIS");
       clearTimeout(timeout);
     }
+    console.log("AND THIS");
     clearTimeout(timeout);
   };
 

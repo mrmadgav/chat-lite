@@ -56,6 +56,7 @@ function MessageFlow(props) {
     if ((id === currentRoomId) | (id === reverseRoomId(currentRoomId)))
       return id;
   }
+  let memoizedFetchHistory = useMemo(() => fetchHistory(), []); // Мемоизированный запрос хистори
 
   //Use Effects
   useEffect(() => {
@@ -73,20 +74,23 @@ function MessageFlow(props) {
       : dispatch(memoizedFetchHistory);
 
     socket.on("message:fromServer", () => {
-      dispatch(fetchHistory()).then(() => scrollToBottom());
+      dispatch(memoizedFetchHistory).then(() => scrollToBottom());
     });
 
     socket.on("User edit message", () => {
-      dispatch(fetchHistory());
+      dispatch(memoizedFetchHistory);
     });
 
     socket.on("DeletingMessage", () => {
-      dispatch(fetchHistory());
+      dispatch(memoizedFetchHistory);
     });
 
     const userTyping = (data) => {
-      setTyping(true);
-      setUserTyping(data);
+      const { roomId } = data;
+      if (validateId(roomId)) {
+        setTyping(true);
+        setUserTyping(data);
+      }
     };
     socket.on("userTyping", userTyping);
     socket.on("userStoppedTyping", setTyping(false));
@@ -96,8 +100,6 @@ function MessageFlow(props) {
       socket.emit("connect to room", socket.id + socketId);
     });
   }, []);
-
-  let memoizedFetchHistory = useMemo(() => fetchHistory(), []);
 
   useEffect(() => {
     console.log("МАУНТ ЮЗ ЭФФЕКТА В MESSAGE FLOW currentRoomId, currentUser");
