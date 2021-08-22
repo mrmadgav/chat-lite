@@ -51,6 +51,10 @@ function MessageFlow(props) {
   const currentRoomId = useSelector(getRoomId);
   const currentUser = useSelector(getUser);
 
+  function validateId(id) {
+    if ((id === currentRoomId) | (id === reverseRoomId(currentRoomId)))
+      return id;
+  }
   //Use Effects
   useEffect(() => {
     allUsers.length > 1 && (chatRef.current.scrollTop = 999999999999999);
@@ -95,15 +99,15 @@ function MessageFlow(props) {
 
   useEffect(() => {
     console.log("МАУНТ ЮЗ ЭФФЕКТА В MESSAGE FLOW currentRoomId, currentUser");
-    chatRef.current.scrollTop = 999999999999999;   
+    chatRef.current.scrollTop = 999999999999999;
 
     socket.on("privateMessage:fromServer", (id, nickname) => {
-      (id === currentRoomId) | (id === reverseRoomId(currentRoomId)) &&
+      validateId(id) &&
         dispatch(fetchPrivateHistory(id)).then(() => scrollToBottom());
 
       //Пуши на десктоп
       if (id.includes(currentUser)) {
-        if (id !== currentRoomId && id !== reverseRoomId(currentRoomId)) {
+        if (!validateId(id)) {
           Notification.requestPermission();
           window.innerWidth >= 1200
             ? new Notification(`New message from ${nickname}`)
@@ -115,11 +119,11 @@ function MessageFlow(props) {
     });
 
     socket.on("privateDeleteMessage:fromServer", (id) => {
-      (id === currentRoomId) | (id === reverseRoomId(currentRoomId)) &&
+      validateId(id) &&
         dispatch(fetchPrivateHistory(id)).then(() => scrollToBottom());
     });
     socket.on("privateEditMessage:fromServer", (id) => {
-      (id === currentRoomId) | (id === reverseRoomId(currentRoomId)) &&
+      validateId(id) &&
         dispatch(fetchPrivateHistory(id)).then(() => scrollToBottom());
     });
 
