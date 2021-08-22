@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 // socket
 import { socket } from "../helpers/io";
 //operations
-import { sendImg } from "../../Redux/Auth/Auth-operations";
+import { sendImg } from "../../Redux/Chat/Chat-operations";
 import {
   fetchHistory,
   fetchPrivateHistory,
@@ -12,12 +12,12 @@ import {
 import {
   filterValue,
   getAllUsers,
-  getNickname,
   getRoomId,
-  getUser,
+  getUserId,
+  getHistory,
+  getPrivateHistory,
+  getToken,
 } from "../../Redux/selectors";
-import { getHistory, getPrivateHistory } from "../../Redux/selectors";
-import { getToken } from "../../Redux/Auth/Auth-selectors";
 //components
 import Message from "../Message/Message";
 import ChangeMenu from "../ChangeMenu/ChangeMenu";
@@ -49,12 +49,14 @@ function MessageFlow(props) {
   const currentToken = useSelector(getToken);
   const allUsers = useSelector(getAllUsers);
   const currentRoomId = useSelector(getRoomId);
-  const currentUser = useSelector(getUser);
+  const currentUser = useSelector(getUserId);
 
+  //Проверка ID комнаты на соответствие (важно!)
   function validateId(id) {
     if ((id === currentRoomId) | (id === reverseRoomId(currentRoomId)))
       return id;
   }
+
   //Use Effects
   useEffect(() => {
     allUsers.length > 1 && (chatRef.current.scrollTop = 999999999999999);

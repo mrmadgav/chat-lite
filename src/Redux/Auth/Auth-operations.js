@@ -1,4 +1,4 @@
-import authActions from "../Auth/Auth-actions";
+import authActions from "./Auth-actions";
 import axios from "axios";
 
 axios.defaults.baseURL = "https://chat-lite-back.herokuapp.com";
@@ -106,19 +106,5 @@ export const sendAvatar = (data, currentToken) => async (dispatch) => {
     return dispatch(authActions.sendAvatarSuccess(response.data));
   } catch (error) {
     dispatch(authActions.sendAvatarError(error.message));
-  }
-};
-
-export const sendImg = (data, currentToken, roomId) => async (dispatch) => {
-  dispatch(authActions.sendImgRequest());
-  try {
-    let formData = new FormData();
-    formData.append("img", data);
-    const response = await axios.post(`/img?roomId=${roomId}`, formData, {
-      headers: { Authorization: "Bearer " + currentToken },
-    });
-    return dispatch(authActions.sendImgSuccess(response.data));
-  } catch (error) {
-    dispatch(authActions.sendImgError(error.message));
   }
 };

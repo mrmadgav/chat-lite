@@ -1,15 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { sendMessage } from "../../Redux/Chat/Chat-operations";
-import { getNickname, getRoomId } from "../../Redux/selectors";
-import { getToken } from "../../Redux/Auth/Auth-selectors";
+import { getNickname, getRoomId, getToken } from "../../Redux/selectors";
 import { socket } from "../helpers/io";
 import sendImg from "../../img/paws.png";
 import smile from "../../img/smile.svg";
 import Picker from "emoji-picker-react";
 import { nanoid } from "nanoid";
 import styles from "./MessageForm.module.css";
-import { useRef } from "react";
 
 import { notice, defaultModules } from "@pnotify/core";
 import "@pnotify/core/dist/PNotify.css";

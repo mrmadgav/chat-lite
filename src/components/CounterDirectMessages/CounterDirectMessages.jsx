@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { getRoomId, getUser } from "../../Redux/selectors";
-import styles from "./CounterDirectMessages.module.css";
+import { getRoomId, getUserId } from "../../Redux/selectors";
 import { socket } from "../helpers/io";
+import styles from "./CounterDirectMessages.module.css";
 
 export default function CounterDirectMessages(props) {
   const currentRoomId = useSelector(getRoomId);
-  const currentUser = useSelector(getUser);
+  const UserId = useSelector(getUserId);
   const [counter, setCounter] = useState(0);
   const [itemId, setItemId] = useState("");
 
@@ -21,7 +21,7 @@ export default function CounterDirectMessages(props) {
     setItemId(props.id);
     socket.on("privateMessage:fromServer", (id) => {
       console.log("Пришло сообщение с сервера");
-      if (id.includes(currentUser)) {
+      if (id.includes(UserId)) {
         if (
           id?.includes(props.id) &&
           id !== (currentRoomId && reverseRoomId(currentRoomId))

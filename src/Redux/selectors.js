@@ -1,11 +1,15 @@
-export const getUser = (state) => state.authReducer.user.userId;
-export const getMessages = (state) => state.authReducer.chat.messages;
-export const getNickname = (state) => state.authReducer.user.nickname;
-export const getAllUsers = (state) => state.authReducer.userChart;
-export const getHistory = (state) => state.authReducer.history;
-export const filterValue = (state) => state.authReducer.filter;
-export const getAvatar = (state) => state.authReducer.user.avatarUrl;
-export const deletedMessageID = (state) => state.authReducer.user.chat;
-export const getPrivateHistory = (state) => state.authReducer.privateHistory;
-export const getRoomId = (state) => state.authReducer.roomId;
-export const getError = (state) => state.authReducer.error;
+export const getToken = (state) => state.Reducer.token;
+export const getIsAuthenticated = (state) => !!state.Reducer.token;
+
+export const getUserId = (state) => state.Reducer.user.userId;
+export const getNickname = (state) => state.Reducer.user.nickname;
+export const deletedMessageID = (state) => state.Reducer.user.chat;
+export const getAvatar = (state) => state.Reducer.user.avatarUrl;
+
+export const getMessages = (state) => state.Reducer.chat.messages;
+export const getAllUsers = (state) => state.Reducer.userChart;
+export const getHistory = (state) => state.Reducer.history;
+export const filterValue = (state) => state.Reducer.filter;
+export const getPrivateHistory = (state) => state.Reducer.privateHistory;
+export const getRoomId = (state) => state.Reducer.roomId;
+export const getError = (state) => state.Reducer.error;

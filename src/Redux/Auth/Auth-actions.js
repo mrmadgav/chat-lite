@@ -12,25 +12,17 @@ const LogoutRequest = createAction("auth/LogoutRequest");
 const LogoutSuccess = createAction("auth/LogoutSuccess");
 const LogoutError = createAction("auth/LogoutError");
 
-const getCurrentUserRequest = createAction("auth/getCurrentUserRequest");
-const getCurrentUserSuccess = createAction("auth/getCurrentUserSuccess");
-const getCurrentUserError = createAction("auth/getCurrentUserError");
-
 const getUserRequest = createAction("auth/getCurrentUserRequest");
 const getUserSuccess = createAction("auth/getCurrentUserSuccess");
 const getUserError = createAction("auth/getCurrentUserError");
 
-const sendAvatarRequest = createAction("sendAvatarRequest");
-const sendAvatarSuccess = createAction("sendAvatarSuccess");
-const sendAvatarError = createAction("sendAvatarError");
+const sendAvatarRequest = createAction("auth/sendAvatarRequest");
+const sendAvatarSuccess = createAction("auth/sendAvatarSuccess");
+const sendAvatarError = createAction("auth/sendAvatarError");
 
 const getUsersRequest = createAction("auth/getUsersRequest");
 const getUsersSuccess = createAction("auth/getUsersSuccess");
 const getUsersError = createAction("auth/getUsersError");
-
-const sendImgRequest = createAction("sendImgRequest");
-const sendImgSuccess = createAction("sendImgSuccess");
-const sendImgError = createAction("sendImgError");
 
 export default {
   registerRequest,
@@ -40,9 +32,6 @@ export default {
   LogoutRequest,
   LogoutSuccess,
   LogoutError,
-  getCurrentUserRequest,
-  getCurrentUserSuccess,
-  getCurrentUserError,
   getUserRequest,
   getUserSuccess,
   getUserError,
@@ -52,8 +41,5 @@ export default {
   sendAvatarRequest,
   sendAvatarSuccess,
   sendAvatarError,
-  sendImgRequest,
-  sendImgSuccess,
-  sendImgError,
   mainMenuError,
 };

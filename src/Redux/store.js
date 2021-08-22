@@ -1,4 +1,4 @@
-import authReducer from "../Redux/Auth/Auth-reducer";
+import Reducer from "../Redux/Reducer";
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import {
   persistStore,
@@ -36,7 +36,7 @@ const authPersistConfig = {
 
 const store = configureStore({
   reducer: {
-    authReducer: persistReducer(authPersistConfig, authReducer),
+    Reducer: persistReducer(authPersistConfig, Reducer),
   },
   middleware,
 });

@@ -1,7 +1,7 @@
-import styles from "./RegisterPanel.module.css";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { register } from "../../Redux/Auth/Auth-operations";
+import styles from "./RegisterPanel.module.css";
 
 export default function LoginPanel() {
   const [email, setEmail] = useState("");

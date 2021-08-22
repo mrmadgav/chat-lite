@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllUsers, getUser } from "../../Redux/selectors";
-import styles from "./ChatList.module.css";
+import { getAllUsers, getUserId } from "../../Redux/selectors";
 import { setRoomId } from "../../Redux/Chat/Chat-operations";
 import CounterDirectMessages from "../CounterDirectMessages/CounterDirectMessages";
+import styles from "./ChatList.module.css";
 
 export default function ChatList() {
-  const getUserId = useSelector(getUser);
+  const UserId = useSelector(getUserId);
   const allUsers = useSelector(getAllUsers);
   const dispatch = useDispatch();
 
@@ -26,7 +26,7 @@ export default function ChatList() {
     const getUserIdForRoom = (i) => {
       if (i.nickname === event.target.innerHTML) return i._id;
     };
-    const roomId = getUserId + allUsers.filter(getUserIdForRoom)[0]._id;
+    const roomId = UserId + allUsers.filter(getUserIdForRoom)[0]._id;
     dispatch(setRoomId(roomId));
     localStorage.setItem("roomId", roomId);
     localStorage.setItem("activeChat", event.target.id);
@@ -74,7 +74,7 @@ export default function ChatList() {
                   >
                     {i.nickname}
                   </span>
-                  {i._id !== getUserId && <CounterDirectMessages id={i._id} />}
+                  {i._id !== UserId && <CounterDirectMessages id={i._id} />}
                 </li>
               );
             }

@@ -110,3 +110,17 @@ export const setRoomId = (data) => async (dispatch) => {
     dispatch(chatActions.setRoomIdError(error.message));
   }
 };
+
+export const sendImg = (data, currentToken, roomId) => async (dispatch) => {
+  dispatch(chatActions.sendImgRequest());
+  try {
+    let formData = new FormData();
+    formData.append("img", data);
+    const response = await axios.post(`/img?roomId=${roomId}`, formData, {
+      headers: { Authorization: "Bearer " + currentToken },
+    });
+    return dispatch(chatActions.sendImgSuccess(response.data));
+  } catch (error) {
+    dispatch(chatActions.sendImgError(error.message));
+  }
+};

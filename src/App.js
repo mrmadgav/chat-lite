@@ -12,7 +12,7 @@ import { getUser, getUsers } from "./Redux/Auth/Auth-operations";
 import { setRoomId } from "./Redux/Chat/Chat-operations";
 
 //Selectors
-import { getToken } from "./Redux/Auth/Auth-selectors";
+import { getToken, getNickname, getUserId } from "./Redux/selectors";
 
 //Components
 import Section from "../src/components/Section/Section";
@@ -34,16 +34,15 @@ import "./index.css";
 function App() {
   const history = createBrowserHistory();
   const [isAuthenticated, setisAuthenticated] = useState("");
-  const getIsAuthenticated = useSelector((state) => state.authReducer.token);
-  const getUserId = useSelector((state) => state.authReducer.user.userId);
-  const getUserNick = useSelector((state) => state.authReducer.user.nickname);
+  const UserId = useSelector(getUserId);
+  const getUserNick = useSelector(getNickname);
   const currentToken = useSelector(getToken);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setisAuthenticated(getIsAuthenticated);
-  }, [getIsAuthenticated]);
+    setisAuthenticated(currentToken);
+  }, [currentToken]);
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -51,7 +50,7 @@ function App() {
       const roomId = localStorage.getItem("roomId");
       roomId !== null && dispatch(setRoomId(roomId));
     }
-    setisAuthenticated(getIsAuthenticated);
+    setisAuthenticated(currentToken);
   }, [isAuthenticated]);
 
   useEffect(() => {
@@ -97,7 +96,7 @@ function App() {
                 {history.push(`/${getUserNick}`)}
                 <div className="headerContainer">
                   <Logo />
-                  <LogOut id={getUserId} />
+                  <LogOut id={UserId} />
                 </div>
                 <div className="ChatListWrapper">
                   <ChatList />

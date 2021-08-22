@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import { createReducer } from "@reduxjs/toolkit";
-import authActions from "./Auth-actions";
-import ChatActions from "../Chat/Chat-actions";
+import authActions from "./Auth/Auth-actions";
+import chatActions from "./Chat/Chat-actions";
 
 const initialUserState = {
   user: null,
@@ -45,17 +45,17 @@ const error = createReducer(null, {
   [authActions.mainMenuError]: (_, { payload }) => payload,  
   [authActions.LogoutError]: (_, { payload }) => payload,
   [authActions.getUserError]: (_, { payload }) => payload,
-  [ChatActions.sendMessageError]: (_, { payload }) => payload,
-  [ChatActions.sendUserListError]: (_, { payload }) => payload.data,
-  [ChatActions.fetchHistoryError]: (_, { payload }) => payload.data,
-  [ChatActions.onFilterError]: (_, { payload }) => payload.data,
-  [ChatActions.onPickerError]: (_, { payload }) => payload.data,
-  [ChatActions.sendUpdatedMessageError]: (_, { payload }) => payload.data,
-  [ChatActions.fetchPrivateHistoryError]: (_, { payload }) => payload.data,
+  [chatActions.sendMessageError]: (_, { payload }) => payload,
+  [chatActions.sendUserListError]: (_, { payload }) => payload.data,
+  [chatActions.fetchHistoryError]: (_, { payload }) => payload.data,
+  [chatActions.onFilterError]: (_, { payload }) => payload.data,
+  [chatActions.onPickerError]: (_, { payload }) => payload.data,
+  [chatActions.sendUpdatedMessageError]: (_, { payload }) => payload.data,
+  [chatActions.fetchPrivateHistoryError]: (_, { payload }) => payload.data,
 });
 const chat = createReducer(messagesInChat, {
-  [ChatActions.sendMessageSuccess]: (_, { payload }) => payload.data,
-  [ChatActions.onDeleteSuccess]: (_, { payload }) => [payload.id],
+  [chatActions.sendMessageSuccess]: (_, { payload }) => payload.data,
+  [chatActions.onDeleteSuccess]: (_, { payload }) => [payload.id],
 });
 const userChart = createReducer(userList, {
   [authActions.getUsersSuccess]: (_, { payload }) => {
@@ -63,21 +63,21 @@ const userChart = createReducer(userList, {
   },
 });
 const history = createReducer(allHistory, {
-  [ChatActions.fetchHistorySuccess]: (_, { payload }) => payload.data.messages,
+  [chatActions.fetchHistorySuccess]: (_, { payload }) => payload.data.messages,
 });
 const filter = createReducer(filterValue, {
-  [ChatActions.onFilterSuccess]: (_, { payload }) => payload,
+  [chatActions.onFilterSuccess]: (_, { payload }) => payload,
 });
 const picker = createReducer(pickerValue, {
-  [ChatActions.onPickerSuccess]: (_, { payload }) => payload,
+  [chatActions.onPickerSuccess]: (_, { payload }) => payload,
 });
 const privateHistory = createReducer(twoUsersHistory, {
-  [ChatActions.fetchPrivateHistorySuccess]: (_, { payload }) => {
+  [chatActions.fetchPrivateHistorySuccess]: (_, { payload }) => {
     return payload.data.messages;
   },
 });
 const roomId = createReducer(privateRoomId, {
-  [ChatActions.setRoomIdSuccess]: (_, { payload }) => payload,
+  [chatActions.setRoomIdSuccess]: (_, { payload }) => payload,
 });
 
 export default combineReducers({

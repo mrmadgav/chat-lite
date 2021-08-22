@@ -8,9 +8,15 @@ const sendUserListRequest = createAction("chat/userListSendRequest");
 const sendUserListSuccess = createAction("chat/userListSendSuccess");
 const sendUserListError = createAction("chat/userListSendError");
 
+// Общая хистори
 const fetchHistoryRequest = createAction("chat/fetchHistoryRequest");
 const fetchHistorySuccess = createAction("chat/fetchHistorySuccess");
 const fetchHistoryError = createAction("chat/fetchHistoryError");
+
+// Хистори в директ
+const fetchPrivateHistoryRequest = createAction("chat/fetchPrivateHistoryRequest");
+const fetchPrivateHistorySuccess = createAction("chat/fetchPrivateHistorySuccess");
+const fetchPrivateHistoryError = createAction("chat/fetchPrivateHistoryError");
 
 const onFilterRequest = createAction("chat/filterRequest");
 const onFilterSuccess = createAction("chat/filterSuccess");
@@ -28,13 +34,13 @@ const sendUpdatedMessageRequest = createAction("chat/onChangeRequest");
 const sendUpdatedMessageSuccess = createAction("chat/onChangeSuccess");
 const sendUpdatedMessageError = createAction("chat/onChangeError");
 
-const fetchPrivateHistoryRequest = createAction("chat/fetchPrivateHistoryRequest");
-const fetchPrivateHistorySuccess = createAction("chat/fetchPrivateHistorySuccess");
-const fetchPrivateHistoryError = createAction("chat/fetchPrivateHistoryError");
-
 const setRoomIdRequest = createAction("chat/setRoomIdRequest");
 const setRoomIdSuccess = createAction("chat/setRoomIdSuccess");
 const setRoomIdError = createAction("chat/setRoomIdError");
+
+const sendImgRequest = createAction("chat/sendImgRequest");
+const sendImgSuccess = createAction("chat/sendImgSuccess");
+const sendImgError = createAction("chat/sendImgError");
 
 export default {
   sendMessageRequest,
@@ -64,4 +70,7 @@ export default {
   setRoomIdRequest,
   setRoomIdSuccess,
   setRoomIdError,
+  sendImgRequest,
+  sendImgSuccess,
+  sendImgError,
 };

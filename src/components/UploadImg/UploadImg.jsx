@@ -1,11 +1,11 @@
-import React from "react";
-import { useRef } from "react";
+import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { sendImg } from "../../Redux/Auth/Auth-operations";
-import { getToken } from "../../Redux/Auth/Auth-selectors";
+
+import { sendImg } from "../../Redux/Chat/Chat-operations";
+import { getToken, getRoomId } from "../../Redux/selectors";
+
 import styles from "./UploadImg.module.css";
 import download from "../../img/download.png";
-import { getRoomId } from "../../Redux/selectors";
 
 export default function UploadImg() {
   const fileImg = useRef();

@@ -1,19 +1,17 @@
 import React, { useRef } from "react";
 import { logout, sendAvatar } from "../../Redux/Auth/Auth-operations";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { getNickname, getAvatar, getUser } from "../../Redux/selectors";
-import styles from "./LogOut.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { getNickname, getAvatar, getUserId, getToken } from "../../Redux/selectors";
 import anonym from "../../img/anonymGit.png";
-import { getToken } from "../../Redux/Auth/Auth-selectors";
 import logOut from "../../img/exit.svg";
 import { useHistory } from "react-router-dom";
+import styles from "./LogOut.module.css";
 
 export default function LogOut() {
   const nickName = useSelector(getNickname);
   const fileInputRef = useRef();
   const currentToken = useSelector(getToken);
-  const currentUserId = useSelector(getUser);
+  const UserId = useSelector(getUserId);
   const getAvatarUrl = useSelector(getAvatar);
 
   const dispatch = useDispatch();
@@ -21,7 +19,7 @@ export default function LogOut() {
 
   const handleLogout = (e) => {
     e.preventDefault();
-    dispatch(logout(currentUserId, currentToken)).then(() => history.push("/"));
+    dispatch(logout(UserId, currentToken)).then(() => history.push("/"));
   };
   const handleChange = (e) => {
     dispatch(sendAvatar(e.target.files[0], currentToken));
