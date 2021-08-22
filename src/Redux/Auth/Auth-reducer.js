@@ -42,8 +42,7 @@ const token = createReducer(null, {
   [authActions.LogoutSuccess]: () => null,
 });
 const error = createReducer(null, {
-  [authActions.registerError]: (_, { payload }) => payload,
-  [authActions.LoginError]: (_, { payload }) => payload,
+  [authActions.mainMenuError]: (_, { payload }) => payload,  
   [authActions.LogoutError]: (_, { payload }) => payload,
   [authActions.getUserError]: (_, { payload }) => payload,
   [ChatActions.sendMessageError]: (_, { payload }) => payload,

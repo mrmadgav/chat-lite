@@ -3,9 +3,9 @@ import { NavLink } from "react-router-dom";
 import styles from "./MainMenu.module.css";
 import Logo from "../Logo/Logo";
 import MainPageImage from "../MainPageImage/MainPageImage";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getError } from "../../Redux/selectors";
-
+import { mainMenuError } from "../../Redux/Auth/Auth-operations";
 import { ReactComponent as LoginSVG } from "../../img/login.svg";
 import { ReactComponent as RegSVG } from "../../img/register.svg";
 
@@ -20,7 +20,7 @@ defaultModules.maxTextHeight = null;
 
 const MainMenu = () => {
   const currentError = useSelector(getError);
-
+  const dispatch = useDispatch();
   useEffect(() => {
     currentError &&
       alert({
@@ -29,6 +29,10 @@ const MainMenu = () => {
         delay: 1000,
         killer: true,
       });
+
+    setTimeout(() => {
+      dispatch(mainMenuError(""));
+    }, 1500);
   }, [currentError]);
 
   return (

@@ -24,7 +24,7 @@ export const register = (credentials) => async (dispatch) => {
       })
       .catch((e) => {
         e.response &&
-          dispatch(authActions.registerError(e.response.data.message));
+          dispatch(authActions.mainMenuError(e.response.data.message));
       });
   } catch (error) {
     console.log(error);
@@ -42,7 +42,7 @@ export const login = (credentials) => async (dispatch) => {
       })
       .catch((e) => {
         if (e.response) {
-          dispatch(authActions.LoginError(e.response.data.message));
+          dispatch(authActions.mainMenuError(e.response.data.message));
         }
       });
   } catch (error) {
