@@ -5,7 +5,7 @@ import Logo from "../Logo/Logo";
 import MainPageImage from "../MainPageImage/MainPageImage";
 import { useDispatch, useSelector } from "react-redux";
 import { getError } from "../../Redux/selectors";
-import { mainMenuError } from "../../Redux/Auth/Auth-operations";
+import authActions from "../Auth/Auth-actions";
 import { ReactComponent as LoginSVG } from "../../img/login.svg";
 import { ReactComponent as RegSVG } from "../../img/register.svg";
 
@@ -31,7 +31,7 @@ const MainMenu = () => {
       });
 
     setTimeout(() => {
-      dispatch(mainMenuError(""));
+      dispatch(authActions.mainMenuError(""));
     }, 1500);
   }, [currentError]);
 
