@@ -87,10 +87,10 @@ function MessageFlow(props) {
 
     const userTyping = (data) => {
       console.log(data);
-      const { roomId } = data;
+      const { roomId, user } = data;
       if (validateId(roomId)) {
         setTyping(true);
-        setUserTyping(data);
+        setUserTyping(user);
       }
     };
     socket.on("userTyping", (data) => userTyping(data));
