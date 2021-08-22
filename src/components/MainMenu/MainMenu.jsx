@@ -5,7 +5,7 @@ import Logo from "../Logo/Logo";
 import MainPageImage from "../MainPageImage/MainPageImage";
 import { useDispatch, useSelector } from "react-redux";
 import { getError } from "../../Redux/selectors";
-import authActions from "../Auth/Auth-actions";
+import authActions from "../../Redux/Auth/Auth-actions";
 import { ReactComponent as LoginSVG } from "../../img/login.svg";
 import { ReactComponent as RegSVG } from "../../img/register.svg";
 
