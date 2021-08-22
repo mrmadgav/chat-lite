@@ -86,13 +86,14 @@ function MessageFlow(props) {
     });
 
     const userTyping = (data) => {
+      console.log(data);
       const { roomId } = data;
       if (validateId(roomId)) {
         setTyping(true);
         setUserTyping(data);
       }
     };
-    socket.on("userTyping", userTyping);
+    socket.on("userTyping", (data) => userTyping(data));
     socket.on("userStoppedTyping", setTyping(false));
 
     socket.on("user:join", (socketId) => {
