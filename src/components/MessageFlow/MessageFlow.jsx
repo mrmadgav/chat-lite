@@ -95,10 +95,7 @@ function MessageFlow(props) {
 
   useEffect(() => {
     console.log("МАУНТ ЮЗ ЭФФЕКТА В MESSAGE FLOW currentRoomId, currentUser");
-    chatRef.current.scrollTop = 999999999999999;
-    // currentRoomId
-    //   ? dispatch(fetchPrivateHistory(currentRoomId))
-    //   : dispatch(memoizedFetchHistory);
+    chatRef.current.scrollTop = 999999999999999;   
 
     socket.on("privateMessage:fromServer", (id, nickname) => {
       (id === currentRoomId) | (id === reverseRoomId(currentRoomId)) &&

@@ -1,13 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./MainMenu.module.css";
 import Logo from "../Logo/Logo";
 import MainPageImage from "../MainPageImage/MainPageImage";
+import { useSelector } from "react-redux";
+import { getError } from "../../Redux/selectors";
 
 import { ReactComponent as LoginSVG } from "../../img/login.svg";
 import { ReactComponent as RegSVG } from "../../img/register.svg";
 
+import { alert, defaultModules } from "@pnotify/core";
+import "@pnotify/core/dist/PNotify.css";
+import * as PNotifyMobile from "@pnotify/mobile";
+import "@pnotify/mobile/dist/PNotifyMobile.css";
+import "@pnotify/core/dist/BrightTheme.css";
+
+defaultModules.set(PNotifyMobile, { maxTextHeight: null });
+defaultModules.maxTextHeight = null;
+
 const MainMenu = () => {
+  const currentError = useSelector(getError);
+
+  useEffect(() => {
+    currentError &&
+      alert({
+        text: currentError,
+        styling: "brighttheme",
+        delay: 1000,
+        killer: true,
+      });
+  }, [currentError]);
+
   return (
     <div className={styles.MainHeaderWrapper}>
       <Logo />

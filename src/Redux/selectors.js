@@ -8,3 +8,4 @@ export const getAvatar = (state) => state.authReducer.user.avatarUrl;
 export const deletedMessageID = (state) => state.authReducer.user.chat;
 export const getPrivateHistory = (state) => state.authReducer.privateHistory;
 export const getRoomId = (state) => state.authReducer.roomId;
+export const getError = (state) => state.authReducer.error;
