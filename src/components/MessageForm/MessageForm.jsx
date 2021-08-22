@@ -108,7 +108,7 @@ export default function MessageForm(props) {
       clearTimeout(timeout);
     }
     console.log("AND THIS");
-    clearTimeout(timeout);
+    // clearTimeout(timeout);
   };
 
   return (
