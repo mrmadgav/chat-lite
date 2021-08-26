@@ -67,7 +67,7 @@ function MessageFlow(props) {
   }, [allUsers]);
 
   useEffect(() => {
-    console.log("МАУНТ ЮЗ ЭФФЕКТА В MESSAGE FLOW пустой массив зависимостей");
+    // console.log("МАУНТ ЮЗ ЭФФЕКТА В MESSAGE FLOW пустой массив зависимостей");
 
     currentRoomId
       ? dispatch(fetchPrivateHistory(currentRoomId))
@@ -103,8 +103,8 @@ function MessageFlow(props) {
   }, []);
 
   useEffect(() => {
-    console.log("МАУНТ ЮЗ ЭФФЕКТА В MESSAGE FLOW currentRoomId, currentUser");
-    chatRef.current.scrollTop = 999999999999999;
+    // console.log("МАУНТ ЮЗ ЭФФЕКТА В MESSAGE FLOW currentRoomId, currentUser");
+    privateHistory.length > 1 && (chatRef.current.scrollTop = 999999999999999);
 
     socket.on("privateMessage:fromServer", (id, nickname) => {
       validateId(id) &&
