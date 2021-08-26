@@ -23,6 +23,12 @@
 .navLi {
   margin-bottom: 20px;
 }
+.navLi:hover {
+  color: coral;
+}
+.navLi a:hover {
+  color: coral;
+}
 .NavLinkActive {
   color: coral;
   border-radius: 4px;
