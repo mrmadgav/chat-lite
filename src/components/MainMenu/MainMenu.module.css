@@ -43,6 +43,10 @@
   color: coral;
   fill: coral;
 }
+.NavLink:hover a {
+  color: coral;
+  fill: coral;
+}
 .navigationSpan {
   color: lightsteelblue;
 }
