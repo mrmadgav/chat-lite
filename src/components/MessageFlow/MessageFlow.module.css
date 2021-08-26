@@ -36,6 +36,7 @@
 @media screen and (min-width: 1200px) {
   .chatWrapper {
     background-color: white;
+    position: relative;
   }
 }
 

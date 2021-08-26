@@ -53,7 +53,6 @@
   z-index: 1200;
 }
 
-
 @media screen and (max-width: 1199px) {
   .messageSmileBtn {
     display: none;
@@ -68,7 +67,8 @@
     cursor: pointer;
   }
   .messageInputContainer {
-    position: fixed;
+    position: absolute;
+    bottom: 10%;
     width: 680px;
   }
   .sendImg {
@@ -103,4 +103,3 @@
     width: 200px;
   }
 }
-
