@@ -60,7 +60,7 @@ const MainMenu = () => {
               Register
             </NavLink>
           </li>
-          <li className={styles.navLink}>
+          <li className={styles.navLi}>
             <NavLink
               exact
               to="/login"
