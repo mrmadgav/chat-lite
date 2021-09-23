@@ -1,2 +1,2 @@
-Frontend part of "Le Chat", my final project for study React. 
+Frontend part of "Le Chat", my final project for React studying. 
 
